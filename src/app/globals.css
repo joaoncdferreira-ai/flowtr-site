@@ -1,0 +1,274 @@
+@import "tailwindcss";
+
+/* ---------- Flowtr brand tokens ---------- */
+:root {
+  /* Coral primary scale (locked brand) */
+  --color-coral-50: #fff1ee;
+  --color-coral-100: #ffded5;
+  --color-coral-200: #ffbfac;
+  --color-coral-300: #ff9b7d;
+  --color-coral-400: #ff7755;
+  --color-coral-500: #ff5733;
+  --color-coral-600: #e64223;
+  --color-coral-700: #c0301a;
+  --color-coral-800: #8e2113;
+  --color-coral-900: #5b150c;
+
+  /* Dark surface scale */
+  --color-ink-950: #07070a;
+  --color-ink-900: #0a0a0d;
+  --color-ink-850: #101015;
+  --color-ink-800: #14141a;
+  --color-ink-700: #1c1c24;
+  --color-ink-600: #252530;
+  --color-ink-500: #3a3a48;
+
+  /* Text */
+  --color-fg: #f5f5f7;
+  --color-fg-muted: #a8a8b3;
+  --color-fg-dim: #6e6e7a;
+
+  /* Semantic */
+  --color-bg: var(--color-ink-950);
+  --color-surface: var(--color-ink-900);
+  --color-surface-raised: var(--color-ink-800);
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-strong: rgba(255, 255, 255, 0.16);
+  --color-glow: rgba(255, 87, 51, 0.45);
+
+  /* Spacing rhythm (gaming, generous) */
+  --space-section: clamp(80px, 10vw, 160px);
+
+  /* Motion */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+@theme inline {
+  --color-background: var(--color-bg);
+  --color-foreground: var(--color-fg);
+  --color-coral: var(--color-coral-500);
+  --color-coral-hover: var(--color-coral-400);
+  --color-ink: var(--color-ink-900);
+  --color-surface: var(--color-surface);
+  --color-surface-raised: var(--color-surface-raised);
+  --color-fg: var(--color-fg);
+  --color-fg-muted: var(--color-fg-muted);
+  --color-fg-dim: var(--color-fg-dim);
+  --color-border: var(--color-border);
+
+  --font-display: var(--font-russo);
+  --font-sans: var(--font-chakra);
+}
+
+/* ---------- Base ---------- */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--color-bg);
+  color: var(--color-fg);
+}
+
+body {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(255, 87, 51, 0.12), transparent 70%),
+    radial-gradient(ellipse 60% 50% at 90% 110%, rgba(255, 87, 51, 0.06), transparent 70%),
+    var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-chakra), system-ui, sans-serif;
+  font-feature-settings: "ss01", "cv01";
+  letter-spacing: 0.005em;
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-coral-500);
+  color: #000;
+}
+
+/* ---------- Display type ---------- */
+.font-display {
+  font-family: var(--font-russo), system-ui, sans-serif;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.text-balance { text-wrap: balance; }
+.text-pretty { text-wrap: pretty; }
+
+/* Headline glow on coral words */
+.coral-glow {
+  color: var(--color-coral-500);
+  text-shadow:
+    0 0 20px rgba(255, 87, 51, 0.45),
+    0 0 60px rgba(255, 87, 51, 0.18);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 56px;
+  padding: 0 28px;
+  font-family: var(--font-russo), system-ui, sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  cursor: pointer;
+  transition:
+    background-color 200ms var(--ease-out-quart),
+    box-shadow 200ms var(--ease-out-quart),
+    transform 200ms var(--ease-out-quart),
+    color 200ms var(--ease-out-quart);
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.btn-primary {
+  background: var(--color-coral-500);
+  color: #0a0a0d;
+  box-shadow:
+    0 0 0 1px rgba(255, 87, 51, 0.6),
+    0 10px 40px -10px rgba(255, 87, 51, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+.btn-primary:hover {
+  background: var(--color-coral-400);
+  box-shadow:
+    0 0 0 1px rgba(255, 119, 85, 0.8),
+    0 16px 56px -8px rgba(255, 87, 51, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+.btn-primary:active { transform: translateY(1px); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-fg);
+  border: 1px solid var(--color-border-strong);
+}
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: var(--color-coral-500);
+  color: var(--color-coral-400);
+}
+
+/* ---------- Card ---------- */
+.surface {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0)),
+    var(--color-ink-800);
+  border: 1px solid var(--color-border);
+  border-radius: 24px;
+}
+
+/* ---------- Phone-frame mockup ---------- */
+.phone-frame {
+  position: relative;
+  border-radius: 44px;
+  padding: 8px;
+  background: linear-gradient(180deg, #2a2a36, #0a0a0d);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.08) inset,
+    0 60px 100px -40px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+  isolation: isolate;
+}
+.phone-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), transparent 40%);
+}
+.phone-frame > * {
+  border-radius: 36px;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ---------- Scroll-triggered reveal ----------
+ * Gated by `@media (scripting: enabled)` so users with JS disabled
+ * see all content immediately rather than perpetually-hidden empty pages.
+ */
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+  [data-reveal] {
+    --reveal-y: 28px;
+    opacity: 0;
+    transform: translateY(var(--reveal-y));
+    transition:
+      opacity 700ms var(--ease-out-expo),
+      transform 700ms var(--ease-out-expo);
+    will-change: opacity, transform;
+  }
+  [data-reveal][data-revealed] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------- Above-the-fold entry animations (CSS-only, no JS dependency) ---------- */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fade-up-rotate {
+  from { opacity: 0; transform: translateY(40px) rotate(-1deg); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .anim-fade-up {
+    animation: fade-up 700ms var(--ease-out-expo) both;
+  }
+  .anim-fade-in {
+    animation: fade-in 700ms var(--ease-out-expo) both;
+  }
+  .anim-fade-up-rotate {
+    animation: fade-up-rotate 900ms var(--ease-out-expo) both;
+  }
+}
+
+/* ---------- Marquee track for "Vê em acção" ---------- */
+@keyframes track-x {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.track {
+  display: flex;
+  gap: 28px;
+  width: max-content;
+  animation: track-x 60s linear infinite;
+}
+.track:hover { animation-play-state: paused; }
+
+/* ---------- Hero ambient grid ---------- */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, #000 0%, transparent 75%);
+}
+
+/* ---------- Focus ring ---------- */
+:focus-visible {
+  outline: 2px solid var(--color-coral-500);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
