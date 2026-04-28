@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="38 13 124 144">
+  <defs>
+    <clipPath id="flowtr-mark-clip">
+      <polygon points="100,13 162,49 162,121 100,157 38,121 38,49"/>
+    </clipPath>
+  </defs>
+  <polygon points="100,13 162,49 162,121 100,157 38,121 38,49" fill="#FF5733"/>
+  <g clip-path="url(#flowtr-mark-clip)">
+    <rect x="-20" y="61" width="240" height="14" fill="white" transform="rotate(-22,100,68)"/>
+    <rect x="-20" y="95" width="240" height="14" fill="white" transform="rotate(-22,100,102)"/>
+  </g>
+</svg>

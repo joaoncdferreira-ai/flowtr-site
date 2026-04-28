@@ -1,11 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" width="32" height="32">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
   <defs>
-    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FF7755"/>
-      <stop offset="100%" stop-color="#E64223"/>
-    </linearGradient>
+    <clipPath id="h">
+      <polygon points="100,28 162,64 162,136 100,172 38,136 38,64"/>
+    </clipPath>
   </defs>
-  <circle cx="18" cy="18" r="18" fill="#0a0a0d"/>
-  <circle cx="18" cy="18" r="17" fill="none" stroke="url(#g)" stroke-width="1.2"/>
-  <path d="M11 12 L25 12 L20 18 L24 24 L13 24 L18 18 Z" fill="url(#g)"/>
+  <rect width="200" height="200" fill="#0a0a0d"/>
+  <polygon points="100,28 162,64 162,136 100,172 38,136 38,64" fill="#FF5733"/>
+  <g clip-path="url(#h)">
+    <rect x="-20" y="76" width="240" height="14" fill="white" transform="rotate(-22 100 83)"/>
+    <rect x="-20" y="110" width="240" height="14" fill="white" transform="rotate(-22 100 117)"/>
+  </g>
 </svg>
