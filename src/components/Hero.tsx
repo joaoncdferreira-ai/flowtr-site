@@ -1,5 +1,4 @@
 import Image from "next/image";
-import flowtrLogo from "../../public/_assets/flowtr_logo.png";
 
 export function Hero() {
   return (
@@ -25,18 +24,9 @@ export function Hero() {
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 md:grid-cols-[1.15fr_0.85fr] md:gap-16">
         {/* Left: copy */}
         <div className="text-balance">
-          <Image
-            src={flowtrLogo}
-            alt="Flowtr"
-            priority
-            sizes="56px"
-            className="anim-fade-up mb-5 h-12 w-auto md:h-14"
-            style={{ animationDelay: "0ms" }}
-          />
-
           <div
             className="anim-fade-up mb-6 inline-flex items-center gap-2 rounded-full border border-[color:var(--color-border-strong)] bg-[color:var(--color-ink-800)]/80 px-4 py-1.5 text-xs uppercase tracking-[0.2em] text-[color:var(--color-fg-muted)]"
-            style={{ animationDelay: "60ms" }}
+            style={{ animationDelay: "0ms" }}
           >
             <span className="size-1.5 rounded-full bg-[color:var(--color-coral-500)] shadow-[0_0_10px_rgba(255,87,51,0.8)]" />
             Alpha 1 · Lisboa
