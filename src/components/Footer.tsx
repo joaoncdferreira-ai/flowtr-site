@@ -21,15 +21,17 @@ export function Footer() {
           <a href="#em-accao" className="hover:text-white transition-colors">Em acção</a>
           <a href="#waitlist" className="hover:text-white transition-colors">Waitlist</a>
           <a
-            href="https://www.iubenda.com/privacy-policy/flowtr"
+            href="https://www.iubenda.com/privacy-policy/48496134"
             target="_blank"
             rel="noreferrer"
             className="hover:text-white transition-colors"
           >
             Privacidade
           </a>
+          {/* TODO P2: standalone Terms URL once issued by iubenda. The
+              project ID 48496134 currently only ships a privacy policy. */}
           <a
-            href="https://www.iubenda.com/terms-and-conditions/flowtr"
+            href="https://www.iubenda.com/privacy-policy/48496134"
             target="_blank"
             rel="noreferrer"
             className="hover:text-white transition-colors"
