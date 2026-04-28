@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import posthog from "posthog-js";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -20,6 +21,11 @@ export function Waitlist() {
       });
       if (!res.ok) throw new Error(String(res.status));
       setStatus("success");
+      // Fire conversion event only on confirmed Resend success. PostHog
+      // no-ops if init was skipped (missing key) so this is safe in dev.
+      if (typeof window !== "undefined" && posthog.__loaded) {
+        posthog.capture("waitlist_signup");
+      }
     } catch {
       setStatus("error");
     }
