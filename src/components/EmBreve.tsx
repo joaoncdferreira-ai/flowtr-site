@@ -1,7 +1,25 @@
 import { Reveal } from "./Reveal";
+import { Gonfalon, gonfalonOwnFabric } from "./Gonfalon";
 
-const cards = [
+// Three of the six in-app territory colors (coral · azul · verde). Used to
+// preview "estilos de bandeira" without needing to render the whole palette.
+const flagPalette = [
+  { hex: "#FF5733", initial: "J" }, // coral (default own)
+  { hex: "#4A90D9", initial: "M" }, // azul
+  { hex: "#4CAF50", initial: "A" }, // verde
+];
+
+type Card = {
+  title: string;
+  body: [string, string];
+} & (
+  | { kind: "emoji"; icon: string }
+  | { kind: "gonfalons" }
+);
+
+const cards: Card[] = [
   {
+    kind: "emoji",
     icon: "🛡️",
     title: "Defender território",
     body: [
@@ -10,7 +28,7 @@ const cards = [
     ],
   },
   {
-    icon: "🎌",
+    kind: "gonfalons",
     title: "Estilos de bandeira",
     body: [
       "Personaliza o teu gonfalon.",
@@ -18,6 +36,7 @@ const cards = [
     ],
   },
   {
+    kind: "emoji",
     icon: "🗺️",
     title: "Novas cidades",
     body: [
@@ -52,9 +71,24 @@ export function EmBreve() {
               <article
                 className="h-full rounded-2xl border border-white/[0.08] bg-[#2A2A2A] p-6"
               >
-                <div className="text-3xl leading-none" aria-hidden>
-                  {c.icon}
-                </div>
+                {c.kind === "emoji" ? (
+                  <div className="text-3xl leading-none" aria-hidden>
+                    {c.icon}
+                  </div>
+                ) : (
+                  <div className="flex h-12 items-end gap-1.5">
+                    {flagPalette.map((p, idx) => (
+                      <Gonfalon
+                        key={p.hex}
+                        variant="own"
+                        initial={p.initial}
+                        width={26}
+                        idSuffix={`embreve-${idx}`}
+                        {...gonfalonOwnFabric(p.hex)}
+                      />
+                    ))}
+                  </div>
+                )}
                 <h3 className="font-display mt-5 text-base uppercase tracking-[0.18em] text-[color:var(--color-coral-400)]">
                   {c.title}
                 </h3>
