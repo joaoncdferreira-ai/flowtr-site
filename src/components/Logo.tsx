@@ -1,11 +1,14 @@
-// Inline SVG of the Flowtr brand mark (hexagon + slashes), extracted from
-// `assets/icons/flowtr_logo.svg` in the Flutter app — wordmark text dropped.
-// Tight viewBox crops to the hexagon's exact bounds so the SVG fills its
-// box without padding (the wordmark "FLOWTR" sits beside this in the nav
-// and footer, so the mark alone is what we render here).
+// Inline SVG of the Flowtr brand mark — hexagon with two diagonal slashes
+// CUT OUT (transparent), not painted white. The slashes punch through the
+// hexagon so whatever background sits behind the logo (dark nav, footer,
+// favicon backdrop) shows through.
 //
-// React-safe: id "flowtr-mark-clip" is namespaced enough to avoid collision
-// with the in-app SVGs (which use id="h").
+// Implementation: a <mask> where the hexagon is white (visible) and the
+// two slashes are black (invisible). The single coral polygon then renders
+// only where the mask says "keep".
+//
+// React-safe: ids "flowtr-mark-mask" / "flowtr-mark-hex" are namespaced
+// to avoid collision with any other SVG on the page.
 
 export function Logo({ className = "" }: { className?: string }) {
   return (
@@ -16,32 +19,34 @@ export function Logo({ className = "" }: { className?: string }) {
       xmlns="http://www.w3.org/2000/svg"
     >
       <defs>
-        <clipPath id="flowtr-mark-clip">
-          <polygon points="100,13 162,49 162,121 100,157 38,121 38,49" />
-        </clipPath>
+        <mask id="flowtr-mark-mask">
+          <polygon
+            points="100,13 162,49 162,121 100,157 38,121 38,49"
+            fill="white"
+          />
+          <rect
+            x="-20"
+            y="61"
+            width="240"
+            height="14"
+            fill="black"
+            transform="rotate(-22 100 68)"
+          />
+          <rect
+            x="-20"
+            y="95"
+            width="240"
+            height="14"
+            fill="black"
+            transform="rotate(-22 100 102)"
+          />
+        </mask>
       </defs>
       <polygon
         points="100,13 162,49 162,121 100,157 38,121 38,49"
         fill="#FF5733"
+        mask="url(#flowtr-mark-mask)"
       />
-      <g clipPath="url(#flowtr-mark-clip)">
-        <rect
-          x="-20"
-          y="61"
-          width="240"
-          height="14"
-          fill="white"
-          transform="rotate(-22 100 68)"
-        />
-        <rect
-          x="-20"
-          y="95"
-          width="240"
-          height="14"
-          fill="white"
-          transform="rotate(-22 100 102)"
-        />
-      </g>
     </svg>
   );
 }
