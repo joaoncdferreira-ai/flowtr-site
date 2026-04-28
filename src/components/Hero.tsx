@@ -79,14 +79,25 @@ export function Hero() {
           </div>
 
           <div
-            className="anim-fade-in mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs uppercase tracking-[0.18em] text-[color:var(--color-fg-dim)]"
+            className="anim-fade-in mt-10"
             style={{ animationDelay: "560ms" }}
           >
-            <span className="hidden sm:inline">Em desenvolvimento ativo</span>
-            <span className="hidden sm:inline">·</span>
-            <span>20+ testers</span>
-            <span>·</span>
-            <span>1500 m² já conquistados</span>
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs uppercase tracking-[0.18em] text-[color:var(--color-fg-dim)]">
+              <span>Alpha 1</span>
+              <span
+                aria-hidden
+                className="size-1 rounded-full bg-[color:var(--color-coral-500)]"
+              />
+              <span>Lisboa</span>
+              <span
+                aria-hidden
+                className="size-1 rounded-full bg-[color:var(--color-coral-500)]"
+              />
+              <span>Lançamento 30 Abril</span>
+            </div>
+            <p className="mt-2 text-sm text-[color:var(--color-fg-muted)]">
+              Vagas limitadas a Lisboa.
+            </p>
           </div>
         </div>
 
