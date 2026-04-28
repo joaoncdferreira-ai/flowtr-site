@@ -1,5 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Russo_One, Chakra_Petch } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { PostHogInit } from "@/components/PostHogProvider";
 import "./globals.css";
 
 const russo = Russo_One({
@@ -107,6 +110,9 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         {children}
+        <PostHogInit />
+        <Analytics />
+        <SpeedInsights />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
