@@ -37,11 +37,20 @@ const cards: Card[] = [
   },
   {
     kind: "emoji",
-    icon: "🗺️",
-    title: "Novas cidades",
+    icon: "🤝",
+    title: "Corridas conjuntas",
     body: [
-      "Lisboa primeiro. Porto e Coimbra a seguir.",
-      "Avisamos quando abrir — estás na lista.",
+      "Corre com amigos",
+      "para fortificar território.",
+    ],
+  },
+  {
+    kind: "emoji",
+    icon: "👥",
+    title: "Social Community",
+    body: [
+      "Convida os teus amigos, cria o teu grupo,",
+      "lidera o teu ranking.",
     ],
   },
 ];
@@ -65,7 +74,7 @@ export function EmBreve() {
           </div>
         </Reveal>
 
-        <div className="mt-16 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
+        <div className="mt-16 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
           {cards.map((c, i) => (
             <Reveal key={c.title} delay={i * 0.06} y={28}>
               <article

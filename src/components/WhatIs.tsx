@@ -38,7 +38,7 @@ const features = [
   {
     title: "Domina ou perde",
     body:
-      "Outros corredores podem invadir o teu território. Defende com novas voltas, ou vê-o cair. É competitivo de verdade.",
+      "Outros corredores podem invadir o teu território. Defende com novas voltas, ou vê-o cair. É competição pura.",
     icon: (
       <path
         d="M5 4h14l-1 7a7 7 0 0 1-12 0L5 4Zm5 16h4v-3h-4v3Z"
@@ -74,7 +74,7 @@ const features = [
   {
     title: "Cor é identidade",
     body:
-      "Coral, azul, verde, roxo… escolhes a tua cor e o mapa enche-se dela. Quanto mais corres, mais o mapa fica teu.",
+      "Coral, azul, verde, roxo… escolhes a tua cor e o mapa enche-se dela. Quanto mais corres, mais o mapa fica com a tua identidade.",
     icon: (
       <>
         <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" strokeWidth="2" />
@@ -85,7 +85,7 @@ const features = [
     ),
   },
   {
-    title: "Privacidade primeiro",
+    title: "Privacidade",
     body:
       "GPS processado no teu telefone. Sem ads, sem leilão de dados. A tua corrida é tua — partilhas só o que quiseres.",
     icon: (
@@ -119,9 +119,9 @@ export function WhatIs() {
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeader
           eyebrow="O que é"
-          title="Não é um run-tracker. É um jogo."
+          title="É um jogo. Não um run-tracker."
           highlight="jogo"
-          description="Outros apps contam os teus quilómetros. O Flowtr transforma-os em território. Cada corrida é uma jogada — defensiva, ofensiva, ou de expansão."
+          description="Mais do que contar quilómetros, o Flowtr transforma-os em território. Cada corrida é uma jogada — defensiva, ofensiva ou de expansão."
         />
 
         <div className="mt-16 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">

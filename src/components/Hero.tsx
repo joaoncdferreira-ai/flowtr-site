@@ -85,9 +85,6 @@ export function Hero() {
               />
               <span>Lançamento 30 Abril</span>
             </div>
-            <p className="mt-2 text-sm text-[color:var(--color-fg-muted)]">
-              Vagas limitadas a Lisboa.
-            </p>
           </div>
         </div>
 

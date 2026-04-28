@@ -16,7 +16,7 @@ const steps: Step[] = [
     n: "01",
     title: "Abre o mapa",
     body:
-      "Vês a tua cidade em 3D, com os territórios já conquistados — pelos teus, pelos rivais, pelos sentinelas. Bate em INICIAR e o GPS arranca.",
+      "Vês a tua cidade em 3D, com os territórios já conquistados — pelos teus e pelos rivais. Carrega em INICIAR e o GPS arranca.",
     media: {
       kind: "image",
       src: "/screenshots-clean/app no mapa normal sem corrida sem nada.png",

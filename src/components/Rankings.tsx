@@ -23,12 +23,6 @@ export function Rankings() {
               Lisboa tem um líder.{" "}
               <span className="coral-glow">Por agora.</span>
             </h2>
-            <p className="mx-auto mt-6 max-w-2xl text-pretty text-base leading-relaxed text-[color:var(--color-fg-muted)] md:text-lg">
-              Há um ranking global. Lisboa primeiro, bairros depois.
-              Área conquistada. Territórios controlados. Distância percorrida.
-              A pontuação é composta — não basta correr muito, tens de correr
-              bem.
-            </p>
           </div>
         </Reveal>
 
@@ -99,7 +93,7 @@ export function Rankings() {
               </div>
 
               <p className="mt-6 text-center text-xs text-[color:var(--color-fg-dim)] md:text-left md:text-sm">
-                Filtra por bairro, cidade ou mundo. Por semana, mês, ou desde
+                Filtra por cidade, país ou mundo. Por semana, mês, ou desde
                 sempre.
               </p>
             </div>
