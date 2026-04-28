@@ -28,15 +28,14 @@ export function Footer() {
           >
             Privacidade
           </a>
-          {/* TODO P2: standalone Terms URL once issued by iubenda. The
-              project ID 48496134 currently only ships a privacy policy. */}
+          {/* TODO P2: replace with separate T&C URL when Iubenda upgraded */}
           <a
             href="https://www.iubenda.com/privacy-policy/48496134"
             target="_blank"
             rel="noreferrer"
             className="hover:text-white transition-colors"
           >
-            Termos
+            Termos &amp; Privacidade
           </a>
         </nav>
 
