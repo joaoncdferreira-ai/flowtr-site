@@ -2,13 +2,23 @@ import Image from "next/image";
 import { Reveal } from "./Reveal";
 import { SectionHeader } from "./SectionHeader";
 
-const steps = [
+type Step = {
+  n: string;
+  title: string;
+  body: string;
+  media:
+    | { kind: "image"; src: string; alt: string }
+    | { kind: "video"; src: string; poster: string; ariaLabel: string };
+};
+
+const steps: Step[] = [
   {
     n: "01",
     title: "Abre o mapa",
     body:
       "Vês a tua cidade em 3D, com os territórios já conquistados — pelos teus, pelos rivais, pelos sentinelas. Bate em INICIAR e o GPS arranca.",
-    image: {
+    media: {
+      kind: "image",
       src: "/screenshots-clean/app no mapa normal sem corrida sem nada.png",
       alt: "Flowtr — mapa de Lisboa em modo normal antes de iniciar a corrida",
     },
@@ -18,7 +28,8 @@ const steps = [
     title: "Desenha o perímetro",
     body:
       "Corres em loop. O Flowtr regista a tua linha em tempo real. Quando fechas o circuito sobre o teu próprio rasto, o território é teu — automaticamente.",
-    image: {
+    media: {
+      kind: "image",
       src: "/screenshots-clean/em corrida normal.png",
       alt: "Flowtr — corrida ativa a desenhar o perímetro no mapa",
     },
@@ -28,9 +39,11 @@ const steps = [
     title: "Conquista e defende",
     body:
       "Recebes os m² conquistados, marcos por hectare, recordes de velocidade e distância. Outros corredores podem invadir — fica atento ao Diário.",
-    image: {
-      src: "/screenshots-clean/territorio conquistado pagina com badges e dados da corrida.png",
-      alt: "Flowtr — página de território conquistado com badges e estatísticas da corrida",
+    media: {
+      kind: "video",
+      src: "/videos/onboarding_03.mp4",
+      poster: "/screenshots-clean/territorio conquistado pagina com badges e dados da corrida.png",
+      ariaLabel: "Flowtr — invasão de território rival",
     },
   },
 ];
@@ -77,14 +90,28 @@ export function HowItWorks() {
                     }}
                   />
                   <div className="phone-frame">
-                    <Image
-                      src={step.image.src}
-                      alt={step.image.alt}
-                      width={1100}
-                      height={2200}
-                      sizes="(max-width: 768px) 280px, 320px"
-                      className="object-cover"
-                    />
+                    {step.media.kind === "image" ? (
+                      <Image
+                        src={step.media.src}
+                        alt={step.media.alt}
+                        width={1100}
+                        height={2200}
+                        sizes="(max-width: 768px) 280px, 320px"
+                        className="object-cover"
+                      />
+                    ) : (
+                      <video
+                        src={step.media.src}
+                        poster={step.media.poster}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        preload="metadata"
+                        aria-label={step.media.ariaLabel}
+                        className="block aspect-[9/19.5] w-full object-cover"
+                      />
+                    )}
                   </div>
                 </div>
 
