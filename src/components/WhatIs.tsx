@@ -49,7 +49,7 @@ const features = [
   {
     title: "Diário de guerra",
     body:
-      "Cada conquista, recorde e território perdido fica no teu Diário. Marcos a cada hectare. Badges a cada milestone.",
+      "Cada conquista, recorde e território perdido fica no teu Diário. Marcos a cada hectare. Badges a cada conquista.",
     icon: (
       <>
         <rect
@@ -121,7 +121,7 @@ export function WhatIs() {
           eyebrow="O que é"
           title="Não é um run-tracker. É um jogo."
           highlight="jogo"
-          description="O Strava conta os teus quilómetros. O Flowtr transforma-os em território. Cada corrida é uma jogada — defensiva, ofensiva, ou de expansão."
+          description="Outros apps contam os teus quilómetros. O Flowtr transforma-os em território. Cada corrida é uma jogada — defensiva, ofensiva, ou de expansão."
         />
 
         <div className="mt-16 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
