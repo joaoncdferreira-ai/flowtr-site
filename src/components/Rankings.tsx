@@ -1,0 +1,107 @@
+import { Reveal } from "./Reveal";
+
+const podium = [
+  { rank: "#1", area: "38 420 m²", neighbourhood: "CARNIDE" },
+  { rank: "#2", area: "29 100 m²", neighbourhood: "ALVALADE" },
+  { rank: "#3", area: "17 830 m²", neighbourhood: "BELÉM" },
+];
+
+export function Rankings() {
+  return (
+    <section
+      id="rankings"
+      className="relative py-[var(--space-section)]"
+    >
+      <div className="mx-auto max-w-5xl px-6">
+        <Reveal>
+          <div className="text-center">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[color:var(--color-border-strong)] bg-[color:var(--color-ink-800)]/70 px-3 py-1 text-[11px] uppercase tracking-[0.25em] text-[color:var(--color-fg-muted)]">
+              <span className="size-1 rounded-full bg-[color:var(--color-coral-500)]" />
+              Rankings
+            </div>
+            <h2 className="font-display text-balance text-4xl leading-[1.05] text-white md:text-6xl">
+              Lisboa tem um líder.{" "}
+              <span className="coral-glow">Por agora.</span>
+            </h2>
+            <p className="mx-auto mt-6 max-w-2xl text-pretty text-base leading-relaxed text-[color:var(--color-fg-muted)] md:text-lg">
+              Há um ranking global. Lisboa primeiro, bairros depois.
+              Área conquistada. Territórios controlados. Distância percorrida.
+              A pontuação é composta — não basta correr muito, tens de correr
+              bem.
+            </p>
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.1} y={32}>
+          <div className="surface mx-auto mt-12 max-w-2xl overflow-hidden p-2 md:p-3">
+            <ul className="flex flex-col">
+              {podium.map((row, i) => {
+                const isFirst = i === 0;
+                return (
+                  <li
+                    key={row.rank}
+                    className={[
+                      "flex items-center gap-4 rounded-2xl px-4 py-4 md:px-6",
+                      isFirst ? "bg-[color:var(--color-coral-500)]/10" : "",
+                    ].join(" ")}
+                  >
+                    <span
+                      className={[
+                        "font-display w-12 shrink-0 text-lg tracking-widest md:text-xl",
+                        isFirst
+                          ? "text-[color:var(--color-coral-400)]"
+                          : "text-[color:var(--color-fg-muted)]",
+                      ].join(" ")}
+                    >
+                      {row.rank}
+                    </span>
+                    <span
+                      aria-hidden
+                      className="size-10 shrink-0 rounded-full bg-[color:var(--color-ink-700)]"
+                    />
+                    <span
+                      className={[
+                        "flex-1 text-sm tracking-[0.18em] md:text-base",
+                        isFirst
+                          ? "text-white/90"
+                          : "text-[color:var(--color-fg-muted)]",
+                      ].join(" ")}
+                      aria-label="Nome do jogador oculto"
+                    >
+                      ——————
+                    </span>
+                    <span
+                      className={[
+                        "font-mono text-sm tabular-nums md:text-base",
+                        isFirst
+                          ? "text-[color:var(--color-coral-400)]"
+                          : "text-white/80",
+                      ].join(" ")}
+                    >
+                      {row.area}
+                    </span>
+                    <span
+                      className={[
+                        "hidden w-24 text-right text-[11px] uppercase tracking-[0.2em] md:inline",
+                        isFirst
+                          ? "text-white/80"
+                          : "text-[color:var(--color-fg-dim)]",
+                      ].join(" ")}
+                    >
+                      {row.neighbourhood}
+                    </span>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+
+          <p className="mt-6 text-center text-xs text-[color:var(--color-fg-dim)] md:text-sm">
+            Filtra por bairro, cidade ou mundo. Por semana, mês, ou desde
+            sempre.
+          </p>
+        </Reveal>
+      </div>
+    </section>
+  );
+}

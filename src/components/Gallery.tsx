@@ -2,6 +2,17 @@ import Image from "next/image";
 import { Reveal } from "./Reveal";
 import { SectionHeader } from "./SectionHeader";
 
+const badges = [
+  { icon: "🏴", name: "Primeiro território", desc: "O teu primeiro loop fechado." },
+  { icon: "⚔️", name: "Conquistador", desc: "10 territórios conquistados." },
+  { icon: "🏃", name: "Maratonista", desc: "42.2 km numa única corrida." },
+  { icon: "🦅", name: "Ladrão", desc: "Roubaste território a um rival." },
+  { icon: "👑", name: "Império", desc: "100 000 m² conquistados." },
+  { icon: "⚡", name: "Velocista", desc: "Mais de 12 km/h em corrida." },
+  { icon: "🧭", name: "Explorador", desc: "5 cidades diferentes." },
+  { icon: "🔱", name: "Dominador", desc: "50 territórios controlados." },
+];
+
 const shots = [
   { src: "/screenshots-clean/visao do territorio de hoje em 3d.jpg", alt: "Vista 3D do território conquistado em Lisboa", caption: "Mapa 3D · Estádio da Luz" },
   { src: "/screenshots-clean/visao zoomour varios territorios.jpg", alt: "Vários territórios conquistados visíveis no mapa", caption: "Zoom — vários territórios" },
@@ -66,6 +77,32 @@ export function Gallery() {
               </figure>
             ))}
           </div>
+        </div>
+      </Reveal>
+
+      <Reveal delay={0.1} y={24}>
+        <div className="mx-auto mt-20 max-w-7xl px-6">
+          <p className="text-center text-[11px] uppercase tracking-[0.25em] text-[color:var(--color-fg-dim)]">
+            Conquistas que se ganham, não se compram
+          </p>
+          <ul className="mt-8 flex flex-wrap justify-center gap-3 md:gap-4">
+            {badges.map((b) => (
+              <li
+                key={b.name}
+                className="flex w-[160px] flex-col items-center gap-1.5 rounded-xl border border-[color:var(--color-coral-500)]/20 bg-[color:var(--color-ink-800)]/80 px-4 py-3 text-center md:w-[180px]"
+              >
+                <span className="text-2xl leading-none" aria-hidden>
+                  {b.icon}
+                </span>
+                <span className="font-display text-[12px] uppercase tracking-[0.16em] text-[color:var(--color-coral-400)]">
+                  {b.name}
+                </span>
+                <span className="text-[11px] leading-snug text-[color:var(--color-fg-dim)]">
+                  {b.desc}
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
       </Reveal>
     </section>
