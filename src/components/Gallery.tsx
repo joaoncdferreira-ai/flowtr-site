@@ -2,15 +2,19 @@ import Image from "next/image";
 import { Reveal } from "./Reveal";
 import { SectionHeader } from "./SectionHeader";
 
+// Real Flowtr badges, sourced from the app (assets/badges/*_unlocked.svg).
+// Copy taken from MilestoneService where available; remaining inferred
+// from the badge slug + game mechanics. SVGs are gold (#c6b558) line
+// icons — kept as-is to match the app exactly.
 const badges = [
-  { icon: "🏴", name: "Primeiro território", desc: "O teu primeiro loop fechado." },
-  { icon: "⚔️", name: "Conquistador", desc: "10 territórios conquistados." },
-  { icon: "🏃", name: "Maratonista", desc: "42.2 km numa única corrida." },
-  { icon: "🦅", name: "Ladrão", desc: "Roubaste território a um rival." },
-  { icon: "👑", name: "Império", desc: "100 000 m² conquistados." },
-  { icon: "⚡", name: "Velocista", desc: "Mais de 12 km/h em corrida." },
-  { icon: "🧭", name: "Explorador", desc: "5 cidades diferentes." },
-  { icon: "🔱", name: "Dominador", desc: "50 territórios controlados." },
+  { slug: "primeiro_passo", name: "Primeiro passo", desc: "O teu primeiro território conquistado." },
+  { slug: "conquistador", name: "Conquistador", desc: "10 territórios roubados a rivais." },
+  { slug: "maratonista", name: "Maratonista", desc: "42.2 km numa única corrida." },
+  { slug: "vingador", name: "Vingador", desc: "Reconquistaste território perdido." },
+  { slug: "senhor_terra", name: "Senhor da Terra", desc: "Acumulaste 10 hectares de território." },
+  { slug: "em_chamas", name: "Em chamas", desc: "7 dias de corridas seguidas." },
+  { slug: "defensor", name: "Defensor", desc: "Defendeste território de invasão." },
+  { slug: "elite", name: "Elite", desc: "Entraste no Top 10 da tua cidade." },
 ];
 
 const shots = [
@@ -88,12 +92,17 @@ export function Gallery() {
           <ul className="mt-8 flex flex-wrap justify-center gap-3 md:gap-4">
             {badges.map((b) => (
               <li
-                key={b.name}
-                className="flex w-[160px] flex-col items-center gap-1.5 rounded-xl border border-[color:var(--color-coral-500)]/20 bg-[color:var(--color-ink-800)]/80 px-4 py-3 text-center md:w-[180px]"
+                key={b.slug}
+                className="flex w-[160px] flex-col items-center gap-2 rounded-xl border border-[color:var(--color-coral-500)]/20 bg-[color:var(--color-ink-800)]/80 px-4 py-4 text-center md:w-[180px]"
               >
-                <span className="text-2xl leading-none" aria-hidden>
-                  {b.icon}
-                </span>
+                <Image
+                  src={`/badges/badge_${b.slug}_unlocked.svg`}
+                  alt=""
+                  width={44}
+                  height={44}
+                  unoptimized
+                  className="size-11"
+                />
                 <span className="font-display text-[12px] uppercase tracking-[0.16em] text-[color:var(--color-coral-400)]">
                   {b.name}
                 </span>
