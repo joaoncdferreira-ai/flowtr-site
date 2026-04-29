@@ -1,8 +1,7 @@
 import Image from "next/image";
 
-// Flowtr logo — hexagon mark + FLOWTR wordmark stacked. The PNG asset
-// includes both the mark and the wordmark, so consumers should NOT add
-// a sibling text node when this is rendered.
+// Flowtr logo — mark only. Render the "FLOWTR" wordmark as a sibling
+// text node when needed (Nav, Footer).
 export function Logo({ className = "" }: { className?: string }) {
   return (
     <Image

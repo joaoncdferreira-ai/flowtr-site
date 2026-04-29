@@ -7,6 +7,7 @@ export function Footer() {
       <div className="mx-auto flex max-w-7xl flex-col gap-8 px-6 py-12 md:flex-row md:items-center md:justify-between">
         <div className="flex items-center gap-3">
           <Logo className="h-12 w-auto" />
+          <span className="font-display text-xl tracking-[0.18em] text-white">FLOWTR</span>
           <div className="text-xs text-[color:var(--color-fg-dim)]">
             Lisboa · feito por corredores
           </div>

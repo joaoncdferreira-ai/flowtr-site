@@ -22,8 +22,9 @@ export function Nav() {
           : "bg-transparent border border-transparent",
       ].join(" ")}
     >
-      <a href="#top" className="flex items-center pl-2" aria-label="Flowtr — início">
+      <a href="#top" className="flex items-center gap-2 pl-2" aria-label="Flowtr — início">
         <Logo className="h-9 w-auto" />
+        <span className="font-display text-lg tracking-[0.18em] text-white">FLOWTR</span>
       </a>
 
       <nav className="hidden md:flex items-center gap-8 font-medium text-sm text-[color:var(--color-fg-muted)]">

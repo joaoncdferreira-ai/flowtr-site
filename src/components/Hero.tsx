@@ -83,7 +83,7 @@ export function Hero() {
                 aria-hidden
                 className="size-1 rounded-full bg-[color:var(--color-coral-500)]"
               />
-              <span>Lançamento 30 Abril</span>
+              <span>Lançamento Maio 2026</span>
             </div>
           </div>
         </div>
