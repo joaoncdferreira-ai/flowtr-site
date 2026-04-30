@@ -48,15 +48,15 @@ export function Waitlist() {
           />
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[color:var(--color-border-strong)] bg-[color:var(--color-ink-800)]/80 px-3 py-1 text-[11px] uppercase tracking-[0.25em] text-[color:var(--color-fg-muted)]">
             <span className="size-1 rounded-full bg-[color:var(--color-coral-500)]" />
-            Alpha 1 · 30 Abril
+            Alpha 1 · Maio 2026
           </div>
 
           <h2 className="font-display text-balance text-4xl leading-[1.05] text-white md:text-6xl">
             Sê dos <span className="coral-glow">primeiros</span> a dominar.
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-pretty text-[color:var(--color-fg-muted)] md:text-lg">
-            O Alpha começa hoje com acesso faseado. Deixa o email — avisamos-te
-            quando entrar a próxima vaga, sem spam.
+            O Alpha 1 chega em Maio com acesso faseado. Deixa o email —
+            avisamos-te quando entrar a próxima vaga, sem spam.
           </p>
 
           {status === "success" ? (

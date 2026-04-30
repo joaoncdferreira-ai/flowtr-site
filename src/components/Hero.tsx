@@ -29,7 +29,7 @@ export function Hero() {
             style={{ animationDelay: "0ms" }}
           >
             <span className="size-1.5 rounded-full bg-[color:var(--color-coral-500)] shadow-[0_0_10px_rgba(255,87,51,0.8)]" />
-            Alpha 1 · 30 Abril
+            Alpha 1 · Maio 2026
           </div>
 
           <h1
@@ -78,12 +78,12 @@ export function Hero() {
                 aria-hidden
                 className="size-1 rounded-full bg-[color:var(--color-coral-500)]"
               />
-              <span>Alpha arranca hoje</span>
+              <span>Acesso faseado</span>
               <span
                 aria-hidden
                 className="size-1 rounded-full bg-[color:var(--color-coral-500)]"
               />
-              <span>Acesso faseado</span>
+              <span>Maio 2026</span>
             </div>
           </div>
         </div>
