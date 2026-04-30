@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { CSSProperties } from "react";
-import { HeroBackdropTuner } from "./HeroBackdropTuner";
+
 
 export function Hero() {
   return (
@@ -193,7 +193,7 @@ export function Hero() {
           </noscript>
         </div>
       </div>
-      <HeroBackdropTuner />
+
     </section>
   );
 }
