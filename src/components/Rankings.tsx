@@ -14,7 +14,7 @@ export function Rankings() {
               Rankings
             </div>
             <h2 className="font-display text-balance text-4xl leading-[1.05] text-white md:text-6xl">
-              Lisboa tem um líder.{" "}
+              O mapa tem um líder.{" "}
               <span className="coral-glow">Por agora.</span>
             </h2>
           </div>

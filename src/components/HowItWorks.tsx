@@ -19,8 +19,8 @@ const steps: Step[] = [
       "Vês a tua cidade em 3D, com os territórios já conquistados — pelos teus e pelos rivais. Carrega em INICIAR e o GPS arranca.",
     media: {
       kind: "image",
-      src: "/screenshots-clean/app no mapa normal sem corrida sem nada.png",
-      alt: "Flowtr — mapa de Lisboa em modo normal antes de iniciar a corrida",
+      src: "/prints-site/abre o mapa (1).jpg",
+      alt: "Flowtr — mapa em modo normal antes de iniciar a corrida",
     },
   },
   {
@@ -30,7 +30,7 @@ const steps: Step[] = [
       "Corres em loop. O Flowtr regista a tua linha em tempo real. Quando fechas o circuito sobre o teu próprio rasto, o território é teu — automaticamente.",
     media: {
       kind: "image",
-      src: "/screenshots-clean/em corrida normal.png",
+      src: "/prints-site/Adesenha o perimetro - circuito a meio.jpeg",
       alt: "Flowtr — corrida ativa a desenhar o perímetro no mapa",
     },
   },
@@ -65,7 +65,7 @@ export function HowItWorks() {
 
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeader
-          eyebrow="Como joga"
+          eyebrow="Como se joga"
           title="Três passos. Zero teoria."
           highlight="Três"
           description="Não precisas de tutorial nem de subscrição. Liga o GPS, corre, vê o território a tornar-se teu."

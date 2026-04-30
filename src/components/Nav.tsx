@@ -29,7 +29,7 @@ export function Nav() {
 
       <nav className="hidden md:flex items-center gap-8 font-medium text-sm text-[color:var(--color-fg-muted)]">
         <a href="#o-que-e" className="hover:text-white transition-colors">O que é</a>
-        <a href="#como-joga" className="hover:text-white transition-colors">Como joga</a>
+        <a href="#como-joga" className="hover:text-white transition-colors">Como se joga</a>
         <a href="#em-accao" className="hover:text-white transition-colors">Em acção</a>
       </nav>
 

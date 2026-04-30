@@ -3,6 +3,7 @@ import { Hero } from "@/components/Hero";
 import { StatStrip } from "@/components/StatStrip";
 import { WhatIs } from "@/components/WhatIs";
 import { HowItWorks } from "@/components/HowItWorks";
+import { Technology } from "@/components/Technology";
 import { Gallery } from "@/components/Gallery";
 import { Rankings } from "@/components/Rankings";
 import { EmBreve } from "@/components/EmBreve";
@@ -20,6 +21,7 @@ export default function Home() {
         <HowItWorks />
         <Gallery />
         <Rankings />
+        <Technology />
         <EmBreve />
         <Waitlist />
       </main>

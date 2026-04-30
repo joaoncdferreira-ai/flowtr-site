@@ -16,7 +16,7 @@ const features = [
   {
     title: "Tudo a sério",
     body:
-      "Sem treinos fakes, sem desafios artificiais. Joga-se nas tuas ruas, com a tua cadência. Lisboa primeiro, o resto depois.",
+      "Sem treinos fakes, sem desafios artificiais. Joga-se nas tuas ruas, com a tua cadência. Primeiro uma comunidade pequena, depois o resto.",
     icon: (
       <>
         <path

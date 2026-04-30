@@ -124,7 +124,7 @@ export function EmBreve() {
               Em breve
             </div>
             <h2 className="font-display text-balance text-4xl leading-[1.05] text-white md:text-6xl">
-              O jogo está a <span className="coral-glow">começar.</span>
+              Mais novidades a <span className="coral-glow">chegar.</span>
             </h2>
           </div>
         </Reveal>

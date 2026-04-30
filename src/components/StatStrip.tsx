@@ -1,8 +1,8 @@
 import { Reveal } from "./Reveal";
 
 const items = [
-  "GPS LOCAL · ZERO ADS · ZERO TRACKING",
-  "ALPHA 1 · LISBOA · 30 ABRIL",
+  "GPS LOCAL · ZERO ADS",
+  "ALPHA 1 · 30 ABRIL",
   "TERRITÓRIO É TEU ATÉ ALGUÉM O ROUBAR",
   "FEITO EM LISBOA · 38.7223°N 9.1393°W",
 ];

@@ -29,7 +29,7 @@ export function Hero() {
             style={{ animationDelay: "0ms" }}
           >
             <span className="size-1.5 rounded-full bg-[color:var(--color-coral-500)] shadow-[0_0_10px_rgba(255,87,51,0.8)]" />
-            Alpha 1 · Lisboa
+            Alpha 1 · 30 Abril
           </div>
 
           <h1
@@ -46,8 +46,8 @@ export function Hero() {
             style={{ animationDelay: "220ms" }}
           >
             Flowtr transforma cada corrida num jogo de território. Desenha o teu
-            perímetro a correr, conquista o mapa de Lisboa e defende-o contra
-            outros jogadores.
+            perímetro a correr, conquista o mapa e defende-o contra outros
+            jogadores.
           </p>
 
           <div
@@ -78,12 +78,12 @@ export function Hero() {
                 aria-hidden
                 className="size-1 rounded-full bg-[color:var(--color-coral-500)]"
               />
-              <span>Lisboa</span>
+              <span>Alpha arranca hoje</span>
               <span
                 aria-hidden
                 className="size-1 rounded-full bg-[color:var(--color-coral-500)]"
               />
-              <span>Lançamento Maio 2026</span>
+              <span>Acesso faseado</span>
             </div>
           </div>
         </div>

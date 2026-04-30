@@ -9,13 +9,13 @@ export function Footer() {
           <Logo className="h-12 w-auto" />
           <span className="font-display text-xl tracking-[0.18em] text-white">FLOWTR</span>
           <div className="text-xs text-[color:var(--color-fg-dim)]">
-            Lisboa · feito por corredores
+            Feito em Lisboa · por corredores
           </div>
         </div>
 
         <nav className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-[color:var(--color-fg-muted)]">
           <a href="#o-que-e" className="hover:text-white transition-colors">O que é</a>
-          <a href="#como-joga" className="hover:text-white transition-colors">Como joga</a>
+          <a href="#como-joga" className="hover:text-white transition-colors">Como se joga</a>
           <a href="#em-accao" className="hover:text-white transition-colors">Em acção</a>
           <a href="#waitlist" className="hover:text-white transition-colors">Waitlist</a>
           <a

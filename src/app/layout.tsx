@@ -22,7 +22,7 @@ const chakra = Chakra_Petch({
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://flowtr.app";
 const TITLE = "Flowtr — Corre. Conquista. Domina.";
 const DESCRIPTION =
-  "Flowtr transforma cada corrida num jogo de território. Desenha o teu perímetro a correr e conquista o mapa de Lisboa contra outros corredores.";
+  "Flowtr transforma cada corrida num jogo de território. Desenha o teu perímetro a correr, conquista o mapa e defende-o contra outros corredores.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -38,7 +38,6 @@ export const metadata: Metadata = {
     "corrida",
     "território",
     "GPS game",
-    "Lisboa",
     "fitness",
     "gamificação",
     "Alpha 1",
