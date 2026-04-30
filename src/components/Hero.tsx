@@ -164,6 +164,12 @@ export function Hero() {
               aria-hidden="true"
               className="block aspect-[9/19.5] w-full object-cover"
             />
+            {/* overlay para esconder a tira branca no fundo do video */}
+            <div 
+              className="pointer-events-none absolute" 
+              style={{ bottom: 8, left: 8, right: 8, height: 48, width: 'calc(100% - 16px)', background: 'linear-gradient(to top, #0a0a0d 40%, transparent)', borderRadius: '0 0 28px 28px', zIndex: 10 }}
+              aria-hidden="true"
+            />
           </div>
           {/* floating badges */}
           <div
@@ -175,13 +181,7 @@ export function Hero() {
             <span className="font-display tracking-widest">CONQUISTADO</span>
             <span className="text-[color:var(--color-fg-muted)]">2 439 m²</span>
           </div>
-          <div
-            aria-hidden
-            className="anim-fade-in absolute -right-4 bottom-24 hidden rounded-2xl border border-[color:var(--color-border-strong)] bg-[color:var(--color-coral-500)]/90 px-3 py-2 text-xs font-semibold text-black md:block"
-            style={{ animationDelay: "950ms" }}
-          >
-            <span className="font-display tracking-widest">RECORDE · 45,2 km/h</span>
-          </div>
+
           <noscript>
             <Image
               src="/screenshots-clean/visao do territorio de hoje em 3d.jpg"
