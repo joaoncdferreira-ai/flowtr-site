@@ -1,20 +1,70 @@
 import Image from "next/image";
+import type { CSSProperties } from "react";
+import { HeroBackdropTuner } from "./HeroBackdropTuner";
 
 export function Hero() {
   return (
     <section
       id="top"
       className="relative isolate overflow-hidden pt-32 pb-24 md:pt-40 md:pb-32"
+      style={
+        {
+          "--hero-map-opacity": "1",
+          "--hero-map-blur": "0px",
+          "--hero-map-saturate": "1.4",
+          "--hero-map-brightness": "0.4",
+          "--hero-map-dark-left": "0.75",
+          "--hero-map-dark-mid": "1.0",
+          "--hero-map-dark-right": "0.75",
+          "--hero-map-coral": "0",
+          "--hero-grid-opacity": "0",
+        } as CSSProperties
+      }
     >
+      {/* atmospheric map backdrop: desktop only so mobile keeps the hero light */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 -z-30 hidden md:block"
+      >
+        <Image
+          src="/_assets/lisboa_map_bg.webp"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="scale-[1.03] object-cover object-[50%_58%] opacity-[var(--hero-map-opacity)] blur-[var(--hero-map-blur)] saturate-[var(--hero-map-saturate)] brightness-[var(--hero-map-brightness)]"
+        />
+      </div>
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 -z-20 hidden md:block"
+        style={{
+          background:
+            "linear-gradient(90deg, rgba(7,7,10,var(--hero-map-dark-left)) 0%, rgba(7,7,10,var(--hero-map-dark-left)) 23%, rgba(7,7,10,var(--hero-map-dark-mid)) 52%, rgba(7,7,10,var(--hero-map-dark-right)) 100%)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 -z-20 hidden md:block"
+        style={{
+          background:
+            "radial-gradient(ellipse 70% 55% at 68% 38%, rgba(255,87,51,var(--hero-map-coral)), transparent 62%)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 -z-20 hidden h-52 bg-gradient-to-b from-transparent to-[color:var(--color-bg)] md:block"
+      />
+
       {/* ambient grid */}
       <div
         aria-hidden
-        className="grid-bg pointer-events-none absolute inset-0 -z-10"
+        className="grid-bg pointer-events-none absolute inset-0 -z-10 opacity-[var(--hero-grid-opacity)]"
       />
       {/* coral aurora */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-32 left-1/2 -z-10 h-[640px] w-[1100px] -translate-x-1/2 rounded-full opacity-40 blur-3xl"
+        className="pointer-events-none absolute -top-32 left-1/2 -z-10 h-[640px] w-[1100px] -translate-x-1/2 rounded-full opacity-25 blur-3xl"
         style={{
           background:
             "radial-gradient(closest-side, rgba(255,87,51,0.55), rgba(255,87,51,0) 70%)",
@@ -143,6 +193,7 @@ export function Hero() {
           </noscript>
         </div>
       </div>
+      <HeroBackdropTuner />
     </section>
   );
 }
