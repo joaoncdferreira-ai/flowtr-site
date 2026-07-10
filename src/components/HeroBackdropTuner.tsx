@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 type SettingKey =
   | "opacity"
@@ -93,8 +93,11 @@ export function HeroBackdropTuner() {
   const [values, setValues] = useState<Record<SettingKey, number>>(defaults);
 
   useEffect(() => {
-    setVisible(shouldShowTuner());
-    setValues(readInitialValues());
+    const frame = window.requestAnimationFrame(() => {
+      setVisible(shouldShowTuner());
+      setValues(readInitialValues());
+    });
+    return () => window.cancelAnimationFrame(frame);
   }, []);
 
   useEffect(() => {
@@ -128,11 +131,6 @@ export function HeroBackdropTuner() {
       const nextUrl = `${window.location.pathname}?${params.toString()}${window.location.hash}`;
       window.history.replaceState(null, "", nextUrl);
     }
-  }, [values]);
-
-  const shareUrl = useMemo(() => {
-    if (typeof window === "undefined") return "";
-    return window.location.href;
   }, [values]);
 
   if (!visible) return null;
@@ -229,7 +227,7 @@ export function HeroBackdropTuner() {
             </button>
             <button
               type="button"
-              onClick={() => navigator.clipboard?.writeText(shareUrl)}
+              onClick={() => navigator.clipboard?.writeText(window.location.href)}
               className="rounded-full bg-[color:var(--color-coral-500)] px-3 py-2 text-xs font-bold uppercase tracking-[0.14em] text-black transition hover:bg-[color:var(--color-coral-400)]"
             >
               Copiar URL

@@ -12,5 +12,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
       alternates: { languages: { "pt-PT": SITE_URL } },
     },
+    {
+      url: `${SITE_URL}/delete-account`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.6,
+      alternates: { languages: { "pt-PT": `${SITE_URL}/delete-account` } },
+    },
   ];
 }
