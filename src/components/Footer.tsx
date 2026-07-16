@@ -18,22 +18,16 @@ export function Footer() {
           <a href="#como-joga" className="hover:text-white transition-colors">Como se joga</a>
           <a href="#em-accao" className="hover:text-white transition-colors">Em acção</a>
           <a href="#waitlist" className="hover:text-white transition-colors">Waitlist</a>
-          <a
-            href="https://www.iubenda.com/privacy-policy/48496134"
-            target="_blank"
-            rel="noreferrer"
-            className="hover:text-white transition-colors"
-          >
+          <a href="/privacy" className="hover:text-white transition-colors">
             Privacidade
           </a>
-          {/* TODO P2: replace with separate T&C URL when Iubenda upgraded */}
           <a
-            href="https://www.iubenda.com/privacy-policy/48496134"
+            href="https://app.termly.io/policy-viewer/policy.html?policyUUID=3cfff3a9-3bc2-470a-b00c-35cbb2d64be0"
             target="_blank"
             rel="noreferrer"
             className="hover:text-white transition-colors"
           >
-            Termos &amp; Privacidade
+            Termos
           </a>
         </nav>
 

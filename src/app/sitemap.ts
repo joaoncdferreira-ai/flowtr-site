@@ -13,6 +13,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: { languages: { "pt-PT": SITE_URL } },
     },
     {
+      url: `${SITE_URL}/privacy`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.6,
+      alternates: { languages: { "pt-PT": `${SITE_URL}/privacy` } },
+    },
+    {
       url: `${SITE_URL}/delete-account`,
       lastModified: now,
       changeFrequency: "yearly",
