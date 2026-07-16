@@ -21,12 +21,7 @@ export function Footer() {
           <a href="/privacy" className="hover:text-white transition-colors">
             Privacidade
           </a>
-          <a
-            href="https://app.termly.io/policy-viewer/policy.html?policyUUID=3cfff3a9-3bc2-470a-b00c-35cbb2d64be0"
-            target="_blank"
-            rel="noreferrer"
-            className="hover:text-white transition-colors"
-          >
+          <a href="/terms" className="hover:text-white transition-colors">
             Termos
           </a>
         </nav>
