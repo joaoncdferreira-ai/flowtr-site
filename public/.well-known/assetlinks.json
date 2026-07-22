@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.flowtr.app",
+      "sha256_cert_fingerprints": [
+        "2D:F1:0A:98:A9:F9:30:C9:30:72:D3:D7:70:A5:04:F7:18:56:A7:BC:44:C6:04:29:08:E3:A0:5E:BB:BD:98:ED"
+      ]
+    }
+  }
+]
