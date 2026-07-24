@@ -1,9 +1,19 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { headers } from "next/headers";
+
+// Store URLs are env-gated. Flowtr is pre-launch, so until the app is actually
+// published these stay unset and the page funnels an app-less recipient to the
+// waitlist instead of linking to store pages that would 404. Set them in Vercel
+// at launch and the badges appear automatically (platform-led).
+const APP_STORE_URL = process.env.NEXT_PUBLIC_APP_STORE_URL;
+const PLAY_STORE_URL = process.env.NEXT_PUBLIC_PLAY_STORE_URL;
 
 type ChallengePageProps = {
   params: Promise<{ code: string }>;
 };
+
+type Store = { label: string; href: string; lead: boolean };
 
 export const metadata: Metadata = {
   title: "Desafio Flowtr",
@@ -18,6 +28,23 @@ export default async function ChallengePage({ params }: ChallengePageProps) {
   const appHref = validCode
     ? `flowtr://challenge?code=${encodeURIComponent(code)}`
     : "/";
+
+  // Best-effort UA sniff (works inside the WhatsApp in-app browser too) to lead
+  // with the right store; both are shown otherwise.
+  const ua = (await headers()).get("user-agent") ?? "";
+  const isIOS = /iPhone|iPad|iPod/i.test(ua);
+  const isAndroid = /Android/i.test(ua);
+
+  const stores = (
+    [
+      APP_STORE_URL
+        ? { label: "Baixar na App Store", href: APP_STORE_URL, lead: isIOS || !isAndroid }
+        : null,
+      PLAY_STORE_URL
+        ? { label: "Descarregar no Google Play", href: PLAY_STORE_URL, lead: isAndroid }
+        : null,
+    ].filter(Boolean) as Store[]
+  ).sort((a, b) => Number(b.lead) - Number(a.lead));
 
   return (
     <main className="flex flex-1 items-center px-4 py-14 sm:px-6">
@@ -41,6 +68,25 @@ export default async function ChallengePage({ params }: ChallengePageProps) {
               <Link className="btn btn-ghost" href="/">
                 Conhecer a Flowtr
               </Link>
+            </div>
+
+            {/* A recipient without the app installed needs a real way in — the
+                bare app-scheme button above no-ops when Flowtr is absent. */}
+            <div className="mt-8 border-t border-border pt-6">
+              <p className="text-sm text-fg-muted">Ainda não tens a Flowtr?</p>
+              {stores.length > 0 ? (
+                <div className="mt-3 flex flex-col gap-3 sm:flex-row sm:justify-center">
+                  {stores.map((s) => (
+                    <a key={s.href} className="btn btn-ghost" href={s.href}>
+                      {s.label}
+                    </a>
+                  ))}
+                </div>
+              ) : (
+                <Link className="btn btn-primary mt-3" href="/#waitlist">
+                  Entra na waitlist e sê dos primeiros
+                </Link>
+              )}
             </div>
           </>
         ) : (
