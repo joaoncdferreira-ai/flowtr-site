@@ -1,4 +1,3 @@
-import Image from "next/image";
 import type { CSSProperties } from "react";
 import type { SiteCopy } from "@/lib/site-i18n";
 
@@ -14,28 +13,16 @@ export function Hero({ copy }: { copy: SiteCopy["hero"] }) {
           "--hero-map-blur": "0px",
           "--hero-map-saturate": "1.4",
           "--hero-map-brightness": "0.4",
-          "--hero-map-dark-left": "0.75",
-          "--hero-map-dark-mid": "1.0",
-          "--hero-map-dark-right": "0.75",
+          "--hero-map-dark-left": "0.38",
+          "--hero-map-dark-mid": "0.52",
+          "--hero-map-dark-right": "0.34",
           "--hero-map-coral": "0",
           "--hero-grid-opacity": "0",
         } as CSSProperties
       }
     >
-      {/* atmospheric map backdrop: desktop only so mobile keeps the hero light */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-30 hidden md:block"
-      >
-        <Image
-          src="/_assets/lisboa_map_bg.webp"
-          alt=""
-          fill
-          loading="eager"
-          sizes="(min-width: 768px) 100vw, 1px"
-          className="scale-[1.03] object-cover object-[50%_58%] opacity-[var(--hero-map-opacity)] blur-[var(--hero-map-blur)] saturate-[var(--hero-map-saturate)] brightness-[var(--hero-map-brightness)]"
-        />
-      </div>
+      {/* The map is now one continuous page background. Hero-only scrims keep
+          the headline readable without restarting or cutting the city. */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-20 hidden md:block"

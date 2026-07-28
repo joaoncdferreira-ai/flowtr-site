@@ -129,16 +129,16 @@ export const siteCopy = {
       title: "A Flowtr, tal como está hoje.",
       highlight: "tal como está",
       description:
-        "Vídeos e ecrãs da versão atual: percurso, conquista, mapa, revisão e partilha.",
+        "Ecrãs da versão atual: centro de comando, perfil, mapa, revisão e vídeo de partilha.",
       badgeIntro: "Emblemas desbloqueados a correr",
       shots: [
         {
-          caption: "O percurso",
-          alt: "Percurso real a ser desenhado no mapa 3D da Flowtr",
+          caption: "O menu",
+          alt: "Centro de comando da Flowtr em inglês",
         },
         {
-          caption: "A conquista",
-          alt: "Território a ser conquistado no mapa 3D da Flowtr",
+          caption: "O perfil",
+          alt: "Página de perfil atual da Flowtr em inglês",
         },
         { caption: "O mapa", alt: "Mapa 3D atual da Flowtr em inglês" },
         {
@@ -155,8 +155,12 @@ export const siteCopy = {
           name: "Primeiro passo",
           desc: "O teu primeiro território conquistado.",
         },
-        { name: "Maratonista", desc: "42,2 km numa única corrida." },
+        { name: "Conquistador", desc: "10 territórios conquistados." },
+        { name: "Senhor da Terra", desc: "10 hectares acumulados." },
+        { name: "Maratonista", desc: "42 km percorridos no total." },
         { name: "Em chamas", desc: "7 dias de corridas seguidas." },
+        { name: "Defensor", desc: "30 dias sem perder um território." },
+        { name: "Vingador", desc: "Um território roubado e reconquistado." },
         { name: "Elite", desc: "Entraste no Top 10 da tua cidade." },
       ],
     },
@@ -390,16 +394,16 @@ export const siteCopy = {
       title: "Flowtr, as it looks today.",
       highlight: "as it looks today",
       description:
-        "Current videos and screens: route, claim, map, run review and sharing.",
+        "Current screens: Command Center, profile, map, run review and a real sharing video.",
       badgeIntro: "Badges earned by running",
       shots: [
         {
-          caption: "The route",
-          alt: "A real route being drawn on the Flowtr 3D map",
+          caption: "The menu",
+          alt: "Current Flowtr Command Center in English",
         },
         {
-          caption: "The claim",
-          alt: "Territory being claimed on the Flowtr 3D map",
+          caption: "The profile",
+          alt: "Current Flowtr profile screen in English",
         },
         { caption: "The map", alt: "Current Flowtr 3D map in English" },
         {
@@ -413,8 +417,12 @@ export const siteCopy = {
       ],
       badges: [
         { name: "First step", desc: "Your first claimed territory." },
-        { name: "Marathoner", desc: "42.2 km in a single run." },
+        { name: "Conqueror", desc: "10 territories claimed." },
+        { name: "Land ruler", desc: "10 hectares accumulated." },
+        { name: "Marathoner", desc: "42 km run in total." },
         { name: "On fire", desc: "7 consecutive running days." },
+        { name: "Defender", desc: "A territory held for 30 days." },
+        { name: "Avenger", desc: "A stolen territory reclaimed." },
         { name: "Elite", desc: "You reached your city's Top 10." },
       ],
     },
@@ -648,16 +656,16 @@ export const siteCopy = {
       title: "Flowtr, tal como es hoy.",
       highlight: "tal como es hoy",
       description:
-        "Vídeos y pantallas actuales: recorrido, conquista, mapa, revisión y opciones para compartir.",
+        "Pantallas actuales: centro de mando, perfil, mapa, revisión y un vídeo real para compartir.",
       badgeIntro: "Insignias desbloqueadas corriendo",
       shots: [
         {
-          caption: "El recorrido",
-          alt: "Un recorrido real dibujándose en el mapa 3D de Flowtr",
+          caption: "El menú",
+          alt: "Centro de mando actual de Flowtr en inglés",
         },
         {
-          caption: "La conquista",
-          alt: "Un territorio conquistándose en el mapa 3D de Flowtr",
+          caption: "El perfil",
+          alt: "Pantalla de perfil actual de Flowtr en inglés",
         },
         { caption: "El mapa", alt: "Mapa 3D actual de Flowtr en inglés" },
         {
@@ -671,8 +679,12 @@ export const siteCopy = {
       ],
       badges: [
         { name: "Primer paso", desc: "Tu primer territorio conquistado." },
-        { name: "Maratonista", desc: "42,2 km en una sola carrera." },
+        { name: "Conquistador", desc: "10 territorios conquistados." },
+        { name: "Señor de la tierra", desc: "10 hectáreas acumuladas." },
+        { name: "Maratonista", desc: "42 km recorridos en total." },
         { name: "En llamas", desc: "7 días seguidos corriendo." },
+        { name: "Defensor", desc: "Un territorio conservado durante 30 días." },
+        { name: "Vengador", desc: "Un territorio robado y reconquistado." },
         { name: "Élite", desc: "Has entrado en el Top 10 de tu ciudad." },
       ],
     },

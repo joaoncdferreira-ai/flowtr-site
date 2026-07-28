@@ -44,7 +44,7 @@ export function Nav({
 
       <div className="flex items-center gap-2">
         <LanguageSwitcher locale={locale} />
-        <a href="#waitlist" className="btn btn-primary hidden !h-11 !px-4 !text-[12px] sm:inline-flex sm:!px-5 sm:!text-[13px]">
+        <a href="#waitlist" className="btn btn-primary nav-launch-cta !h-11 !px-4 !text-[12px] min-[560px]:!px-5 min-[560px]:!text-[13px]">
           {copy.notify}
         </a>
       </div>

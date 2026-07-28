@@ -9,22 +9,25 @@ import type { SiteCopy } from "@/lib/site-i18n";
 // icons — kept as-is to match the app exactly.
 const badgeSlugs = [
   "primeiro_passo",
+  "conquistador",
+  "senhor_terra",
   "maratonista",
   "em_chamas",
+  "defensor",
+  "vingador",
   "elite",
 ];
 
 const shotMedia = [
   {
-    kind: "video" as const,
-    src: "/videos/onboarding_01.mp4",
-    poster: "/videos/onboarding_01_poster.jpg",
+    kind: "image" as const,
+    src: "/app-marketing-en/command-center.png",
     fit: "cover" as const,
+    maskCornerMark: true,
   },
   {
-    kind: "video" as const,
-    src: "/videos/onboarding_03.mp4",
-    poster: "/videos/onboarding_03_poster.jpg",
+    kind: "image" as const,
+    src: "/app-marketing-en/profile.png",
     fit: "cover" as const,
   },
   {
@@ -36,12 +39,14 @@ const shotMedia = [
     kind: "image" as const,
     src: "/app-marketing-en/run-review.png",
     fit: "cover" as const,
+    maskCornerMark: true,
   },
   {
     kind: "video" as const,
     src: "/videos/flyover-share-demo.mp4",
     poster: "/app-current/video-resultado.png",
     fit: "contain" as const,
+    safeFrame: true,
   },
 ];
 
@@ -80,31 +85,40 @@ export function Gallery({ copy }: { copy: SiteCopy["gallery"] }) {
                 style={{ width: 240 }}
               >
                 <div className="phone-frame phone-frame-screen">
-                  {s.kind === "video" ? (
-                    <video
-                      className={`block aspect-[9/19.5] w-full bg-[#08090c] ${
-                        s.fit === "contain" ? "object-contain" : "object-cover"
-                      }`}
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      preload="metadata"
-                      poster={s.poster}
-                      aria-label={s.alt}
-                    >
-                      <source src={s.src} type="video/mp4" />
-                    </video>
-                  ) : (
-                    <Image
-                      src={s.src}
-                      alt={s.alt}
-                      width={1206}
-                      height={2622}
-                      sizes="240px"
-                      className="block aspect-[9/19.5] w-full object-cover"
-                    />
-                  )}
+                  <div
+                    className={`shot-screen ${
+                      "safeFrame" in s && s.safeFrame ? "shot-screen-safe" : ""
+                    }`}
+                  >
+                    {s.kind === "video" ? (
+                      <video
+                        className={
+                          s.fit === "contain" ? "object-contain" : "object-cover"
+                        }
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        preload="metadata"
+                        poster={s.poster}
+                        aria-label={s.alt}
+                      >
+                        <source src={s.src} type="video/mp4" />
+                      </video>
+                    ) : (
+                      <Image
+                        src={s.src}
+                        alt={s.alt}
+                        width={1206}
+                        height={2622}
+                        sizes="240px"
+                        className="object-cover"
+                      />
+                    )}
+                    {"maskCornerMark" in s && s.maskCornerMark ? (
+                      <span className="shot-corner-mask" aria-hidden />
+                    ) : null}
+                  </div>
                 </div>
                 <figcaption className="mt-3 px-2 text-[11px] uppercase tracking-[0.18em] text-[color:var(--color-fg-dim)]">
                   {s.caption}
@@ -120,11 +134,11 @@ export function Gallery({ copy }: { copy: SiteCopy["gallery"] }) {
           <p className="text-center text-[11px] uppercase tracking-[0.25em] text-[color:var(--color-fg-dim)]">
             {copy.badgeIntro}
           </p>
-          <ul className="mt-8 flex flex-wrap justify-center gap-3 md:gap-4">
+          <ul className="mx-auto mt-8 grid max-w-4xl grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
             {copy.badges.map((b, index) => (
               <li
                 key={badgeSlugs[index]}
-                className="flex w-[160px] flex-col items-center gap-2 rounded-xl border border-[color:var(--color-coral-500)]/20 bg-[color:var(--color-ink-800)]/80 px-4 py-4 text-center md:w-[180px]"
+                className="flex min-h-[150px] flex-col items-center justify-center gap-2 rounded-xl border border-[color:var(--color-coral-500)]/20 bg-[color:var(--color-ink-800)]/80 px-4 py-4 text-center"
               >
                 <Image
                   src={`/badges/badge_${badgeSlugs[index]}_unlocked.svg`}

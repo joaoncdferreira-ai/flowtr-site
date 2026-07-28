@@ -85,6 +85,68 @@ body {
   overflow-x: hidden;
 }
 
+/* ---------- One continuous Lisbon map ---------- */
+.world-map {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: var(--color-ink-950);
+}
+
+.world-map-plane {
+  position: absolute;
+  inset: -24vh -10vw;
+  background-image: url("/_assets/lisboa_map_bg.webp");
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.48;
+  filter: saturate(1.18) contrast(1.06) brightness(0.72);
+  transform: translate3d(-2.5vw, 9vh, 0) scale(1.08);
+  transform-origin: center;
+  will-change: transform;
+  animation-name: world-map-walk;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+  animation-timeline: scroll(root block);
+}
+
+@keyframes world-map-walk {
+  from { transform: translate3d(-2.5vw, 9vh, 0) scale(1.08); }
+  to { transform: translate3d(2.5vw, -9vh, 0) scale(1.08); }
+}
+
+.world-map-scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(7, 7, 10, 0.28), rgba(7, 7, 10, 0.68)),
+    radial-gradient(ellipse 70% 50% at 50% 28%, transparent, rgba(7, 7, 10, 0.45) 78%);
+}
+
+@media (max-width: 767px) {
+  .world-map-plane {
+    inset: -18vh -38vw;
+    opacity: 0.32;
+    filter: saturate(1.08) contrast(1.04) brightness(0.62);
+  }
+
+  .world-map-scrim {
+    background: rgba(7, 7, 10, 0.62);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .world-map-plane {
+    animation: none;
+    transform: scale(1.08) !important;
+    will-change: auto;
+  }
+}
+
 .skip-link {
   position: fixed;
   top: 0.75rem;
@@ -166,6 +228,16 @@ body {
     inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 .btn-primary:active { transform: translateY(1px); }
+
+.nav-launch-cta {
+  display: none !important;
+}
+
+@media (min-width: 560px) {
+  .nav-launch-cta {
+    display: inline-flex !important;
+  }
+}
 
 .btn-ghost {
   background: transparent;
@@ -403,6 +475,40 @@ body {
 .phone-frame-screen > * {
   height: 100%;
   object-fit: cover;
+}
+
+.shot-screen {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background: #08090c;
+}
+
+.shot-screen > img,
+.shot-screen > video {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.shot-screen-safe {
+  padding: 15px;
+}
+
+.shot-screen-safe > video {
+  border-radius: 24px;
+}
+
+.shot-corner-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 38px;
+  border-radius: 0 0 9px;
+  background: #171719;
+  box-shadow: 0 0 10px 5px #171719;
 }
 
 /* ---------- Cinema card ----------
