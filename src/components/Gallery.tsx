@@ -29,6 +29,7 @@ const shotMedia = [
     kind: "image" as const,
     src: "/app-marketing-en/profile.png",
     fit: "cover" as const,
+    maskTopRightMark: true,
   },
   {
     kind: "image" as const,
@@ -117,6 +118,9 @@ export function Gallery({ copy }: { copy: SiteCopy["gallery"] }) {
                     )}
                     {"maskCornerMark" in s && s.maskCornerMark ? (
                       <span className="shot-corner-mask" aria-hidden />
+                    ) : null}
+                    {"maskTopRightMark" in s && s.maskTopRightMark ? (
+                      <span className="shot-top-right-mask" aria-hidden />
                     ) : null}
                   </div>
                 </div>

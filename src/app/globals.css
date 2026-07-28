@@ -511,6 +511,17 @@ body {
   box-shadow: 0 0 10px 5px #171719;
 }
 
+.shot-top-right-mask {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 38px;
+  border-radius: 0 0 0 9px;
+  background: #171719;
+  box-shadow: 0 0 10px 5px #171719;
+}
+
 /* ---------- Cinema card ----------
  * For the in-app onboarding films (native 9:16). No phone chrome — they are
  * full-bleed map renders, so a phone bezel would either crop them or lie
