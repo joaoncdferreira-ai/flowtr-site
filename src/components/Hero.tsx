@@ -30,8 +30,8 @@ export function Hero() {
           src="/_assets/lisboa_map_bg.webp"
           alt=""
           fill
-          priority
-          sizes="100vw"
+          loading="eager"
+          sizes="(min-width: 768px) 100vw, 1px"
           className="scale-[1.03] object-cover object-[50%_58%] opacity-[var(--hero-map-opacity)] blur-[var(--hero-map-blur)] saturate-[var(--hero-map-saturate)] brightness-[var(--hero-map-brightness)]"
         />
       </div>
@@ -158,7 +158,8 @@ export function Hero() {
               width={368}
               height={800}
               sizes="(max-width: 768px) 320px, 360px"
-              priority
+              loading="eager"
+              fetchPriority="high"
               className="block aspect-[9/19.5] w-full object-cover"
             />
           </div>
