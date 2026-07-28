@@ -3,9 +3,9 @@ import { SectionHeader } from "./SectionHeader";
 
 const features = [
   {
-    title: "A corrida desenha",
+    title: "Fecha o percurso",
     body:
-      "Cada metro desenha o teu perímetro. Fecha uma área válida, confirma a conquista e vê os teus m² aparecerem no mapa.",
+      "O GPS desenha o caminho. Quando fechas uma área válida, podes reclamá-la e vê-la no mapa.",
     icon: (
       <path
         d="M12 2a8 8 0 0 0-8 8c0 5.5 8 12 8 12s8-6.5 8-12a8 8 0 0 0-8-8Zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
@@ -14,9 +14,9 @@ const features = [
     ),
   },
   {
-    title: "Jogo no mundo real",
+    title: "Corridas validadas",
     body:
-      "Joga-se nas ruas onde já corres. As corridas passam por validações de GPS e velocidade para manter o mapa mais justo.",
+      "A Flowtr verifica o sinal GPS e a velocidade antes de uma corrida contar para o jogo.",
     icon: (
       <>
         <path
@@ -36,9 +36,9 @@ const features = [
     ),
   },
   {
-    title: "O mapa está vivo",
+    title: "Território disputado",
     body:
-      "Outros corredores podem conquistar partes do teu território. Expande, recupera e acompanha no Diário tudo o que mudou.",
+      "Outros corredores podem conquistar partes do que é teu. Podes expandir, recuperar e defender a tua área.",
     icon: (
       <path
         d="M5 4h14l-1 7a7 7 0 0 1-12 0L5 4Zm5 16h4v-3h-4v3Z"
@@ -47,9 +47,9 @@ const features = [
     ),
   },
   {
-    title: "Diário de guerra",
+    title: "Tudo no Diário",
     body:
-      "Conquistas, corridas, desafios e território perdido ficam reunidos num só lugar. Tens histórico, estatísticas e marcos para perseguir.",
+      "Corridas, conquistas, desafios e território perdido ficam reunidos no mesmo sítio.",
     icon: (
       <>
         <rect
@@ -72,9 +72,9 @@ const features = [
     ),
   },
   {
-    title: "Compete à tua maneira",
+    title: "Rankings e desafios",
     body:
-      "Sobe nos rankings globais, da tua cidade ou entre amigos. Cria duelos e desafios de grupo para transformar intenção em compromisso.",
+      "Compara resultados no mundo, na tua cidade ou entre amigos. Cria duelos e desafios de grupo.",
     icon: (
       <>
         <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" strokeWidth="2" />
@@ -85,9 +85,9 @@ const features = [
     ),
   },
   {
-    title: "Privacidade por escolha",
+    title: "Tu decides o que partilhas",
     body:
-      "Sem anúncios nem venda de dados. Analytics e diagnósticos são opcionais; os territórios são públicos no jogo e partilhas o percurso só quando escolhes.",
+      "Não há anúncios nem venda de dados. Os dados de utilização e diagnóstico são opcionais; só partilhas uma corrida quando escolhes fazê-lo.",
     icon: (
       <>
         <path
@@ -119,9 +119,9 @@ export function WhatIs() {
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeader
           eyebrow="O que é"
-          title="É um jogo em cima da tua corrida."
-          highlight="jogo"
-          description="Mais do que contar quilómetros, a Flowtr transforma movimento em território, competição e histórias que dão vontade de voltar amanhã."
+          title="A tua corrida muda o mapa."
+          highlight="muda o mapa"
+          description="Corres, fechas uma área e tentas mantê-la. O mapa é partilhado com os outros corredores."
         />
 
         <div className="mt-16 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">

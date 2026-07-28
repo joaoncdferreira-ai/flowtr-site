@@ -95,9 +95,8 @@ export function Hero() {
             className="anim-fade-up mt-6 max-w-xl text-lg leading-relaxed text-[color:var(--color-fg-muted)] md:text-xl"
             style={{ animationDelay: "220ms" }}
           >
-            Flowtr transforma cada corrida num jogo de território. Fecha um
-            percurso, conquista área real no mapa e disputa a tua cidade com
-            outros corredores.
+            Fecha um percurso, reclama a área no mapa e tenta mantê-la. Outros
+            corredores podem conquistar o que é teu.
           </p>
 
           <div
@@ -138,7 +137,7 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Right: phone mockup with looping onboarding video */}
+        {/* Right: current app screen */}
         <div
           className="anim-fade-up-rotate relative mx-auto w-full max-w-[360px]"
           style={{ animationDelay: "180ms" }}
@@ -152,23 +151,15 @@ export function Hero() {
                 "radial-gradient(closest-side, rgba(255,87,51,0.55), transparent 70%)",
             }}
           />
-          <div className="phone-frame">
-            <video
-              src="/videos/onboarding_01.mp4"
-              poster="/screenshots-clean/visao do territorio de hoje em 3d.jpg"
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              aria-hidden="true"
+          <div className="phone-frame phone-frame-screen">
+            <Image
+              src="/app-current/reclamar-territorio.jpg"
+              alt="Flowtr — revisão de uma corrida com uma área pronta a reclamar"
+              width={368}
+              height={800}
+              sizes="(max-width: 768px) 320px, 360px"
+              priority
               className="block aspect-[9/19.5] w-full object-cover"
-            />
-            {/* overlay para esconder a tira branca no fundo do video */}
-            <div 
-              className="pointer-events-none absolute" 
-              style={{ bottom: 8, left: 8, right: 8, height: 48, width: 'calc(100% - 16px)', background: 'linear-gradient(to top, #0a0a0d 40%, transparent)', borderRadius: '0 0 28px 28px', zIndex: 10 }}
-              aria-hidden="true"
             />
           </div>
           {/* floating badges */}
@@ -181,16 +172,6 @@ export function Hero() {
             <span className="font-display tracking-widest">CONQUISTADO</span>
             <span className="text-[color:var(--color-fg-muted)]">2 439 m²</span>
           </div>
-
-          <noscript>
-            <Image
-              src="/screenshots-clean/visao do territorio de hoje em 3d.jpg"
-              alt="Flowtr — território conquistado, vista 3D"
-              width={360}
-              height={780}
-              priority
-            />
-          </noscript>
         </div>
       </div>
 

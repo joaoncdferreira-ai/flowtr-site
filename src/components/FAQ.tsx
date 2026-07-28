@@ -34,10 +34,10 @@ export function FAQ() {
     <section id="faq" className="relative py-[var(--space-section)]">
       <div className="mx-auto max-w-5xl px-6">
         <SectionHeader
-          eyebrow="Sem dúvidas"
-          title="O essencial antes da primeira corrida."
-          highlight="primeira corrida"
-          description="GPS, privacidade, preço e lançamento — explicado sem letra pequena."
+          eyebrow="Perguntas frequentes"
+          title="O que convém saber antes de começares."
+          highlight="antes de começares"
+          description="Localização, privacidade, preço e lançamento."
         />
 
         <div className="mt-12 divide-y divide-white/[0.08] border-y border-white/[0.08]">

@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Reveal } from "./Reveal";
 import { SectionHeader } from "./SectionHeader";
 
-// Real Flowtr badges, sourced from the app (assets/badges/*_unlocked.svg).
+// Real Flowtr emblems, sourced from the app (assets/badges/*_unlocked.svg).
 // Copy taken from MilestoneService where available; remaining inferred
 // from the badge slug + game mechanics. SVGs are gold (#c6b558) line
 // icons — kept as-is to match the app exactly.
@@ -14,15 +14,14 @@ const badges = [
 ];
 
 const shots = [
-  { src: "/prints-site/helicopter view.jpg", alt: "Flowtr — vista aérea do mapa em 3D", caption: "Vista aérea" },
-  { src: "/prints-site/landscape.jpeg", alt: "Flowtr — mapa em formato horizontal", caption: "Mapa horizontal" },
-  { src: "/prints-site/landscape 2.jpeg", alt: "Flowtr — territórios no mapa em formato horizontal", caption: "Territórios" },
-  { src: "/prints-site/encra de conquista.jpeg", alt: "Flowtr — ecrã de conquista de território", caption: "Conquista" },
-  { src: "/prints-site/ecra de resumo da conquista.jpeg", alt: "Flowtr — resumo da conquista após uma corrida", caption: "Resumo da corrida" },
-  { src: "/prints-site/rankings.jpeg", alt: "Flowtr — tabela de rankings dos jogadores", caption: "Rankings" },
-  { src: "/prints-site/ecra de historico de corridas.jpeg", alt: "Flowtr — histórico de corridas do jogador", caption: "Histórico" },
-  { src: "/prints-site/ecra de profile.jpeg", alt: "Flowtr — página de perfil com estatísticas do jogador", caption: "Perfil" },
-  { src: "/prints-site/badges.jpeg", alt: "Flowtr — badges desbloqueados pelo jogador", caption: "Badges" },
+  { src: "/app-current/mapa-inicial.jpg", alt: "Flowtr — mapa atual antes de iniciar uma corrida", caption: "Mapa" },
+  { src: "/app-current/revisao-corrida.jpg", alt: "Flowtr — revisão de uma corrida terminada", caption: "Revisão" },
+  { src: "/app-current/reclamar-territorio.jpg", alt: "Flowtr — área fechada pronta a reclamar", caption: "Território" },
+  { src: "/app-current/opcoes-partilha.jpg", alt: "Flowtr — opções para partilhar uma corrida", caption: "Partilha" },
+  { src: "/app-current/video-a-renderizar.jpg", alt: "Flowtr — criação do vídeo de uma corrida", caption: "O teu filme" },
+  { src: "/app-current/video-3d-inicio.png", alt: "Flowtr — início de um vídeo de corrida em 3D", caption: "Vista 3D" },
+  { src: "/app-current/video-3d-percurso.png", alt: "Flowtr — percurso num vídeo de corrida em 3D", caption: "Percurso 3D" },
+  { src: "/app-current/video-resultado.png", alt: "Flowtr — resultado final de uma conquista pronto a partilhar", caption: "Resultado" },
 ];
 
 // Duplicate for seamless loop.
@@ -33,10 +32,10 @@ export function Gallery() {
     <section id="em-accao" className="relative py-[var(--space-section)] overflow-hidden">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeader
-          eyebrow="Vê em acção"
-          title="O mapa, com o teu nome em cima."
-          highlight="teu nome"
-          description="Ecrãs reais da app, captados no terreno. Do mapa 3D ao resumo da conquista, é isto que vais usar quando saíres para correr."
+          eyebrow="A aplicação"
+          title="A Flowtr, tal como está hoje."
+          highlight="tal como está"
+          description="Capturas recentes do mapa, da revisão da corrida e das opções de partilha."
         />
       </div>
 
@@ -57,14 +56,14 @@ export function Gallery() {
                 className="relative shrink-0"
                 style={{ width: 240 }}
               >
-                <div className="phone-frame">
+                <div className="phone-frame phone-frame-screen">
                   <Image
                     src={s.src}
                     alt={s.alt}
                     width={1080}
                     height={2340}
                     sizes="240px"
-                    className="object-cover"
+                    className="block aspect-[9/19.5] w-full object-cover"
                   />
                 </div>
                 <figcaption className="mt-3 px-2 text-[11px] uppercase tracking-[0.18em] text-[color:var(--color-fg-dim)]">
@@ -79,7 +78,7 @@ export function Gallery() {
       <Reveal delay={0.1} y={24}>
         <div className="mx-auto mt-20 max-w-7xl px-6">
           <p className="text-center text-[11px] uppercase tracking-[0.25em] text-[color:var(--color-fg-dim)]">
-            Conquistas que se ganham, não se compram
+            Emblemas desbloqueados a correr
           </p>
           <ul className="mt-8 flex flex-wrap justify-center gap-3 md:gap-4">
             {badges.map((b) => (

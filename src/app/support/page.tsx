@@ -18,17 +18,17 @@ const topics = [
   {
     title: "O território não foi conquistado",
     body:
-      "Uma conquista precisa de formar uma área válida e passar as verificações da corrida. Envia-nos a data, a distância aproximada e um screenshot do resumo para investigarmos.",
+      "Uma conquista precisa de formar uma área válida e passar as verificações da corrida. Envia-nos a data, a distância aproximada e uma captura do ecrã de resumo.",
   },
   {
-    title: "Conta, login ou dados",
+    title: "Conta, acesso ou dados",
     body:
       "Podemos ajudar com acesso à conta, correção de dados e pedidos de privacidade. Nunca te pediremos a palavra-passe nem códigos de autenticação.",
   },
   {
     title: "Abuso, denúncia ou segurança",
     body:
-      "Podes denunciar conteúdo e bloquear jogadores diretamente na app. Para uma situação urgente ou que não consigas resolver na app, contacta-nos por email.",
+      "Podes denunciar conteúdo e bloquear jogadores na própria app. Se não conseguires resolver a situação, contacta-nos por email.",
   },
 ];
 
@@ -47,14 +47,14 @@ export default function SupportPage() {
 
         <p className="font-display mt-10 text-sm text-coral">Suporte</p>
         <h1 className="font-display mt-3 text-3xl leading-tight sm:text-5xl">
-          Como podemos ajudar?
+          Precisas de ajuda?
         </h1>
         <p className="mt-5 max-w-2xl text-base leading-7 text-fg-muted sm:text-lg">
           Escreve para{" "}
           <a className="text-coral hover:underline" href="mailto:support@flowtr.app">
             support@flowtr.app
           </a>
-          . Respondemos normalmente em até dois dias úteis. Inclui apenas a
+          . Respondemos normalmente no prazo de dois dias úteis. Inclui apenas a
           informação necessária para percebermos o problema.
         </p>
 

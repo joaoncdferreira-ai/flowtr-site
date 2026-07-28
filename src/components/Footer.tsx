@@ -16,7 +16,7 @@ export function Footer() {
         <nav className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-[color:var(--color-fg-muted)]">
           <a href="#o-que-e" className="hover:text-white transition-colors">O que é</a>
           <a href="#como-joga" className="hover:text-white transition-colors">Como se joga</a>
-          <a href="#em-accao" className="hover:text-white transition-colors">Em acção</a>
+          <a href="#em-accao" className="hover:text-white transition-colors">Em ação</a>
           <a href="#faq" className="hover:text-white transition-colors">FAQ</a>
           <a href="/support" className="hover:text-white transition-colors">
             Suporte

@@ -14,36 +14,35 @@ type Step = {
 const steps: Step[] = [
   {
     n: "01",
-    title: "Abre o mapa",
+    title: "Parte do mapa",
     body:
-      "Vês a tua cidade em 3D, com os territórios já conquistados — pelos teus e pelos rivais. Carrega em INICIAR e o GPS arranca.",
+      "Antes de correres, vês a cidade e os territórios que já têm dono. Carrega em INICIAR para começar a registar o percurso.",
     media: {
       kind: "image",
-      src: "/prints-site/abre o mapa (1).jpg",
-      alt: "Flowtr — mapa em modo normal antes de iniciar a corrida",
+      src: "/app-current/mapa-inicial.jpg",
+      alt: "Flowtr — mapa atual antes de iniciar uma corrida",
     },
   },
   {
     n: "02",
-    title: "Fecha uma área",
+    title: "Fecha o percurso",
     body:
-      "Corre com o ecrã ligado ou bloqueado. A Flowtr regista o percurso e ajuda-te a perceber quando formaste uma área válida para conquistar.",
+      "Corre com o ecrã ligado ou bloqueado. O GPS desenha o caminho e a Flowtr avisa quando existe uma área que podes fechar.",
     media: {
       kind: "image",
-      src: "/prints-site/Adesenha o perimetro - circuito a meio.jpeg",
-      alt: "Flowtr — corrida ativa a desenhar o perímetro no mapa",
+      src: "/app-current/video-3d-inicio.png",
+      alt: "Flowtr — percurso visto no mapa 3D",
     },
   },
   {
     n: "03",
-    title: "Confirma e compete",
+    title: "Revê e reclama",
     body:
-      "Revê o resultado, reclama os m² e acompanha tudo no Diário. Compara-te nos rankings, desafia amigos e recupera área aos rivais.",
+      "No fim, revê a corrida e reclama o território. O resultado fica guardado no Diário e conta para os rankings e desafios.",
     media: {
-      kind: "video",
-      src: "/videos/onboarding_03.mp4",
-      poster: "/screenshots-clean/territorio conquistado pagina com badges e dados da corrida.png",
-      ariaLabel: "Flowtr — invasão de território rival",
+      kind: "image",
+      src: "/app-current/reclamar-territorio.jpg",
+      alt: "Flowtr — revisão de uma corrida com território pronto a reclamar",
     },
   },
 ];
@@ -66,9 +65,9 @@ export function HowItWorks() {
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeader
           eyebrow="Como se joga"
-          title="Três passos. Uma nova razão para correr."
-          highlight="Três"
-          description="A app explica o necessário. Tu escolhes o caminho, fechas a área e decides o que queres conquistar a seguir."
+          title="Do mapa ao território em três passos."
+          highlight="três passos"
+          description="Escolhes o caminho. A Flowtr regista a corrida, confirma a área e atualiza o mapa."
         />
 
         <div className="mt-20 flex flex-col gap-24 md:gap-32">
@@ -89,7 +88,7 @@ export function HowItWorks() {
                         "radial-gradient(closest-side, rgba(255,87,51,0.4), transparent 70%)",
                     }}
                   />
-                  <div className="phone-frame">
+                  <div className="phone-frame phone-frame-screen">
                     {step.media.kind === "image" ? (
                       <Image
                         src={step.media.src}
@@ -97,7 +96,7 @@ export function HowItWorks() {
                         width={1100}
                         height={2200}
                         sizes="(max-width: 768px) 280px, 320px"
-                        className="object-cover"
+                        className="block aspect-[9/19.5] w-full object-cover"
                       />
                     ) : (
                       <video

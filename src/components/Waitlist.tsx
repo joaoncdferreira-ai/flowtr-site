@@ -47,12 +47,11 @@ export function Waitlist() {
           </div>
 
           <h2 className="font-display text-balance text-4xl leading-[1.05] text-white md:text-6xl">
-            Sê dos <span className="coral-glow">primeiros</span> a dominar.
+            Queres saber <span className="coral-glow">quando sair?</span>
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-pretty text-[color:var(--color-fg-muted)] md:text-lg">
-            Estamos a preparar primeiro a App Store e depois a Google Play.
-            Deixa o email e avisamos-te quando a Flowtr estiver disponível no
-            teu telemóvel.
+            A versão para iPhone sai primeiro; a de Android vem depois. Deixa o
+            email e avisamos-te quando a Flowtr estiver disponível.
           </p>
 
           {status === "success" ? (
@@ -71,7 +70,7 @@ export function Waitlist() {
                   strokeLinejoin="round"
                 />
               </svg>
-              Está feito. Avisamos-te no lançamento.
+              Está feito. Avisamos-te quando sair.
             </p>
           ) : (
             <form
@@ -107,7 +106,7 @@ export function Waitlist() {
                 disabled={status === "submitting"}
                 className="btn btn-primary !h-14"
               >
-                {status === "submitting" ? "A enviar…" : "Avisem-me"}
+                {status === "submitting" ? "A enviar…" : "Avisa-me"}
               </button>
             </form>
           )}
@@ -122,7 +121,7 @@ export function Waitlist() {
           ) : null}
 
           <p className="mt-6 text-xs text-[color:var(--color-fg-dim)]">
-            Apenas novidades essenciais sobre o lançamento. Sem publicidade.
+            Apenas informação sobre o lançamento. Sem publicidade.
           </p>
         </div>
       </div>

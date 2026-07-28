@@ -115,7 +115,7 @@ export default function PrivacyPage() {
               <strong className="text-fg">Localização precisa (GPS)</strong> —
               recolhida <strong className="text-fg">durante corridas, com a app em
               uso</strong> (no Android através de um serviço em primeiro plano
-              com notificação visível). Não recolhemos localização em background
+              com notificação visível). Não recolhemos localização em segundo plano
               fora de corridas.
             </li>
             <li>

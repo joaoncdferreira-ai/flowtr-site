@@ -64,16 +64,16 @@ The waitlist API at [src/app/api/waitlist/route.ts](src/app/api/waitlist/route.t
 
 To send the launch announcement later, pull the audience from Resend and use the Broadcasts feature.
 
-## Privacy
+## Product visuals
 
-The screenshots used on the site are sanitised by [scripts/sanitize-screenshots.mjs](scripts/sanitize-screenshots.mjs):
+The landing page uses the current product captures in `public/app-current`.
+That folder also serves as the reference set for the store-listing work.
 
-- Top-right HUD avatar → procedural Flowtr `avatar_0.png` over a soft dark blackout (covers the square photo region used by the in-app HUD)
-- Profile-page heraldic photo → same procedural avatar
-- Profile-page email row → coral "EMAIL OCULTO" pill
+The older captures remain in `public/prints-site` and
+`public/screenshots-clean`, but are no longer rendered on the site. Do not use
+them in store submissions without checking that the interface still matches
+the release build.
 
-Re-run after replacing source screenshots:
-
-```bash
-node scripts/sanitize-screenshots.mjs
-```
+See [docs/store-submission-assets.md](docs/store-submission-assets.md) for the
+asset inventory and the recapture requirements for App Store Connect and
+Google Play.

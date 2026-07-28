@@ -3,19 +3,19 @@ import { SectionHeader } from "./SectionHeader";
 
 const items = [
   {
-    title: "Sinal GPS filtrado",
+    title: "Sinal GPS",
     body:
-      "O percurso é filtrado no telemóvel e validado antes de virar território. Menos ruído, menos saltos de posição e mais justiça no mapa.",
+      "A Flowtr reduz o ruído e os saltos de posição antes de guardar o percurso.",
   },
   {
-    title: "Geometria computacional",
+    title: "Área válida",
     body:
-      "Loops, auto-intersecções, áreas e sobreposições são tratados como polígonos reais, com regras próprias de conquista.",
+      "O percurso tem de fechar uma área e cumprir as regras de distância, forma e sobreposição.",
   },
   {
-    title: "Motor geoespacial 3D",
+    title: "Validação no servidor",
     body:
-      "Mapa 3D, territórios extrudidos, bandeiras e rivais juntam-se numa camada visual feita para competição no mundo real.",
+      "Velocidades impossíveis, saltos de localização e outros sinais de manipulação podem invalidar a corrida.",
   },
 ];
 
@@ -24,10 +24,10 @@ export function Technology() {
     <section id="tecnologia" className="relative py-[var(--space-section)]">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeader
-          eyebrow="Tecnologia"
-          title="Tecnologia que desaparece durante a corrida."
-          highlight="Tecnologia"
-          description="Por baixo do jogo há filtragem GPS, geometria computacional, mapas 3D e regras anti-abuso. À superfície, só tens de correr."
+          eyebrow="Antes de contar"
+          title="Cada conquista passa por verificações."
+          highlight="verificações"
+          description="A Flowtr confirma o percurso e a área antes de atualizar o mapa."
         />
 
         <div className="mt-14 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">

@@ -30,12 +30,12 @@ export function Nav() {
       <nav className="hidden md:flex items-center gap-8 font-medium text-sm text-[color:var(--color-fg-muted)]">
         <a href="#o-que-e" className="hover:text-white transition-colors">O que é</a>
         <a href="#como-joga" className="hover:text-white transition-colors">Como se joga</a>
-        <a href="#em-accao" className="hover:text-white transition-colors">Em acção</a>
+        <a href="#em-accao" className="hover:text-white transition-colors">Em ação</a>
         <a href="#faq" className="hover:text-white transition-colors">FAQ</a>
       </nav>
 
       <a href="#waitlist" className="btn btn-primary !h-11 !px-4 !text-[12px] sm:!px-5 sm:!text-[13px]">
-        Avise-me
+        Avisa-me
       </a>
     </header>
   );

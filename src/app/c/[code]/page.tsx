@@ -38,7 +38,7 @@ export default async function ChallengePage({ params }: ChallengePageProps) {
   const stores = (
     [
       APP_STORE_URL
-        ? { label: "Baixar na App Store", href: APP_STORE_URL, lead: isIOS || !isAndroid }
+        ? { label: "Descarregar na App Store", href: APP_STORE_URL, lead: isIOS || !isAndroid }
         : null,
       PLAY_STORE_URL
         ? { label: "Descarregar no Google Play", href: PLAY_STORE_URL, lead: isAndroid }
@@ -95,7 +95,7 @@ export default async function ChallengePage({ params }: ChallengePageProps) {
               Este link de desafio está incompleto ou é inválido.
             </p>
             <Link className="btn btn-primary mt-8" href="/">
-              Ir para Flowtr
+              Ir para a Flowtr
             </Link>
           </>
         )}
