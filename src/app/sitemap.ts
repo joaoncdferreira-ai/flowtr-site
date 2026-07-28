@@ -4,41 +4,31 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://flowtr.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
-  return [
+  const routes = [
+    { suffix: "", changeFrequency: "weekly" as const, priority: 1 },
+    { suffix: "/terms", changeFrequency: "yearly" as const, priority: 0.6 },
+    { suffix: "/privacy", changeFrequency: "yearly" as const, priority: 0.6 },
     {
-      url: SITE_URL,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 1,
-      alternates: { languages: { "pt-PT": SITE_URL } },
-    },
-    {
-      url: `${SITE_URL}/terms`,
-      lastModified: now,
-      changeFrequency: "yearly",
+      suffix: "/delete-account",
+      changeFrequency: "yearly" as const,
       priority: 0.6,
-      alternates: { languages: { "pt-PT": `${SITE_URL}/terms` } },
     },
-    {
-      url: `${SITE_URL}/privacy`,
-      lastModified: now,
-      changeFrequency: "yearly",
-      priority: 0.6,
-      alternates: { languages: { "pt-PT": `${SITE_URL}/privacy` } },
-    },
-    {
-      url: `${SITE_URL}/delete-account`,
-      lastModified: now,
-      changeFrequency: "yearly",
-      priority: 0.6,
-      alternates: { languages: { "pt-PT": `${SITE_URL}/delete-account` } },
-    },
-    {
-      url: `${SITE_URL}/support`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
-      alternates: { languages: { "pt-PT": `${SITE_URL}/support` } },
-    },
+    { suffix: "/support", changeFrequency: "monthly" as const, priority: 0.8 },
   ];
+
+  return routes.flatMap(({ suffix, changeFrequency, priority }) => {
+    const paths = {
+      "pt-PT": `${SITE_URL}${suffix}`,
+      en: `${SITE_URL}/en${suffix}`,
+      es: `${SITE_URL}/es${suffix}`,
+    };
+
+    return Object.values(paths).map((url) => ({
+      url,
+      lastModified: now,
+      changeFrequency,
+      priority,
+      alternates: { languages: paths },
+    }));
+  });
 }

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Reveal } from "./Reveal";
 import { SectionHeader } from "./SectionHeader";
+import type { SiteCopy } from "@/lib/site-i18n";
 
 type Step = {
   n: string;
@@ -11,43 +12,36 @@ type Step = {
     | { kind: "video"; src: string; poster: string; ariaLabel: string };
 };
 
-const steps: Step[] = [
+// The three films the app itself plays at onboarding (assets/videos/*.mp4),
+// in the order that tells the story: run → claim → compete.
+const stepMedia: Step["media"][] = [
   {
-    n: "01",
-    title: "Parte do mapa",
-    body:
-      "Antes de correres, vês a cidade e os territórios que já têm dono. Carrega em INICIAR para começar a registar o percurso.",
-    media: {
-      kind: "image",
-      src: "/app-current/mapa-inicial.jpg",
-      alt: "Flowtr — mapa atual antes de iniciar uma corrida",
-    },
+    kind: "video",
+    src: "/videos/onboarding_01.mp4",
+    poster: "/videos/onboarding_01_poster.jpg",
+    ariaLabel: "",
   },
   {
-    n: "02",
-    title: "Fecha o percurso",
-    body:
-      "Corre com o ecrã ligado ou bloqueado. O GPS desenha o caminho e a Flowtr avisa quando existe uma área que podes fechar.",
-    media: {
-      kind: "image",
-      src: "/app-current/video-3d-inicio.png",
-      alt: "Flowtr — percurso visto no mapa 3D",
-    },
+    kind: "video",
+    src: "/videos/onboarding_03.mp4",
+    poster: "/videos/onboarding_03_poster.jpg",
+    ariaLabel: "",
   },
   {
-    n: "03",
-    title: "Revê e reclama",
-    body:
-      "No fim, revê a corrida e reclama o território. O resultado fica guardado no Diário e conta para os rankings e desafios.",
-    media: {
-      kind: "image",
-      src: "/app-current/reclamar-territorio.jpg",
-      alt: "Flowtr — revisão de uma corrida com território pronto a reclamar",
-    },
+    kind: "video",
+    src: "/videos/onboarding_02.mp4",
+    poster: "/videos/onboarding_02_poster.jpg",
+    ariaLabel: "",
   },
 ];
 
-export function HowItWorks() {
+export function HowItWorks({ copy }: { copy: SiteCopy["how"] }) {
+  const steps: Step[] = copy.steps.map((step, index) => ({
+    n: String(index + 1).padStart(2, "0"),
+    title: step.title,
+    body: step.body,
+    media: { ...stepMedia[index], ariaLabel: step.aria },
+  }));
   return (
     <section
       id="como-joga"
@@ -64,10 +58,10 @@ export function HowItWorks() {
 
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeader
-          eyebrow="Como se joga"
-          title="Do mapa ao território em três passos."
-          highlight="três passos"
-          description="Escolhes o caminho. A Flowtr regista a corrida, confirma a área e atualiza o mapa."
+          eyebrow={copy.eyebrow}
+          title={copy.title}
+          highlight={copy.highlight}
+          description={copy.description}
         />
 
         <div className="mt-20 flex flex-col gap-24 md:gap-32">
@@ -79,7 +73,14 @@ export function HowItWorks() {
                   i % 2 === 1 ? "md:[&>div:first-child]:order-2" : "",
                 ].join(" ")}
               >
-                <div className="relative mx-auto w-full max-w-[320px]">
+                <div
+                  className={[
+                    "relative mx-auto w-full",
+                    step.media.kind === "video"
+                      ? "max-w-[360px]"
+                      : "max-w-[320px]",
+                  ].join(" ")}
+                >
                   <div
                     aria-hidden
                     className="absolute -inset-8 -z-10 rounded-full opacity-40 blur-3xl"
@@ -88,8 +89,8 @@ export function HowItWorks() {
                         "radial-gradient(closest-side, rgba(255,87,51,0.4), transparent 70%)",
                     }}
                   />
-                  <div className="phone-frame phone-frame-screen">
-                    {step.media.kind === "image" ? (
+                  {step.media.kind === "image" ? (
+                    <div className="phone-frame phone-frame-screen">
                       <Image
                         src={step.media.src}
                         alt={step.media.alt}
@@ -98,7 +99,9 @@ export function HowItWorks() {
                         sizes="(max-width: 768px) 280px, 320px"
                         className="block aspect-[9/19.5] w-full object-cover"
                       />
-                    ) : (
+                    </div>
+                  ) : (
+                    <div className="cinema-frame">
                       <video
                         src={step.media.src}
                         poster={step.media.poster}
@@ -106,12 +109,11 @@ export function HowItWorks() {
                         muted
                         loop
                         playsInline
-                        preload="metadata"
+                        preload="none"
                         aria-label={step.media.ariaLabel}
-                        className="block aspect-[9/19.5] w-full object-cover"
                       />
-                    )}
-                  </div>
+                    </div>
+                  )}
                 </div>
 
                 <div>

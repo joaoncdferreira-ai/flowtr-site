@@ -1,8 +1,9 @@
 import Image from "next/image";
 import type { CSSProperties } from "react";
+import type { SiteCopy } from "@/lib/site-i18n";
 
 
-export function Hero() {
+export function Hero({ copy }: { copy: SiteCopy["hero"] }) {
   return (
     <section
       id="top"
@@ -79,24 +80,23 @@ export function Hero() {
             style={{ animationDelay: "0ms" }}
           >
             <span className="size-1.5 rounded-full bg-[color:var(--color-coral-500)] shadow-[0_0_10px_rgba(255,87,51,0.8)]" />
-            A caminho da App Store
+            {copy.eyebrow}
           </div>
 
           <h1
             className="anim-fade-up font-display text-[clamp(2.6rem,7vw,5.6rem)] leading-[0.95] tracking-tight text-white"
             style={{ animationDelay: "80ms" }}
           >
-            <span className="block">Corre.</span>
-            <span className="block">Conquista.</span>
-            <span className="block coral-glow">Domina.</span>
+            <span className="block">{copy.headline[0]}</span>
+            <span className="block">{copy.headline[1]}</span>
+            <span className="block coral-glow">{copy.headline[2]}</span>
           </h1>
 
           <p
             className="anim-fade-up mt-6 max-w-xl text-lg leading-relaxed text-[color:var(--color-fg-muted)] md:text-xl"
             style={{ animationDelay: "220ms" }}
           >
-            Fecha um percurso, reclama a área no mapa e tenta mantê-la. Outros
-            corredores podem conquistar o que é teu.
+            {copy.body}
           </p>
 
           <div
@@ -104,7 +104,7 @@ export function Hero() {
             style={{ animationDelay: "360ms" }}
           >
             <a href="#waitlist" className="btn btn-primary">
-              Avisa-me no lançamento
+              {copy.primary}
               <svg viewBox="0 0 24 24" className="size-4" aria-hidden>
                 <path
                   fill="currentColor"
@@ -113,7 +113,7 @@ export function Hero() {
               </svg>
             </a>
             <a href="#como-joga" className="btn btn-ghost">
-              Como funciona
+              {copy.secondary}
             </a>
           </div>
 
@@ -122,22 +122,22 @@ export function Hero() {
             style={{ animationDelay: "560ms" }}
           >
             <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs uppercase tracking-[0.18em] text-[color:var(--color-fg-dim)]">
-              <span>iPhone primeiro</span>
+              <span>{copy.status[0]}</span>
               <span
                 aria-hidden
                 className="size-1 rounded-full bg-[color:var(--color-coral-500)]"
               />
-              <span>Android a seguir</span>
+              <span>{copy.status[1]}</span>
               <span
                 aria-hidden
                 className="size-1 rounded-full bg-[color:var(--color-coral-500)]"
               />
-              <span>Grátis · sem anúncios</span>
+              <span>{copy.status[2]}</span>
             </div>
           </div>
         </div>
 
-        {/* Right: current app screen */}
+        {/* Right: the same film used in the app onboarding */}
         <div
           className="anim-fade-up-rotate relative mx-auto w-full max-w-[360px]"
           style={{ animationDelay: "180ms" }}
@@ -151,16 +151,16 @@ export function Hero() {
                 "radial-gradient(closest-side, rgba(255,87,51,0.55), transparent 70%)",
             }}
           />
-          <div className="phone-frame phone-frame-screen">
-            <Image
-              src="/app-current/reclamar-territorio.jpg"
-              alt="Flowtr — revisão de uma corrida com uma área pronta a reclamar"
-              width={368}
-              height={800}
-              sizes="(max-width: 768px) 320px, 360px"
-              loading="eager"
-              fetchPriority="high"
-              className="block aspect-[9/19.5] w-full object-cover"
+          <div className="cinema-frame">
+            <video
+              src="/videos/onboarding_01.mp4"
+              poster="/videos/onboarding_01_poster.jpg"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              aria-label={copy.videoLabel}
             />
           </div>
           {/* floating badges */}
@@ -170,7 +170,7 @@ export function Hero() {
             style={{ animationDelay: "800ms" }}
           >
             <span className="size-2 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(74,222,128,0.7)]" />
-            <span className="font-display tracking-widest">CONQUISTADO</span>
+            <span className="font-display tracking-widest">{copy.conquered}</span>
             <span className="text-[color:var(--color-fg-muted)]">2 439 m²</span>
           </div>
         </div>

@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
 export const metadata: Metadata = {
   title: "Termos de Utilização",
   description:
     "As regras de utilização da Flowtr — o jogo em que corres na vida real para conquistar território.",
-  alternates: { canonical: "/terms" },
+  alternates: {
+    canonical: "/terms",
+    languages: { "pt-PT": "/terms", en: "/en/terms", es: "/es/terms" },
+  },
 };
 
 // Última revisão material dos termos. Atualizar a cada alteração de conteúdo.
@@ -24,7 +29,10 @@ export default function TermsPage() {
   return (
     <main id="main-content" className="flex flex-1 items-center px-4 py-14 sm:px-6">
       <article className="surface mx-auto w-full max-w-3xl p-7 sm:p-10">
-        <p className="font-display text-sm text-coral">Flowtr</p>
+        <div className="flex items-center justify-between gap-4">
+          <p className="font-display text-sm text-coral">Flowtr</p>
+          <LanguageSwitcher locale="pt" suffix="/terms" />
+        </div>
         <h1 className="font-display mt-3 text-3xl leading-tight sm:text-5xl">
           Termos de Utilização
         </h1>
@@ -57,9 +65,9 @@ export default function TermsPage() {
             Uma conta por pessoa, com dados verdadeiros. És responsável pelo
             que acontece na tua conta e por manteres o acesso a ela seguro.
             Podes eliminá-la a qualquer momento nas Definições da app ou em{" "}
-            <a className="text-coral hover:underline" href="/delete-account">
+            <Link className="text-coral hover:underline" href="/delete-account">
               flowtr.app/delete-account
-            </a>
+            </Link>
             .
           </p>
         </Section>
@@ -138,9 +146,9 @@ export default function TermsPage() {
             O tratamento de dados pessoais — incluindo localização GPS,
             percursos e o que é visível para outros jogadores — está descrito
             na{" "}
-            <a className="text-coral hover:underline" href="/privacy">
+            <Link className="text-coral hover:underline" href="/privacy">
               Política de Privacidade
-            </a>
+            </Link>
             .
           </p>
         </Section>
@@ -213,9 +221,9 @@ export default function TermsPage() {
               per person, with accurate details. You are responsible for
               activity on your account. You can delete it at any time in the
               app&apos;s Settings or at{" "}
-              <a className="text-coral hover:underline" href="/delete-account">
+              <Link className="text-coral hover:underline" href="/delete-account">
                 flowtr.app/delete-account
-              </a>
+              </Link>
               .
             </p>
             <p>
@@ -260,9 +268,9 @@ export default function TermsPage() {
               <strong className="text-fg">7. Privacy.</strong> How we handle
               personal data — including GPS location, routes, and what other
               players can see — is described in the{" "}
-              <a className="text-coral hover:underline" href="/privacy">
+              <Link className="text-coral hover:underline" href="/privacy">
                 Privacy Policy
-              </a>
+              </Link>
               .
             </p>
             <p>

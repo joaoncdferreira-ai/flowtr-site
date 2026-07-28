@@ -1,24 +1,18 @@
 import { Reveal } from "./Reveal";
 import { SectionHeader } from "./SectionHeader";
+import type { SiteCopy } from "@/lib/site-i18n";
 
-const features = [
-  {
-    title: "Fecha o percurso",
-    body:
-      "O GPS desenha o caminho. Quando fechas uma área válida, podes reclamá-la e vê-la no mapa.",
-    icon: (
+const featureIcons = [
+  (
+    <g key="route">
       <path
         d="M12 2a8 8 0 0 0-8 8c0 5.5 8 12 8 12s8-6.5 8-12a8 8 0 0 0-8-8Zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
         fill="currentColor"
       />
+    </g>
     ),
-  },
-  {
-    title: "Corridas validadas",
-    body:
-      "A Flowtr verifica o sinal GPS e a velocidade antes de uma corrida contar para o jogo.",
-    icon: (
-      <>
+  (
+      <g key="validation">
         <path
           d="M3 12c0-4.97 4.03-9 9-9s9 4.03 9 9-4.03 9-9 9-9-4.03-9-9Z"
           fill="none"
@@ -32,26 +26,18 @@ const features = [
           strokeWidth="2"
           strokeLinecap="round"
         />
-      </>
+      </g>
     ),
-  },
-  {
-    title: "Território disputado",
-    body:
-      "Outros corredores podem conquistar partes do que é teu. Podes expandir, recuperar e defender a tua área.",
-    icon: (
+  (
+    <g key="territory">
       <path
         d="M5 4h14l-1 7a7 7 0 0 1-12 0L5 4Zm5 16h4v-3h-4v3Z"
         fill="currentColor"
       />
+    </g>
     ),
-  },
-  {
-    title: "Tudo no Diário",
-    body:
-      "Corridas, conquistas, desafios e território perdido ficam reunidos no mesmo sítio.",
-    icon: (
-      <>
+  (
+      <g key="diary">
         <rect
           x="4"
           y="3"
@@ -68,28 +54,18 @@ const features = [
           strokeWidth="2"
           strokeLinecap="round"
         />
-      </>
+      </g>
     ),
-  },
-  {
-    title: "Rankings e desafios",
-    body:
-      "Compara resultados no mundo, na tua cidade ou entre amigos. Cria duelos e desafios de grupo.",
-    icon: (
-      <>
+  (
+      <g key="rankings">
         <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" strokeWidth="2" />
         <circle cx="9" cy="10" r="1.5" fill="currentColor" />
         <circle cx="15" cy="10" r="1.5" fill="currentColor" />
         <circle cx="12" cy="15" r="1.5" fill="currentColor" />
-      </>
+      </g>
     ),
-  },
-  {
-    title: "Tu decides o que partilhas",
-    body:
-      "Não há anúncios nem venda de dados. Os dados de utilização e diagnóstico são opcionais; só partilhas uma corrida quando escolhes fazê-lo.",
-    icon: (
-      <>
+  (
+      <g key="privacy">
         <path
           d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5l-8-3Z"
           fill="none"
@@ -105,12 +81,11 @@ const features = [
           strokeLinejoin="round"
           fill="none"
         />
-      </>
+      </g>
     ),
-  },
 ];
 
-export function WhatIs() {
+export function WhatIs({ copy }: { copy: SiteCopy["what"] }) {
   return (
     <section
       id="o-que-e"
@@ -118,14 +93,14 @@ export function WhatIs() {
     >
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeader
-          eyebrow="O que é"
-          title="A tua corrida muda o mapa."
-          highlight="muda o mapa"
-          description="Corres, fechas uma área e tentas mantê-la. O mapa é partilhado com os outros corredores."
+          eyebrow={copy.eyebrow}
+          title={copy.title}
+          highlight={copy.highlight}
+          description={copy.description}
         />
 
         <div className="mt-16 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
-          {features.map((f, i) => (
+          {copy.features.map((f, i) => (
             <Reveal key={f.title} delay={i * 0.05} y={28}>
               <article className="surface group relative h-full overflow-hidden p-7 transition-colors hover:border-[color:var(--color-coral-500)]/40">
                 <div
@@ -135,7 +110,7 @@ export function WhatIs() {
                 <div className="relative flex items-center gap-3 text-[color:var(--color-coral-400)]">
                   <span className="grid size-10 place-items-center rounded-xl border border-[color:var(--color-coral-500)]/30 bg-[color:var(--color-coral-500)]/10">
                     <svg viewBox="0 0 24 24" className="size-5" aria-hidden>
-                      {f.icon}
+                      {featureIcons[i]}
                     </svg>
                   </span>
                 </div>

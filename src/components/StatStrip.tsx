@@ -1,19 +1,7 @@
 import { Reveal } from "./Reveal";
 
-const items = [
-  "GPS APENAS DURANTE A CORRIDA · SEM ANÚNCIOS",
-  "APP STORE PRIMEIRO · GOOGLE PLAY A SEGUIR",
-  "O TERRITÓRIO É TEU ATÉ OUTRO CORREDOR O CONQUISTAR",
-  "FEITO EM LISBOA · 38.7223°N 9.1393°W",
-];
-
-// Duplicate the items for a seamless infinite-scroll loop. The .track
-// keyframe in globals.css translates the row by -50% over 60s, which means
-// when the second copy reaches the original starting position the first
-// copy has just finished — no visible seam.
-const ticker = [...items, ...items];
-
-export function StatStrip() {
+export function StatStrip({ items }: { items: readonly string[] }) {
+  const ticker = [...items, ...items];
   return (
     <section className="relative border-y border-[color:var(--color-border)] bg-[color:var(--color-ink-900)]/60 backdrop-blur">
       <Reveal>

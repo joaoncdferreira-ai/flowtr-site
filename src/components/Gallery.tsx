@@ -1,41 +1,42 @@
 import Image from "next/image";
 import { Reveal } from "./Reveal";
 import { SectionHeader } from "./SectionHeader";
+import type { SiteCopy } from "@/lib/site-i18n";
 
 // Real Flowtr emblems, sourced from the app (assets/badges/*_unlocked.svg).
 // Copy taken from MilestoneService where available; remaining inferred
 // from the badge slug + game mechanics. SVGs are gold (#c6b558) line
 // icons — kept as-is to match the app exactly.
-const badges = [
-  { slug: "primeiro_passo", name: "Primeiro passo", desc: "O teu primeiro território conquistado." },
-  { slug: "maratonista", name: "Maratonista", desc: "42.2 km numa única corrida." },
-  { slug: "em_chamas", name: "Em chamas", desc: "7 dias de corridas seguidas." },
-  { slug: "elite", name: "Elite", desc: "Entraste no Top 10 da tua cidade." },
+const badgeSlugs = [
+  "primeiro_passo",
+  "maratonista",
+  "em_chamas",
+  "elite",
 ];
 
-const shots = [
-  { src: "/app-current/mapa-inicial.jpg", alt: "Flowtr — mapa atual antes de iniciar uma corrida", caption: "Mapa" },
-  { src: "/app-current/revisao-corrida.jpg", alt: "Flowtr — revisão de uma corrida terminada", caption: "Revisão" },
-  { src: "/app-current/reclamar-territorio.jpg", alt: "Flowtr — área fechada pronta a reclamar", caption: "Território" },
-  { src: "/app-current/opcoes-partilha.jpg", alt: "Flowtr — opções para partilhar uma corrida", caption: "Partilha" },
-  { src: "/app-current/video-a-renderizar.jpg", alt: "Flowtr — criação do vídeo de uma corrida", caption: "O teu filme" },
-  { src: "/app-current/video-3d-inicio.png", alt: "Flowtr — início de um vídeo de corrida em 3D", caption: "Vista 3D" },
-  { src: "/app-current/video-3d-percurso.png", alt: "Flowtr — percurso num vídeo de corrida em 3D", caption: "Percurso 3D" },
-  { src: "/app-current/video-resultado.png", alt: "Flowtr — resultado final de uma conquista pronto a partilhar", caption: "Resultado" },
+const shotSources = [
+  "/app-marketing/mapa-3d.png",
+  "/app-marketing/revisao-corrida.png",
+  "/app-marketing/diario.png",
+  "/app-marketing/rankings.png",
+  "/app-marketing/desafios.png",
+  "/app-current/video-resultado.png",
 ];
 
-// Duplicate for seamless loop.
-const track = [...shots, ...shots];
-
-export function Gallery() {
+export function Gallery({ copy }: { copy: SiteCopy["gallery"] }) {
+  const shots = copy.shots.map((shot, index) => ({
+    ...shot,
+    src: shotSources[index],
+  }));
+  const track = [...shots, ...shots];
   return (
     <section id="em-accao" className="relative py-[var(--space-section)] overflow-hidden">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeader
-          eyebrow="A aplicação"
-          title="A Flowtr, tal como está hoje."
-          highlight="tal como está"
-          description="Capturas recentes do mapa, da revisão da corrida e das opções de partilha."
+          eyebrow={copy.eyebrow}
+          title={copy.title}
+          highlight={copy.highlight}
+          description={copy.description}
         />
       </div>
 
@@ -78,16 +79,16 @@ export function Gallery() {
       <Reveal delay={0.1} y={24}>
         <div className="mx-auto mt-20 max-w-7xl px-6">
           <p className="text-center text-[11px] uppercase tracking-[0.25em] text-[color:var(--color-fg-dim)]">
-            Emblemas desbloqueados a correr
+            {copy.badgeIntro}
           </p>
           <ul className="mt-8 flex flex-wrap justify-center gap-3 md:gap-4">
-            {badges.map((b) => (
+            {copy.badges.map((b, index) => (
               <li
-                key={b.slug}
+                key={badgeSlugs[index]}
                 className="flex w-[160px] flex-col items-center gap-2 rounded-xl border border-[color:var(--color-coral-500)]/20 bg-[color:var(--color-ink-800)]/80 px-4 py-4 text-center md:w-[180px]"
               >
                 <Image
-                  src={`/badges/badge_${b.slug}_unlocked.svg`}
+                  src={`/badges/badge_${badgeSlugs[index]}_unlocked.svg`}
                   alt=""
                   width={44}
                   height={44}

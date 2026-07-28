@@ -1,10 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import type { SiteCopy } from "@/lib/site-i18n";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
-export function Waitlist() {
+export function Waitlist({ copy }: { copy: SiteCopy["waitlist"] }) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<Status>("idle");
 
@@ -43,15 +44,14 @@ export function Waitlist() {
           />
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[color:var(--color-border-strong)] bg-[color:var(--color-ink-800)]/80 px-3 py-1 text-[11px] uppercase tracking-[0.25em] text-[color:var(--color-fg-muted)]">
             <span className="size-1 rounded-full bg-[color:var(--color-coral-500)]" />
-            Lançamento nas lojas
+            {copy.eyebrow}
           </div>
 
           <h2 className="font-display text-balance text-4xl leading-[1.05] text-white md:text-6xl">
-            Queres saber <span className="coral-glow">quando sair?</span>
+            {copy.title} <span className="coral-glow">{copy.highlight}</span>
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-pretty text-[color:var(--color-fg-muted)] md:text-lg">
-            A versão para iPhone sai primeiro; a de Android vem depois. Deixa o
-            email e avisamos-te quando a Flowtr estiver disponível.
+            {copy.description}
           </p>
 
           {status === "success" ? (
@@ -70,7 +70,7 @@ export function Waitlist() {
                   strokeLinejoin="round"
                 />
               </svg>
-              Está feito. Avisamos-te quando sair.
+              {copy.success}
             </p>
           ) : (
             <form
@@ -78,13 +78,14 @@ export function Waitlist() {
               className="mx-auto mt-10 flex max-w-md flex-col gap-3 sm:flex-row"
             >
               <label htmlFor="email" className="sr-only">
-                Email
+                {copy.emailLabel}
               </label>
               <label className="absolute -left-[9999px]" aria-hidden="true">
-                Website
+                {copy.websiteLabel}
                 <input
                   type="text"
                   name="website"
+                  aria-hidden="true"
                   tabIndex={-1}
                   autoComplete="off"
                 />
@@ -95,7 +96,7 @@ export function Waitlist() {
                 required
                 inputMode="email"
                 autoComplete="email"
-                placeholder="o-teu-email@dominio.pt"
+                placeholder={copy.placeholder}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 disabled={status === "submitting"}
@@ -106,7 +107,7 @@ export function Waitlist() {
                 disabled={status === "submitting"}
                 className="btn btn-primary !h-14"
               >
-                {status === "submitting" ? "A enviar…" : "Avisa-me"}
+                {status === "submitting" ? copy.sending : copy.submit}
               </button>
             </form>
           )}
@@ -116,12 +117,12 @@ export function Waitlist() {
               className="mt-3 text-sm text-[color:var(--color-coral-400)]"
               role="alert"
             >
-              Algo correu mal. Tenta de novo em alguns segundos.
+              {copy.error}
             </p>
           ) : null}
 
           <p className="mt-6 text-xs text-[color:var(--color-fg-dim)]">
-            Apenas informação sobre o lançamento. Sem publicidade.
+            {copy.note}
           </p>
         </div>
       </div>

@@ -222,6 +222,38 @@ body {
   object-fit: cover;
 }
 
+/* ---------- Cinema card ----------
+ * For the in-app onboarding films (native 9:16). No phone chrome — they are
+ * full-bleed map renders, so a phone bezel would either crop them or lie
+ * about what the user is looking at.
+ */
+.cinema-frame {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 28px;
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-ink-800);
+  box-shadow:
+    0 40px 90px -50px rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(255, 255, 255, 0.04);
+  aspect-ratio: 9 / 16;
+}
+.cinema-frame > * {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.cinema-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), transparent 45%);
+}
+
 /* ---------- Scroll-triggered reveal ----------
  * Gated by `@media (scripting: enabled)` so users with JS disabled
  * see all content immediately rather than perpetually-hidden empty pages.

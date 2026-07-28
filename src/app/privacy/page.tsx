@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
 export const metadata: Metadata = {
   title: "Política de Privacidade",
   description:
     "Como a Flowtr recolhe, usa e protege os teus dados — incluindo localização GPS, percursos e territórios.",
-  alternates: { canonical: "/privacy" },
+  alternates: {
+    canonical: "/privacy",
+    languages: { "pt-PT": "/privacy", en: "/en/privacy", es: "/es/privacy" },
+  },
 };
 
 // Última revisão material da política. Atualizar a cada alteração de conteúdo.
@@ -75,7 +80,10 @@ export default function PrivacyPage() {
   return (
     <main id="main-content" className="flex flex-1 items-center px-4 py-14 sm:px-6">
       <article className="surface mx-auto w-full max-w-3xl p-7 sm:p-10">
-        <p className="font-display text-sm text-coral">Flowtr</p>
+        <div className="flex items-center justify-between gap-4">
+          <p className="font-display text-sm text-coral">Flowtr</p>
+          <LanguageSwitcher locale="pt" suffix="/privacy" />
+        </div>
         <h1 className="font-display mt-3 text-3xl leading-tight sm:text-5xl">
           Política de Privacidade
         </h1>
@@ -236,9 +244,9 @@ export default function PrivacyPage() {
           <p>
             Guardamos os dados enquanto a tua conta existir. Quando eliminas a
             conta —{" "}
-            <a className="text-coral hover:underline" href="/delete-account">
+            <Link className="text-coral hover:underline" href="/delete-account">
               na app ou por email
-            </a>{" "}
+            </Link>{" "}
             — removemos os dados da conta dos nossos sistemas e iniciamos a
             eliminação junto dos fornecedores, sem demora injustificada. Alguns
             registos podem ser retidos apenas quando necessário para segurança,
@@ -350,9 +358,9 @@ export default function PrivacyPage() {
               <strong className="text-fg">Retention and deletion.</strong> We
               keep data while your account exists. Deleting your account (in
               the app, or via{" "}
-              <a className="text-coral hover:underline" href="/delete-account">
+              <Link className="text-coral hover:underline" href="/delete-account">
                 flowtr.app/delete-account
-              </a>
+              </Link>
               ) removes account data from our systems and triggers deletion at
               our providers without undue delay. Some records may be retained
               only where required for security, fraud prevention or legal

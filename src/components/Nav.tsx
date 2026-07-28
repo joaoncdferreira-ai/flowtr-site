@@ -1,9 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import type { SiteCopy, Locale } from "@/lib/site-i18n";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 import { Logo } from "./Logo";
 
-export function Nav() {
+export function Nav({
+  locale,
+  copy,
+}: {
+  locale: Locale;
+  copy: SiteCopy["nav"];
+}) {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -22,21 +30,24 @@ export function Nav() {
           : "bg-transparent border border-transparent",
       ].join(" ")}
     >
-      <a href="#top" className="flex items-center gap-2 pl-2" aria-label="Flowtr — início">
+      <a href="#top" className="flex items-center gap-2 pl-2" aria-label={copy.homeLabel}>
         <Logo className="h-9 w-auto" />
         <span className="font-display text-lg tracking-[0.18em] text-white">FLOWTR</span>
       </a>
 
       <nav className="hidden md:flex items-center gap-8 font-medium text-sm text-[color:var(--color-fg-muted)]">
-        <a href="#o-que-e" className="hover:text-white transition-colors">O que é</a>
-        <a href="#como-joga" className="hover:text-white transition-colors">Como se joga</a>
-        <a href="#em-accao" className="hover:text-white transition-colors">Em ação</a>
-        <a href="#faq" className="hover:text-white transition-colors">FAQ</a>
+        <a href="#o-que-e" className="hover:text-white transition-colors">{copy.what}</a>
+        <a href="#como-joga" className="hover:text-white transition-colors">{copy.how}</a>
+        <a href="#em-accao" className="hover:text-white transition-colors">{copy.action}</a>
+        <a href="#faq" className="hover:text-white transition-colors">{copy.faq}</a>
       </nav>
 
-      <a href="#waitlist" className="btn btn-primary !h-11 !px-4 !text-[12px] sm:!px-5 sm:!text-[13px]">
-        Avisa-me
-      </a>
+      <div className="flex items-center gap-2">
+        <LanguageSwitcher locale={locale} />
+        <a href="#waitlist" className="btn btn-primary hidden !h-11 !px-4 !text-[12px] sm:inline-flex sm:!px-5 sm:!text-[13px]">
+          {copy.notify}
+        </a>
+      </div>
     </header>
   );
 }

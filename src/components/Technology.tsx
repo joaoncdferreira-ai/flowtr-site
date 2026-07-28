@@ -1,37 +1,20 @@
 import { Reveal } from "./Reveal";
 import { SectionHeader } from "./SectionHeader";
+import type { SiteCopy } from "@/lib/site-i18n";
 
-const items = [
-  {
-    title: "Sinal GPS",
-    body:
-      "A Flowtr reduz o ruído e os saltos de posição antes de guardar o percurso.",
-  },
-  {
-    title: "Área válida",
-    body:
-      "O percurso tem de fechar uma área e cumprir as regras de distância, forma e sobreposição.",
-  },
-  {
-    title: "Validação no servidor",
-    body:
-      "Velocidades impossíveis, saltos de localização e outros sinais de manipulação podem invalidar a corrida.",
-  },
-];
-
-export function Technology() {
+export function Technology({ copy }: { copy: SiteCopy["technology"] }) {
   return (
     <section id="tecnologia" className="relative py-[var(--space-section)]">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeader
-          eyebrow="Antes de contar"
-          title="Cada conquista passa por verificações."
-          highlight="verificações"
-          description="A Flowtr confirma o percurso e a área antes de atualizar o mapa."
+          eyebrow={copy.eyebrow}
+          title={copy.title}
+          highlight={copy.highlight}
+          description={copy.description}
         />
 
         <div className="mt-14 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
-          {items.map((item, i) => (
+          {copy.items.map((item, i) => (
             <Reveal key={item.title} delay={i * 0.05} y={24}>
               <article className="h-full rounded-2xl border border-white/[0.08] bg-[color:var(--color-ink-800)]/70 p-6">
                 <div className="mb-5 h-px w-12 bg-[color:var(--color-coral-500)]" />

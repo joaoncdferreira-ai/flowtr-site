@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Russo_One, Chakra_Petch } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { LocaleDocument } from "@/components/LocaleDocument";
 import "./globals.css";
 
 const russo = Russo_One({
@@ -47,7 +48,7 @@ export const metadata: Metadata = {
   publisher: "Flowtr",
   alternates: {
     canonical: "/",
-    languages: { "pt-PT": "/" },
+    languages: { "pt-PT": "/", en: "/en", es: "/es" },
   },
   openGraph: {
     type: "website",
@@ -102,9 +103,7 @@ export default function RootLayout({
       className={`${russo.variable} ${chakra.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <a className="skip-link" href="#main-content">
-          Saltar para o conteúdo
-        </a>
+        <LocaleDocument />
         {children}
         <Analytics />
         <SpeedInsights />
