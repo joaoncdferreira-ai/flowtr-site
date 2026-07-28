@@ -14,19 +14,41 @@ const badgeSlugs = [
   "elite",
 ];
 
-const shotSources = [
-  "/app-marketing/mapa-3d.png",
-  "/app-marketing/revisao-corrida.png",
-  "/app-marketing/diario.png",
-  "/app-marketing/rankings.png",
-  "/app-marketing/desafios.png",
-  "/app-current/video-resultado.png",
+const shotMedia = [
+  {
+    kind: "video" as const,
+    src: "/videos/onboarding_01.mp4",
+    poster: "/videos/onboarding_01_poster.jpg",
+    fit: "cover" as const,
+  },
+  {
+    kind: "video" as const,
+    src: "/videos/onboarding_03.mp4",
+    poster: "/videos/onboarding_03_poster.jpg",
+    fit: "cover" as const,
+  },
+  {
+    kind: "image" as const,
+    src: "/app-marketing-en/map-3d.png",
+    fit: "cover" as const,
+  },
+  {
+    kind: "image" as const,
+    src: "/app-marketing-en/run-review.png",
+    fit: "cover" as const,
+  },
+  {
+    kind: "video" as const,
+    src: "/videos/flyover-share-demo.mp4",
+    poster: "/app-current/video-resultado.png",
+    fit: "contain" as const,
+  },
 ];
 
 export function Gallery({ copy }: { copy: SiteCopy["gallery"] }) {
   const shots = copy.shots.map((shot, index) => ({
     ...shot,
-    src: shotSources[index],
+    ...shotMedia[index],
   }));
   const track = [...shots, ...shots];
   return (
@@ -58,14 +80,31 @@ export function Gallery({ copy }: { copy: SiteCopy["gallery"] }) {
                 style={{ width: 240 }}
               >
                 <div className="phone-frame phone-frame-screen">
-                  <Image
-                    src={s.src}
-                    alt={s.alt}
-                    width={1080}
-                    height={2340}
-                    sizes="240px"
-                    className="block aspect-[9/19.5] w-full object-cover"
-                  />
+                  {s.kind === "video" ? (
+                    <video
+                      className={`block aspect-[9/19.5] w-full bg-[#08090c] ${
+                        s.fit === "contain" ? "object-contain" : "object-cover"
+                      }`}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                      poster={s.poster}
+                      aria-label={s.alt}
+                    >
+                      <source src={s.src} type="video/mp4" />
+                    </video>
+                  ) : (
+                    <Image
+                      src={s.src}
+                      alt={s.alt}
+                      width={1206}
+                      height={2622}
+                      sizes="240px"
+                      className="block aspect-[9/19.5] w-full object-cover"
+                    />
+                  )}
                 </div>
                 <figcaption className="mt-3 px-2 text-[11px] uppercase tracking-[0.18em] text-[color:var(--color-fg-dim)]">
                   {s.caption}
