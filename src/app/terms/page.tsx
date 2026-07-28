@@ -8,8 +8,8 @@ export const metadata: Metadata = {
 };
 
 // Última revisão material dos termos. Atualizar a cada alteração de conteúdo.
-const LAST_UPDATED = "16 de julho de 2026";
-const LAST_UPDATED_EN = "July 16, 2026";
+const LAST_UPDATED = "28 de julho de 2026";
+const LAST_UPDATED_EN = "July 28, 2026";
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -22,7 +22,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 
 export default function TermsPage() {
   return (
-    <main className="flex flex-1 items-center px-4 py-14 sm:px-6">
+    <main id="main-content" className="flex flex-1 items-center px-4 py-14 sm:px-6">
       <article className="surface mx-auto w-full max-w-3xl p-7 sm:p-10">
         <p className="font-display text-sm text-coral">Flowtr</p>
         <h1 className="font-display mt-3 text-3xl leading-tight sm:text-5xl">
@@ -147,10 +147,9 @@ export default function TermsPage() {
 
         <Section title="8. Disponibilidade e alterações do serviço">
           <p>
-            A Flowtr está em desenvolvimento ativo (fase alpha/beta). O serviço
-            é fornecido gratuitamente e &quot;tal como está&quot;: podemos alterar,
-            suspender ou descontinuar funcionalidades, e não garantimos
-            disponibilidade contínua nem a preservação de dados de jogo. Se
+            A Flowtr está em desenvolvimento ativo. O serviço é atualmente
+            fornecido gratuitamente: podemos alterar, suspender ou descontinuar
+            funcionalidades e não garantimos disponibilidade contínua. Se
             introduzirmos alterações relevantes a estes termos, avisamos na app
             ou por email antes de produzirem efeitos.
           </p>
@@ -171,9 +170,9 @@ export default function TermsPage() {
           <p>
             Estes termos regem-se pela lei portuguesa, com foro nos tribunais
             portugueses. Se fores consumidor na UE, beneficias também das
-            proteções imperativas do teu país de residência. Litígios de
-            consumo podem ainda ser apresentados na plataforma europeia de
-            resolução de litígios em linha (ec.europa.eu/odr).
+            proteções imperativas do teu país de residência. Quando aplicável,
+            podes também recorrer a uma entidade de resolução alternativa de
+            litígios de consumo competente.
           </p>
         </Section>
 
@@ -268,11 +267,10 @@ export default function TermsPage() {
             </p>
             <p>
               <strong className="text-fg">8. Availability and changes.</strong>{" "}
-              Flowtr is in active development (alpha/beta) and provided free of
-              charge, &quot;as is&quot;. We may change, suspend or discontinue features
-              and do not guarantee continuous availability or preservation of
-              game data. We will notify you in the app or by email before
-              material changes to these terms take effect.
+              Flowtr is in active development and is currently provided free of
+              charge. We may change, suspend or discontinue features and do not
+              guarantee continuous availability. We will notify you in the app
+              or by email before material changes to these terms take effect.
             </p>
             <p>
               <strong className="text-fg">9. Liability.</strong> To the maximum
@@ -286,9 +284,9 @@ export default function TermsPage() {
               <strong className="text-fg">10. Governing law.</strong> These
               terms are governed by Portuguese law, with jurisdiction of the
               Portuguese courts. EU consumers also keep the mandatory
-              protections of their country of residence. Consumer disputes may
-              also be submitted via the EU online dispute resolution platform
-              (ec.europa.eu/odr).
+              protections of their country of residence. Where applicable, you
+              may also use a competent alternative consumer dispute resolution
+              entity.
             </p>
             <p>
               <strong className="text-fg">11. Contact.</strong> Flowtr ·

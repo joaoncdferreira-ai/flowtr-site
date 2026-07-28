@@ -79,7 +79,7 @@ export function Hero() {
             style={{ animationDelay: "0ms" }}
           >
             <span className="size-1.5 rounded-full bg-[color:var(--color-coral-500)] shadow-[0_0_10px_rgba(255,87,51,0.8)]" />
-            Alpha 1 · Maio 2026
+            A caminho da App Store
           </div>
 
           <h1
@@ -95,9 +95,9 @@ export function Hero() {
             className="anim-fade-up mt-6 max-w-xl text-lg leading-relaxed text-[color:var(--color-fg-muted)] md:text-xl"
             style={{ animationDelay: "220ms" }}
           >
-            Flowtr transforma cada corrida num jogo de território. Desenha o teu
-            perímetro a correr, conquista o mapa e defende-o contra outros
-            jogadores.
+            Flowtr transforma cada corrida num jogo de território. Fecha um
+            percurso, conquista área real no mapa e disputa a tua cidade com
+            outros corredores.
           </p>
 
           <div
@@ -105,7 +105,7 @@ export function Hero() {
             style={{ animationDelay: "360ms" }}
           >
             <a href="#waitlist" className="btn btn-primary">
-              Entra na waitlist
+              Avisa-me no lançamento
               <svg viewBox="0 0 24 24" className="size-4" aria-hidden>
                 <path
                   fill="currentColor"
@@ -123,17 +123,17 @@ export function Hero() {
             style={{ animationDelay: "560ms" }}
           >
             <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs uppercase tracking-[0.18em] text-[color:var(--color-fg-dim)]">
-              <span>Alpha 1</span>
+              <span>iPhone primeiro</span>
               <span
                 aria-hidden
                 className="size-1 rounded-full bg-[color:var(--color-coral-500)]"
               />
-              <span>Acesso faseado</span>
+              <span>Android a seguir</span>
               <span
                 aria-hidden
                 className="size-1 rounded-full bg-[color:var(--color-coral-500)]"
               />
-              <span>Maio 2026</span>
+              <span>Grátis · sem anúncios</span>
             </div>
           </div>
         </div>

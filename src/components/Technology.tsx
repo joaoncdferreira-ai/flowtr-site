@@ -5,7 +5,7 @@ const items = [
   {
     title: "Sinal GPS filtrado",
     body:
-      "O percurso é limpo, validado e interpretado antes de virar território. Menos ruído, menos atalhos, mais justiça no mapa.",
+      "O percurso é filtrado no telemóvel e validado antes de virar território. Menos ruído, menos saltos de posição e mais justiça no mapa.",
   },
   {
     title: "Geometria computacional",
@@ -15,7 +15,7 @@ const items = [
   {
     title: "Motor geoespacial 3D",
     body:
-      "Mapa 3D, territórios extrudidos, bandeiras e rivais sincronizam-se numa camada visual feita para competição em tempo real.",
+      "Mapa 3D, territórios extrudidos, bandeiras e rivais juntam-se numa camada visual feita para competição no mundo real.",
   },
 ];
 
@@ -25,9 +25,9 @@ export function Technology() {
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeader
           eyebrow="Tecnologia"
-          title="Geo-tech de última geração."
-          highlight="Geo-tech"
-          description="Por baixo do jogo há filtragem GPS, geometria computacional, mapas 3D e regras anti-abuso a trabalhar para que cada conquista seja merecida."
+          title="Tecnologia que desaparece durante a corrida."
+          highlight="Tecnologia"
+          description="Por baixo do jogo há filtragem GPS, geometria computacional, mapas 3D e regras anti-abuso. À superfície, só tens de correr."
         />
 
         <div className="mt-14 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">

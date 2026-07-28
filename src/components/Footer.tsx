@@ -17,17 +17,23 @@ export function Footer() {
           <a href="#o-que-e" className="hover:text-white transition-colors">O que é</a>
           <a href="#como-joga" className="hover:text-white transition-colors">Como se joga</a>
           <a href="#em-accao" className="hover:text-white transition-colors">Em acção</a>
-          <a href="#waitlist" className="hover:text-white transition-colors">Waitlist</a>
+          <a href="#faq" className="hover:text-white transition-colors">FAQ</a>
+          <a href="/support" className="hover:text-white transition-colors">
+            Suporte
+          </a>
           <a href="/privacy" className="hover:text-white transition-colors">
             Privacidade
           </a>
           <a href="/terms" className="hover:text-white transition-colors">
             Termos
           </a>
+          <a href="/delete-account" className="hover:text-white transition-colors">
+            Eliminar conta
+          </a>
         </nav>
 
         <div className="text-xs text-[color:var(--color-fg-dim)]">
-          © {year} Flowtr · Alpha 1
+          © {year} Flowtr
         </div>
       </div>
     </footer>

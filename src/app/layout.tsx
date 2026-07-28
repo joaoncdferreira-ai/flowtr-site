@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { Russo_One, Chakra_Petch } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { PostHogInit } from "@/components/PostHogProvider";
 import "./globals.css";
 
 const russo = Russo_One({
@@ -20,9 +19,9 @@ const chakra = Chakra_Petch({
 });
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://flowtr.app";
-const TITLE = "Flowtr — Corre. Conquista. Domina.";
+const TITLE = "Flowtr — transforma corridas em território";
 const DESCRIPTION =
-  "Flowtr transforma cada corrida num jogo de território. Desenha o teu perímetro a correr, conquista o mapa e defende-o contra outros corredores.";
+  "Corre no mundo real, fecha uma área e conquista território num mapa partilhado. Compete nos rankings e desafia outros corredores.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -40,7 +39,8 @@ export const metadata: Metadata = {
     "GPS game",
     "fitness",
     "gamificação",
-    "Alpha 1",
+    "desafios de corrida",
+    "mapa 3D",
   ],
   authors: [{ name: "Flowtr" }],
   creator: "Flowtr",
@@ -58,10 +58,10 @@ export const metadata: Metadata = {
     siteName: "Flowtr",
     images: [
       {
-        url: "/og-image.png",
+        url: "/og-image-v2.png",
         width: 1200,
         height: 630,
-        alt: "Flowtr — Corre. Conquista. Domina.",
+        alt: "Flowtr — transforma corridas em território",
       },
     ],
   },
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: TITLE,
     description: DESCRIPTION,
-    images: ["/og-image.png"],
+    images: ["/og-image-v2.png"],
   },
   robots: { index: true, follow: true },
   category: "fitness",
@@ -86,17 +86,11 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "MobileApplication",
   name: "Flowtr",
-  operatingSystem: "Android",
+  operatingSystem: "iOS, Android",
   applicationCategory: "HealthApplication",
   description: DESCRIPTION,
   inLanguage: "pt-PT",
   offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "5.0",
-    ratingCount: "1",
-    reviewCount: "1",
-  },
 };
 
 export default function RootLayout({
@@ -108,8 +102,10 @@ export default function RootLayout({
       className={`${russo.variable} ${chakra.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <a className="skip-link" href="#main-content">
+          Saltar para o conteúdo
+        </a>
         {children}
-        <PostHogInit />
         <Analytics />
         <SpeedInsights />
         <script

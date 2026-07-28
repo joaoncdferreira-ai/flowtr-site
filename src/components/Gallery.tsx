@@ -8,12 +8,8 @@ import { SectionHeader } from "./SectionHeader";
 // icons — kept as-is to match the app exactly.
 const badges = [
   { slug: "primeiro_passo", name: "Primeiro passo", desc: "O teu primeiro território conquistado." },
-  { slug: "conquistador", name: "Conquistador", desc: "10 territórios roubados a rivais." },
   { slug: "maratonista", name: "Maratonista", desc: "42.2 km numa única corrida." },
-  { slug: "vingador", name: "Vingador", desc: "Reconquistaste território perdido." },
-  { slug: "senhor_terra", name: "Senhor da Terra", desc: "Acumulaste 10 hectares de território." },
   { slug: "em_chamas", name: "Em chamas", desc: "7 dias de corridas seguidas." },
-  { slug: "defensor", name: "Defensor", desc: "Defendeste território de invasão." },
   { slug: "elite", name: "Elite", desc: "Entraste no Top 10 da tua cidade." },
 ];
 
@@ -40,7 +36,7 @@ export function Gallery() {
           eyebrow="Vê em acção"
           title="O mapa, com o teu nome em cima."
           highlight="teu nome"
-          description="Ecrãs reais do app. Sem mockups. Sem Figma. Cada pixel é Flowtr a correr no terreno."
+          description="Ecrãs reais da app, captados no terreno. Do mapa 3D ao resumo da conquista, é isto que vais usar quando saíres para correr."
         />
       </div>
 

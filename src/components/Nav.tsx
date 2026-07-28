@@ -31,11 +31,11 @@ export function Nav() {
         <a href="#o-que-e" className="hover:text-white transition-colors">O que é</a>
         <a href="#como-joga" className="hover:text-white transition-colors">Como se joga</a>
         <a href="#em-accao" className="hover:text-white transition-colors">Em acção</a>
+        <a href="#faq" className="hover:text-white transition-colors">FAQ</a>
       </nav>
 
       <a href="#waitlist" className="btn btn-primary !h-11 !px-4 !text-[12px] sm:!px-5 sm:!text-[13px]">
-        <span className="hidden sm:inline">Entra na waitlist</span>
-        <span className="sm:hidden">Waitlist</span>
+        Avise-me
       </a>
     </header>
   );

@@ -25,9 +25,9 @@ const steps: Step[] = [
   },
   {
     n: "02",
-    title: "Desenha o perímetro",
+    title: "Fecha uma área",
     body:
-      "Corres em loop. O Flowtr regista a tua linha em tempo real. Quando fechas o circuito sobre o teu próprio rasto, o território é teu — automaticamente.",
+      "Corre com o ecrã ligado ou bloqueado. A Flowtr regista o percurso e ajuda-te a perceber quando formaste uma área válida para conquistar.",
     media: {
       kind: "image",
       src: "/prints-site/Adesenha o perimetro - circuito a meio.jpeg",
@@ -36,9 +36,9 @@ const steps: Step[] = [
   },
   {
     n: "03",
-    title: "Conquista e defende",
+    title: "Confirma e compete",
     body:
-      "Recebes os m² conquistados, marcos por hectare, recordes de velocidade e distância. Outros corredores podem invadir — fica atento ao Diário.",
+      "Revê o resultado, reclama os m² e acompanha tudo no Diário. Compara-te nos rankings, desafia amigos e recupera área aos rivais.",
     media: {
       kind: "video",
       src: "/videos/onboarding_03.mp4",
@@ -66,9 +66,9 @@ export function HowItWorks() {
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeader
           eyebrow="Como se joga"
-          title="Três passos. Zero teoria."
+          title="Três passos. Uma nova razão para correr."
           highlight="Três"
-          description="Não precisas de tutorial nem de subscrição. Liga o GPS, corre, vê o território a tornar-se teu."
+          description="A app explica o necessário. Tu escolhes o caminho, fechas a área e decides o que queres conquistar a seguir."
         />
 
         <div className="mt-20 flex flex-col gap-24 md:gap-32">

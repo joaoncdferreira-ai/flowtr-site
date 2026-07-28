@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import posthog from "posthog-js";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -9,23 +8,19 @@ export function Waitlist() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<Status>("idle");
 
-  async function onSubmit(e: React.FormEvent) {
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!email.trim() || status === "submitting") return;
+    const website = String(new FormData(e.currentTarget).get("website") ?? "");
     setStatus("submitting");
     try {
       const res = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: email.trim() }),
+        body: JSON.stringify({ email: email.trim(), website }),
       });
       if (!res.ok) throw new Error(String(res.status));
       setStatus("success");
-      // Fire conversion event only on confirmed Resend success. PostHog
-      // no-ops if init was skipped (missing key) so this is safe in dev.
-      if (typeof window !== "undefined" && posthog.__loaded) {
-        posthog.capture("waitlist_signup");
-      }
     } catch {
       setStatus("error");
     }
@@ -48,19 +43,24 @@ export function Waitlist() {
           />
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[color:var(--color-border-strong)] bg-[color:var(--color-ink-800)]/80 px-3 py-1 text-[11px] uppercase tracking-[0.25em] text-[color:var(--color-fg-muted)]">
             <span className="size-1 rounded-full bg-[color:var(--color-coral-500)]" />
-            Alpha 1 · Maio 2026
+            Lançamento nas lojas
           </div>
 
           <h2 className="font-display text-balance text-4xl leading-[1.05] text-white md:text-6xl">
             Sê dos <span className="coral-glow">primeiros</span> a dominar.
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-pretty text-[color:var(--color-fg-muted)] md:text-lg">
-            O Alpha 1 chega em Maio com acesso faseado. Deixa o email —
-            avisamos-te quando entrar a próxima vaga, sem spam.
+            Estamos a preparar primeiro a App Store e depois a Google Play.
+            Deixa o email e avisamos-te quando a Flowtr estiver disponível no
+            teu telemóvel.
           </p>
 
           {status === "success" ? (
-            <p className="font-display mt-10 inline-flex items-center gap-2 text-base tracking-[0.2em] text-[color:var(--color-coral-400)]">
+            <p
+              className="font-display mt-10 inline-flex items-center gap-2 text-base tracking-[0.2em] text-[color:var(--color-coral-400)]"
+              role="status"
+              aria-live="polite"
+            >
               <svg viewBox="0 0 24 24" className="size-5" aria-hidden>
                 <path
                   d="m5 12 4 4 10-10"
@@ -71,16 +71,24 @@ export function Waitlist() {
                   strokeLinejoin="round"
                 />
               </svg>
-              Estás dentro. Vemo-nos no terreno.
+              Está feito. Avisamos-te no lançamento.
             </p>
           ) : (
             <form
               onSubmit={onSubmit}
               className="mx-auto mt-10 flex max-w-md flex-col gap-3 sm:flex-row"
-              noValidate
             >
               <label htmlFor="email" className="sr-only">
                 Email
+              </label>
+              <label className="absolute -left-[9999px]" aria-hidden="true">
+                Website
+                <input
+                  type="text"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
               </label>
               <input
                 id="email"
@@ -99,19 +107,22 @@ export function Waitlist() {
                 disabled={status === "submitting"}
                 className="btn btn-primary !h-14"
               >
-                {status === "submitting" ? "A enviar…" : "Entra"}
+                {status === "submitting" ? "A enviar…" : "Avisem-me"}
               </button>
             </form>
           )}
 
           {status === "error" ? (
-            <p className="mt-3 text-sm text-[color:var(--color-coral-400)]">
+            <p
+              className="mt-3 text-sm text-[color:var(--color-coral-400)]"
+              role="alert"
+            >
               Algo correu mal. Tenta de novo em alguns segundos.
             </p>
           ) : null}
 
           <p className="mt-6 text-xs text-[color:var(--color-fg-dim)]">
-            Sem ads. Sem leilão de dados. Cancelas com um clique.
+            Apenas novidades essenciais sobre o lançamento. Sem publicidade.
           </p>
         </div>
       </div>

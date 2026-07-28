@@ -85,6 +85,24 @@ body {
   overflow-x: hidden;
 }
 
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  transform: translateY(-160%);
+  border-radius: 999px;
+  background: var(--color-coral-500);
+  color: var(--color-ink-950);
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  transition: transform 160ms var(--ease-out-quart);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
 ::selection {
   background: var(--color-coral-500);
   color: #000;
@@ -256,6 +274,11 @@ body {
   animation: track-x 60s linear infinite;
 }
 .track:hover { animation-play-state: paused; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .track { animation: none; }
+}
 
 /* ---------- Hero ambient grid ---------- */
 .grid-bg {

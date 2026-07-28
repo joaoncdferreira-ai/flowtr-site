@@ -3,9 +3,9 @@ import { SectionHeader } from "./SectionHeader";
 
 const features = [
   {
-    title: "GPS é a tua arma",
+    title: "A corrida desenha",
     body:
-      "Cada metro que corres desenha o teu perímetro. Fecha o circuito e o que está dentro fica teu — território, badges, m².",
+      "Cada metro desenha o teu perímetro. Fecha uma área válida, confirma a conquista e vê os teus m² aparecerem no mapa.",
     icon: (
       <path
         d="M12 2a8 8 0 0 0-8 8c0 5.5 8 12 8 12s8-6.5 8-12a8 8 0 0 0-8-8Zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
@@ -14,9 +14,9 @@ const features = [
     ),
   },
   {
-    title: "Tudo a sério",
+    title: "Jogo no mundo real",
     body:
-      "Sem treinos fakes, sem desafios artificiais. Joga-se nas tuas ruas, com a tua cadência. Primeiro uma comunidade pequena, depois o resto.",
+      "Joga-se nas ruas onde já corres. As corridas passam por validações de GPS e velocidade para manter o mapa mais justo.",
     icon: (
       <>
         <path
@@ -36,9 +36,9 @@ const features = [
     ),
   },
   {
-    title: "Domina ou perde",
+    title: "O mapa está vivo",
     body:
-      "Outros corredores podem invadir o teu território. Defende com novas voltas, ou vê-o cair. É competição pura.",
+      "Outros corredores podem conquistar partes do teu território. Expande, recupera e acompanha no Diário tudo o que mudou.",
     icon: (
       <path
         d="M5 4h14l-1 7a7 7 0 0 1-12 0L5 4Zm5 16h4v-3h-4v3Z"
@@ -49,7 +49,7 @@ const features = [
   {
     title: "Diário de guerra",
     body:
-      "Cada conquista, recorde e território perdido fica no teu Diário. Marcos a cada hectare. Badges a cada conquista.",
+      "Conquistas, corridas, desafios e território perdido ficam reunidos num só lugar. Tens histórico, estatísticas e marcos para perseguir.",
     icon: (
       <>
         <rect
@@ -72,9 +72,9 @@ const features = [
     ),
   },
   {
-    title: "Cor é identidade",
+    title: "Compete à tua maneira",
     body:
-      "Coral, azul, verde, roxo… escolhes a tua cor e o mapa enche-se dela. Quanto mais corres, mais o mapa fica com a tua identidade.",
+      "Sobe nos rankings globais, da tua cidade ou entre amigos. Cria duelos e desafios de grupo para transformar intenção em compromisso.",
     icon: (
       <>
         <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" strokeWidth="2" />
@@ -85,9 +85,9 @@ const features = [
     ),
   },
   {
-    title: "Privacidade",
+    title: "Privacidade por escolha",
     body:
-      "GPS processado no teu telefone. Sem ads, sem leilão de dados. A tua corrida é tua — partilhas só o que quiseres.",
+      "Sem anúncios nem venda de dados. Analytics e diagnósticos são opcionais; os territórios são públicos no jogo e partilhas o percurso só quando escolhes.",
     icon: (
       <>
         <path
@@ -119,9 +119,9 @@ export function WhatIs() {
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeader
           eyebrow="O que é"
-          title="É um jogo. Não um run-tracker."
+          title="É um jogo em cima da tua corrida."
           highlight="jogo"
-          description="Mais do que contar quilómetros, o Flowtr transforma-os em território. Cada corrida é uma jogada — defensiva, ofensiva ou de expansão."
+          description="Mais do que contar quilómetros, a Flowtr transforma movimento em território, competição e histórias que dão vontade de voltar amanhã."
         />
 
         <div className="mt-16 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">

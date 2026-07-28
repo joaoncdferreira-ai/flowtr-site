@@ -8,8 +8,8 @@ export const metadata: Metadata = {
 };
 
 // Última revisão material da política. Atualizar a cada alteração de conteúdo.
-const LAST_UPDATED = "16 de julho de 2026";
-const LAST_UPDATED_EN = "July 16, 2026";
+const LAST_UPDATED = "28 de julho de 2026";
+const LAST_UPDATED_EN = "July 28, 2026";
 
 const PROCESSORS: Array<[service: string, purpose: string, data: string, region: string]> = [
   [
@@ -56,8 +56,8 @@ const PROCESSORS: Array<[service: string, purpose: string, data: string, region:
   ],
   [
     "Vercel + Resend (site flowtr.app)",
-    "Alojamento do site e email transacional da lista de espera",
-    "Email, endereço IP",
+    "Alojamento, métricas técnicas do site e lista de lançamento",
+    "Email (se o forneceres), endereço IP e dados técnicos do pedido",
     "UE/EUA",
   ],
 ];
@@ -73,7 +73,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 
 export default function PrivacyPage() {
   return (
-    <main className="flex flex-1 items-center px-4 py-14 sm:px-6">
+    <main id="main-content" className="flex flex-1 items-center px-4 py-14 sm:px-6">
       <article className="surface mx-auto w-full max-w-3xl p-7 sm:p-10">
         <p className="font-display text-sm text-coral">Flowtr</p>
         <h1 className="font-display mt-3 text-3xl leading-tight sm:text-5xl">
@@ -136,6 +136,7 @@ export default function PrivacyPage() {
               — eventos de uso (analytics), gravações de sessão com máscara
               total de textos e imagens (session replay), relatórios de erro e
               desempenho, identificadores de dispositivo e tokens de notificação.
+              Analytics, diagnóstico e replay só são recolhidos se os ativares.
             </li>
           </ul>
         </Section>
@@ -171,9 +172,10 @@ export default function PrivacyPage() {
               moderação de denúncias e bloqueios.
             </li>
             <li>
-              <strong className="text-fg">Melhorar o produto</strong> (interesse
-              legítimo) — analytics e session replay mascarado para perceber
-              onde a app falha ou confunde.
+              <strong className="text-fg">Melhorar o produto</strong>{" "}
+              (consentimento) — analytics, diagnóstico e session replay
+              mascarado para perceber onde a app falha ou confunde. Estão
+              desligados por defeito e podes mudar a escolha nas Definições.
             </li>
             <li>
               <strong className="text-fg">Notificações push</strong>{" "}
@@ -182,6 +184,21 @@ export default function PrivacyPage() {
             </li>
           </ul>
           <p>Não vendemos dados pessoais nem os partilhamos para publicidade.</p>
+        </Section>
+
+        <Section title="Site e lista de lançamento">
+          <p>
+            O site usa a Vercel para alojamento, métricas técnicas agregadas e
+            medição de desempenho. Não usamos cookies de publicidade nem
+            PostHog no site. Se deixares o email na lista de lançamento, a
+            Resend guarda-o para te enviarmos novidades essenciais sobre a
+            disponibilidade da app. Podes pedir a remoção a qualquer momento
+            através de{" "}
+            <a className="text-coral hover:underline" href="mailto:support@flowtr.app">
+              support@flowtr.app
+            </a>
+            .
+          </p>
         </Section>
 
         <Section title="Fornecedores (subcontratantes)">
@@ -304,10 +321,19 @@ export default function PrivacyPage() {
             <p>
               <strong className="text-fg">Why we process data.</strong> To
               provide the service (contract), for security and anti-cheat
-              (legitimate interest), to improve the product via analytics and
-              masked session replay (legitimate interest), and for push
-              notifications (consent via the OS permission). We do not sell
-              personal data or share it for advertising.
+              (legitimate interest), to improve the product via optional
+              analytics, diagnostics and masked session replay (consent), and
+              for push notifications (consent via the OS permission). Optional
+              analytics are off by default and can be changed in Settings. We
+              do not sell personal data or share it for advertising.
+            </p>
+            <p>
+              <strong className="text-fg">Website and launch list.</strong>{" "}
+              Vercel hosts the site and provides aggregate technical and
+              performance metrics. We do not use advertising cookies or
+              PostHog on the website. If you submit your email, Resend stores it
+              so we can send essential launch updates. You can request removal
+              at any time by emailing support.
             </p>
             <p>
               <strong className="text-fg">Processors.</strong> Google Firebase

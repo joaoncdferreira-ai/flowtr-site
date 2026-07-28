@@ -1,6 +1,6 @@
 # Flowtr — landing site
 
-Pre-launch landing page for **Flowtr**, the run-tracker that turns each run into a territory game.
+Launch landing page for **Flowtr**, the running game that turns each run into territory.
 
 - **Stack:** Next.js 16 (App Router, Turbopack), React 19, TypeScript, Tailwind 4
 - **Brand:** Russo One + Chakra Petch, coral `#FF5733`

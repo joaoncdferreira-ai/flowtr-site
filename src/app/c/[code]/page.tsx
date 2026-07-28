@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { headers } from "next/headers";
 
-// Store URLs are env-gated. Flowtr is pre-launch, so until the app is actually
+// Store URLs are env-gated. Until each app is actually
 // published these stay unset and the page funnels an app-less recipient to the
 // waitlist instead of linking to store pages that would 404. Set them in Vercel
 // at launch and the badges appear automatically (platform-led).
@@ -47,7 +47,7 @@ export default async function ChallengePage({ params }: ChallengePageProps) {
   ).sort((a, b) => Number(b.lead) - Number(a.lead));
 
   return (
-    <main className="flex flex-1 items-center px-4 py-14 sm:px-6">
+    <main id="main-content" className="flex flex-1 items-center px-4 py-14 sm:px-6">
       <article className="surface mx-auto w-full max-w-xl p-8 text-center sm:p-12">
         <p className="font-display text-sm text-coral">Flowtr</p>
         <h1 className="font-display mt-3 text-3xl leading-tight sm:text-5xl">
@@ -84,7 +84,7 @@ export default async function ChallengePage({ params }: ChallengePageProps) {
                 </div>
               ) : (
                 <Link className="btn btn-primary mt-3" href="/#waitlist">
-                  Entra na waitlist e sê dos primeiros
+                  Avisa-me quando estiver disponível
                 </Link>
               )}
             </div>

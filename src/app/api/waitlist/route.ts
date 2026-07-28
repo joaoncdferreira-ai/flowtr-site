@@ -3,16 +3,39 @@ import { NextResponse } from "next/server";
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function POST(req: Request) {
-  let body: { email?: string };
+  const contentLength = Number(req.headers.get("content-length") ?? "0");
+  if (contentLength > 2048) {
+    return NextResponse.json(
+      { error: "payload_too_large" },
+      { status: 413, headers: { "Cache-Control": "no-store" } },
+    );
+  }
+
+  let body: { email?: string; website?: string };
   try {
     body = await req.json();
   } catch {
-    return NextResponse.json({ error: "invalid_json" }, { status: 400 });
+    return NextResponse.json(
+      { error: "invalid_json" },
+      { status: 400, headers: { "Cache-Control": "no-store" } },
+    );
+  }
+
+  // Quiet honeypot for basic bot traffic. A bot receives a normal success
+  // response without adding anything to the audience.
+  if (body.website?.trim()) {
+    return NextResponse.json(
+      { ok: true },
+      { headers: { "Cache-Control": "no-store" } },
+    );
   }
 
   const email = body.email?.trim().toLowerCase();
   if (!email || !EMAIL_RE.test(email) || email.length > 254) {
-    return NextResponse.json({ error: "invalid_email" }, { status: 400 });
+    return NextResponse.json(
+      { error: "invalid_email" },
+      { status: 400, headers: { "Cache-Control": "no-store" } },
+    );
   }
 
   const resendKey = process.env.RESEND_API_KEY;
@@ -32,11 +55,16 @@ export async function POST(req: Request) {
     );
     // Resend returns 422 when the contact already exists — treat as success.
     if (!res.ok && res.status !== 422) {
-      const detail = await res.text().catch(() => "");
-      console.error(`[waitlist] resend error ${res.status}: ${detail}`);
-      return NextResponse.json({ error: "forward_failed" }, { status: 502 });
+      console.error(`[waitlist] resend error ${res.status}`);
+      return NextResponse.json(
+        { error: "forward_failed" },
+        { status: 502, headers: { "Cache-Control": "no-store" } },
+      );
     }
-    return NextResponse.json({ ok: true });
+    return NextResponse.json(
+      { ok: true },
+      { headers: { "Cache-Control": "no-store" } },
+    );
   }
 
   // Generic fallback: forward to any HTTP endpoint that accepts {email, source}.
@@ -52,12 +80,20 @@ export async function POST(req: Request) {
       body: JSON.stringify({ email, source: "flowtr-landing" }),
     });
     if (!res.ok) {
-      return NextResponse.json({ error: "forward_failed" }, { status: 502 });
+      return NextResponse.json(
+        { error: "forward_failed" },
+        { status: 502, headers: { "Cache-Control": "no-store" } },
+      );
     }
-    return NextResponse.json({ ok: true });
+    return NextResponse.json(
+      { ok: true },
+      { headers: { "Cache-Control": "no-store" } },
+    );
   }
 
-  // No provider configured — log so the signup is captured in dev logs.
-  console.log(`[waitlist] new signup: ${email}`);
-  return NextResponse.json({ ok: true });
+  // Never pretend the signup was stored and never place the email in logs.
+  return NextResponse.json(
+    { error: "waitlist_unavailable" },
+    { status: 503, headers: { "Cache-Control": "no-store" } },
+  );
 }

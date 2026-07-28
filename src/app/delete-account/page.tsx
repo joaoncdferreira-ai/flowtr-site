@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function DeleteAccountPage() {
   return (
-    <main className="flex flex-1 items-center px-4 py-14 sm:px-6">
+    <main id="main-content" className="flex flex-1 items-center px-4 py-14 sm:px-6">
       <article className="surface mx-auto w-full max-w-2xl p-7 sm:p-10">
         <p className="font-display text-sm text-coral">Flowtr</p>
         <h1 className="font-display mt-3 text-3xl leading-tight sm:text-5xl">
