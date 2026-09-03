@@ -1,130 +1,48 @@
-"use client";
-
-import { useState } from "react";
 import type { SiteCopy } from "@/lib/site-i18n";
-
-type Status = "idle" | "submitting" | "success" | "error";
+import { APP_STORE_URL } from "@/lib/store-links";
 
 export function Waitlist({ copy }: { copy: SiteCopy["waitlist"] }) {
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<Status>("idle");
-
-  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    if (!email.trim() || status === "submitting") return;
-    const website = String(new FormData(e.currentTarget).get("website") ?? "");
-    setStatus("submitting");
-    try {
-      const res = await fetch("/api/waitlist", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: email.trim(), website }),
-      });
-      if (!res.ok) throw new Error(String(res.status));
-      setStatus("success");
-    } catch {
-      setStatus("error");
-    }
-  }
-
   return (
-    <section
-      id="waitlist"
-      className="relative py-[var(--space-section)]"
-    >
+    <section id="waitlist" className="relative py-[var(--space-section)]">
       <div className="mx-auto max-w-3xl px-6 text-center">
-        <div>
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-x-0 -top-20 -z-10 mx-auto h-80 w-[700px] max-w-full rounded-full opacity-50 blur-3xl"
-            style={{
-              background:
-                "radial-gradient(closest-side, rgba(255,87,51,0.45), transparent 70%)",
-            }}
-          />
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[color:var(--color-border-strong)] bg-[color:var(--color-ink-800)]/80 px-3 py-1 text-[11px] uppercase tracking-[0.25em] text-[color:var(--color-fg-muted)]">
-            <span className="size-1 rounded-full bg-[color:var(--color-coral-500)]" />
-            {copy.eyebrow}
-          </div>
-
-          <h2 className="font-display text-balance text-4xl leading-[1.05] text-white md:text-6xl">
-            {copy.title} <span className="coral-glow">{copy.highlight}</span>
-          </h2>
-          <p className="mx-auto mt-5 max-w-xl text-pretty text-[color:var(--color-fg-muted)] md:text-lg">
-            {copy.description}
-          </p>
-
-          {status === "success" ? (
-            <p
-              className="font-display mt-10 inline-flex items-center gap-2 text-base tracking-[0.2em] text-[color:var(--color-coral-400)]"
-              role="status"
-              aria-live="polite"
-            >
-              <svg viewBox="0 0 24 24" className="size-5" aria-hidden>
-                <path
-                  d="m5 12 4 4 10-10"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              {copy.success}
-            </p>
-          ) : (
-            <form
-              onSubmit={onSubmit}
-              className="mx-auto mt-10 flex max-w-md flex-col gap-3 sm:flex-row"
-            >
-              <label htmlFor="email" className="sr-only">
-                {copy.emailLabel}
-              </label>
-              <label className="absolute -left-[9999px]" aria-hidden="true">
-                {copy.websiteLabel}
-                <input
-                  type="text"
-                  name="website"
-                  aria-hidden="true"
-                  tabIndex={-1}
-                  autoComplete="off"
-                />
-              </label>
-              <input
-                id="email"
-                type="email"
-                required
-                inputMode="email"
-                autoComplete="email"
-                placeholder={copy.placeholder}
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                disabled={status === "submitting"}
-                className="h-14 flex-1 rounded-full border border-[color:var(--color-border-strong)] bg-[color:var(--color-ink-800)]/80 px-6 text-[15px] text-white placeholder:text-[color:var(--color-fg-dim)] focus:border-[color:var(--color-coral-500)] focus:outline-none disabled:opacity-60"
-              />
-              <button
-                type="submit"
-                disabled={status === "submitting"}
-                className="btn btn-primary !h-14"
-              >
-                {status === "submitting" ? copy.sending : copy.submit}
-              </button>
-            </form>
-          )}
-
-          {status === "error" ? (
-            <p
-              className="mt-3 text-sm text-[color:var(--color-coral-400)]"
-              role="alert"
-            >
-              {copy.error}
-            </p>
-          ) : null}
-
-          <p className="mt-6 text-xs text-[color:var(--color-fg-dim)]">
-            {copy.note}
-          </p>
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 -top-20 -z-10 mx-auto h-80 w-[700px] max-w-full rounded-full opacity-50 blur-3xl"
+          style={{
+            background:
+              "radial-gradient(closest-side, rgba(255,87,51,0.45), transparent 70%)",
+          }}
+        />
+        <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[color:var(--color-border-strong)] bg-[color:var(--color-ink-800)]/80 px-3 py-1 text-[11px] uppercase tracking-[0.25em] text-[color:var(--color-fg-muted)]">
+          <span className="size-1 rounded-full bg-[color:var(--color-coral-500)]" />
+          {copy.eyebrow}
         </div>
+
+        <h2 className="font-display text-balance text-4xl leading-[1.05] text-white md:text-6xl">
+          {copy.title} <span className="coral-glow">{copy.highlight}</span>
+        </h2>
+        <p className="mx-auto mt-5 max-w-xl text-pretty text-[color:var(--color-fg-muted)] md:text-lg">
+          {copy.description}
+        </p>
+
+        <a
+          href={APP_STORE_URL}
+          className="btn btn-primary mt-10"
+          target="_blank"
+          rel="noreferrer"
+        >
+          {copy.submit}
+          <svg viewBox="0 0 24 24" className="size-4" aria-hidden>
+            <path
+              fill="currentColor"
+              d="M13.293 4.293a1 1 0 0 1 1.414 0l6 6a1 1 0 0 1 0 1.414l-6 6a1 1 0 0 1-1.414-1.414L17.586 12H4a1 1 0 1 1 0-2h13.586l-4.293-4.293a1 1 0 0 1 0-1.414Z"
+            />
+          </svg>
+        </a>
+
+        <p className="mt-6 text-xs text-[color:var(--color-fg-dim)]">
+          {copy.note}
+        </p>
       </div>
     </section>
   );

@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 import type { SiteCopy } from "@/lib/site-i18n";
+import { APP_STORE_URL } from "@/lib/store-links";
 
 
 export function Hero({ copy }: { copy: SiteCopy["hero"] }) {
@@ -90,7 +91,12 @@ export function Hero({ copy }: { copy: SiteCopy["hero"] }) {
             className="anim-fade-up mt-10 flex flex-col gap-3 sm:flex-row sm:items-center"
             style={{ animationDelay: "360ms" }}
           >
-            <a href="#waitlist" className="btn btn-primary">
+            <a
+              href={APP_STORE_URL}
+              className="btn btn-primary"
+              target="_blank"
+              rel="noreferrer"
+            >
               {copy.primary}
               <svg viewBox="0 0 24 24" className="size-4" aria-hidden>
                 <path

@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { headers } from "next/headers";
+import { APP_STORE_URL } from "@/lib/store-links";
 
-// Store URLs are env-gated. Until each app is actually
-// published these stay unset and the page funnels an app-less recipient to the
-// waitlist instead of linking to store pages that would 404. Set them in Vercel
-// at launch and the badges appear automatically (platform-led).
-const APP_STORE_URL = process.env.NEXT_PUBLIC_APP_STORE_URL;
+// The published iOS URL has a safe source default. Environment variables can
+// override store destinations without requiring another release of the site.
+const PUBLISHED_APP_STORE_URL =
+  process.env.NEXT_PUBLIC_APP_STORE_URL ?? APP_STORE_URL;
 const PLAY_STORE_URL = process.env.NEXT_PUBLIC_PLAY_STORE_URL;
 
 type ChallengePageProps = {
@@ -37,8 +37,8 @@ export default async function ChallengePage({ params }: ChallengePageProps) {
 
   const stores = (
     [
-      APP_STORE_URL
-        ? { label: "Descarregar na App Store", href: APP_STORE_URL, lead: isIOS || !isAndroid }
+      PUBLISHED_APP_STORE_URL
+        ? { label: "Descarregar na App Store", href: PUBLISHED_APP_STORE_URL, lead: isIOS || !isAndroid }
         : null,
       PLAY_STORE_URL
         ? { label: "Descarregar no Google Play", href: PLAY_STORE_URL, lead: isAndroid }

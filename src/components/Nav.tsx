@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import type { SiteCopy, Locale } from "@/lib/site-i18n";
+import { APP_STORE_URL } from "@/lib/store-links";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { Logo } from "./Logo";
 
@@ -44,7 +45,12 @@ export function Nav({
 
       <div className="flex items-center gap-2">
         <LanguageSwitcher locale={locale} />
-        <a href="#waitlist" className="btn btn-primary nav-launch-cta !h-11 !px-4 !text-[12px] min-[560px]:!px-5 min-[560px]:!text-[13px]">
+        <a
+          href={APP_STORE_URL}
+          className="btn btn-primary nav-launch-cta !h-11 !px-4 !text-[12px] min-[560px]:!px-5 min-[560px]:!text-[13px]"
+          target="_blank"
+          rel="noreferrer"
+        >
           {copy.notify}
         </a>
       </div>
