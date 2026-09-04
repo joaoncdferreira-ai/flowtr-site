@@ -1,5 +1,5 @@
 import type { SiteCopy } from "@/lib/site-i18n";
-import { APP_STORE_URL } from "@/lib/store-links";
+import { GOOGLE_PLAY_URL } from "@/lib/store-links";
 
 export function Waitlist({ copy }: { copy: SiteCopy["waitlist"] }) {
   return (
@@ -26,7 +26,7 @@ export function Waitlist({ copy }: { copy: SiteCopy["waitlist"] }) {
         </p>
 
         <a
-          href={APP_STORE_URL}
+          href={GOOGLE_PLAY_URL}
           className="btn btn-primary mt-10"
           target="_blank"
           rel="noreferrer"

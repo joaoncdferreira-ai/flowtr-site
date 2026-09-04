@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 import type { SiteCopy } from "@/lib/site-i18n";
-import { APP_STORE_URL } from "@/lib/store-links";
+import { GOOGLE_PLAY_URL } from "@/lib/store-links";
 
 
 export function Hero({ copy }: { copy: SiteCopy["hero"] }) {
@@ -92,7 +92,7 @@ export function Hero({ copy }: { copy: SiteCopy["hero"] }) {
             style={{ animationDelay: "360ms" }}
           >
             <a
-              href={APP_STORE_URL}
+              href={GOOGLE_PLAY_URL}
               className="btn btn-primary"
               target="_blank"
               rel="noreferrer"

@@ -87,7 +87,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "MobileApplication",
   name: "Flowtr",
-  operatingSystem: "iOS",
+  operatingSystem: "Android",
   applicationCategory: "HealthApplication",
   description: DESCRIPTION,
   inLanguage: "pt-PT",

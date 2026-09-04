@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { headers } from "next/headers";
-import { APP_STORE_URL } from "@/lib/store-links";
+import { APP_STORE_URL, GOOGLE_PLAY_URL } from "@/lib/store-links";
 
 // The published iOS URL has a safe source default. Environment variables can
 // override store destinations without requiring another release of the site.
 const PUBLISHED_APP_STORE_URL =
   process.env.NEXT_PUBLIC_APP_STORE_URL ?? APP_STORE_URL;
-const PLAY_STORE_URL = process.env.NEXT_PUBLIC_PLAY_STORE_URL;
+const PLAY_STORE_URL = process.env.NEXT_PUBLIC_PLAY_STORE_URL ?? GOOGLE_PLAY_URL;
 
 type ChallengePageProps = {
   params: Promise<{ code: string }>;
