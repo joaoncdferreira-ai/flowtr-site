@@ -1,5 +1,5 @@
 import type { SiteCopy } from "@/lib/site-i18n";
-import { GOOGLE_PLAY_URL } from "@/lib/store-links";
+import { GOOGLE_PLAY_URL, APP_STORE_URL } from "@/lib/store-links";
 
 export function Waitlist({ copy }: { copy: SiteCopy["waitlist"] }) {
   return (
@@ -25,9 +25,10 @@ export function Waitlist({ copy }: { copy: SiteCopy["waitlist"] }) {
           {copy.description}
         </p>
 
+        <div className="mt-10 flex flex-wrap justify-center gap-3">
         <a
           href={GOOGLE_PLAY_URL}
-          className="btn btn-primary mt-10"
+          className="btn btn-primary"
           target="_blank"
           rel="noreferrer"
         >
@@ -39,6 +40,8 @@ export function Waitlist({ copy }: { copy: SiteCopy["waitlist"] }) {
             />
           </svg>
         </a>
+        <a href={APP_STORE_URL} className="btn btn-primary" target="_blank" rel="noreferrer">App Store</a>
+        </div>
 
         <p className="mt-6 text-xs text-[color:var(--color-fg-dim)]">
           {copy.note}
