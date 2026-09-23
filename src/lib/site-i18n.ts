@@ -239,7 +239,12 @@ export const siteCopy = {
         {
           question: "O meu percurso fica público?",
           answer:
-            "O mapa partilhado mostra os territórios conquistados, a tua alcunha, cor e foto de perfil. O percurso completo não é mostrado aos outros jogadores. Só criamos um vídeo público da corrida se escolheres partilhá-lo.",
+            "O mapa partilhado mostra os territórios conquistados, a tua alcunha, cor e foto de perfil. O percurso completo não é mostrado aos outros jogadores. Só criamos um vídeo público da corrida se escolheres partilhá-lo, e as imagens e vídeos partilhados escondem os primeiros e os últimos 200 m do percurso.",
+        },
+        {
+          question: "Quem são as Sentinelas?",
+          answer:
+            "São rivais virtuais criados pela Flowtr, não pessoas reais. Ocupam território e podem conquistar parte do teu, para haver disputa mesmo antes de outros jogadores correrem perto de ti. Na app aparecem sempre identificadas como Sentinela · rival virtual.",
         },
         {
           question: "Preciso de fechar um circuito?",
@@ -501,7 +506,12 @@ export const siteCopy = {
         {
           question: "Is my route public?",
           answer:
-            "The shared map shows claimed territories, your nickname, colour and profile picture. Other players do not see the full route. A public run video is created only when you choose to share it.",
+            "The shared map shows claimed territories, your nickname, colour and profile picture. Other players do not see the full route. A public run video is created only when you choose to share it, and shared images and videos hide the first and last 200 m of the route.",
+        },
+        {
+          question: "Who are the Sentinels?",
+          answer:
+            "They are virtual rivals created by Flowtr, not real people. They hold territory and may take part of yours, so there is a contest even before other players run near you. In the app they are always marked as Sentinel · virtual rival.",
         },
         {
           question: "Do I need to close a loop?",
@@ -763,7 +773,12 @@ export const siteCopy = {
         {
           question: "¿Mi recorrido es público?",
           answer:
-            "El mapa compartido muestra los territorios conquistados, tu apodo, color y foto de perfil. Los demás jugadores no ven el recorrido completo. Solo creamos un vídeo público si decides compartirlo.",
+            "El mapa compartido muestra los territorios conquistados, tu apodo, color y foto de perfil. Los demás jugadores no ven el recorrido completo. Solo creamos un vídeo público si decides compartirlo, y las imágenes y vídeos compartidos ocultan los primeros y los últimos 200 m del recorrido.",
+        },
+        {
+          question: "¿Quiénes son los Centinelas?",
+          answer:
+            "Son rivales virtuales creados por Flowtr, no personas reales. Ocupan territorio y pueden conquistar parte del tuyo, para que haya competencia incluso antes de que otros jugadores corran cerca de ti. En la app siempre aparecen como Centinela · rival virtual.",
         },
         {
           question: "¿Tengo que cerrar un circuito?",
