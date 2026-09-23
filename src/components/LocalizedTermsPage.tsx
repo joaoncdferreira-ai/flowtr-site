@@ -74,7 +74,7 @@ const copy = {
       },
       {
         title: "11. Contact",
-        body: ["Flowtr · Portugal · support@flowtr.app, including for legal notices."],
+        body: ["Flowtr · Portugal · flowtrinfo@gmail.com, including for legal notices."],
       },
     ],
     deleteLabel: "Delete your account",
@@ -151,7 +151,7 @@ const copy = {
       },
       {
         title: "11. Contacto",
-        body: ["Flowtr · Portugal · support@flowtr.app, también para avisos legales."],
+        body: ["Flowtr · Portugal · flowtrinfo@gmail.com, también para avisos legales."],
       },
     ],
     deleteLabel: "Eliminar tu cuenta",
@@ -179,8 +179,8 @@ export function LocalizedTermsPage({ locale }: { locale: Exclude<Locale, "pt"> }
         <p className="mt-3 text-sm text-fg-dim">{page.updated}</p>
         <p className="mt-5 text-base leading-7 text-fg-muted sm:text-lg">
           {page.intro}{" "}
-          <a className="text-coral hover:underline" href="mailto:support@flowtr.app">
-            support@flowtr.app
+          <a className="text-coral hover:underline" href="mailto:flowtrinfo@gmail.com">
+            flowtrinfo@gmail.com
           </a>
           .
         </p>
@@ -195,11 +195,11 @@ export function LocalizedTermsPage({ locale }: { locale: Exclude<Locale, "pt"> }
                     <Link className="text-coral hover:underline" href={localePath(locale, "/privacy")}>
                       {paragraph}
                     </Link>
-                  ) : paragraph.includes("support@flowtr.app") ? (
+                  ) : paragraph.includes("flowtrinfo@gmail.com") ? (
                     <>
-                      {paragraph.replace("support@flowtr.app", "")}
-                      <a className="text-coral hover:underline" href="mailto:support@flowtr.app">
-                        support@flowtr.app
+                      {paragraph.replace("flowtrinfo@gmail.com", "")}
+                      <a className="text-coral hover:underline" href="mailto:flowtrinfo@gmail.com">
+                        flowtrinfo@gmail.com
                       </a>
                     </>
                   ) : (

@@ -139,15 +139,15 @@ export function LocalizedSupportPage({ locale }: { locale: Locale }) {
         </h1>
         <p className="mt-5 max-w-2xl text-base leading-7 text-fg-muted sm:text-lg">
           {copy.introBefore}{" "}
-          <a className="text-coral hover:underline" href="mailto:support@flowtr.app">
-            support@flowtr.app
+          <a className="text-coral hover:underline" href="mailto:flowtrinfo@gmail.com">
+            flowtrinfo@gmail.com
           </a>
           . {copy.introAfter}
         </p>
 
         <a
           className="btn btn-primary mt-7"
-          href="mailto:support@flowtr.app?subject=Flowtr%20support"
+          href="mailto:flowtrinfo@gmail.com?subject=Flowtr%20support"
         >
           {copy.contact}
         </a>

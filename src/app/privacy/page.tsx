@@ -105,8 +105,8 @@ export default function PrivacyPage() {
           <p>
             O serviço Flowtr é operado a partir de Portugal. Para qualquer
             questão de privacidade ou pedido legal, o contacto é{" "}
-            <a className="text-coral hover:underline" href="mailto:support@flowtr.app">
-              support@flowtr.app
+            <a className="text-coral hover:underline" href="mailto:flowtrinfo@gmail.com">
+              flowtrinfo@gmail.com
             </a>
             . Respondemos por email a pedidos formais, incluindo os exercícios
             de direitos descritos abaixo.
@@ -202,8 +202,8 @@ export default function PrivacyPage() {
             Resend guarda-o para te enviarmos novidades essenciais sobre a
             disponibilidade da app. Podes pedir a remoção a qualquer momento
             através de{" "}
-            <a className="text-coral hover:underline" href="mailto:support@flowtr.app">
-              support@flowtr.app
+            <a className="text-coral hover:underline" href="mailto:flowtrinfo@gmail.com">
+              flowtrinfo@gmail.com
             </a>
             .
           </p>
@@ -258,8 +258,8 @@ export default function PrivacyPage() {
           <p>
             Tens direito de acesso, retificação, apagamento, portabilidade,
             limitação e oposição. Para exercer qualquer um, escreve para{" "}
-            <a className="text-coral hover:underline" href="mailto:support@flowtr.app">
-              support@flowtr.app
+            <a className="text-coral hover:underline" href="mailto:flowtrinfo@gmail.com">
+              flowtrinfo@gmail.com
             </a>
             . Tens também o direito de apresentar queixa à CNPD
             (Comissão Nacional de Proteção de Dados, cnpd.pt).
@@ -300,8 +300,8 @@ export default function PrivacyPage() {
             <p>
               <strong className="text-fg">Who is responsible.</strong> Flowtr is
               operated from Portugal. Contact for any privacy matter:{" "}
-              <a className="text-coral hover:underline" href="mailto:support@flowtr.app">
-                support@flowtr.app
+              <a className="text-coral hover:underline" href="mailto:flowtrinfo@gmail.com">
+                flowtrinfo@gmail.com
               </a>
               .
             </p>
@@ -370,8 +370,8 @@ export default function PrivacyPage() {
               <strong className="text-fg">Your rights (GDPR).</strong> Access,
               rectification, erasure, portability, restriction and objection —
               email{" "}
-              <a className="text-coral hover:underline" href="mailto:support@flowtr.app">
-                support@flowtr.app
+              <a className="text-coral hover:underline" href="mailto:flowtrinfo@gmail.com">
+                flowtrinfo@gmail.com
               </a>
               . You may lodge a complaint with the Portuguese supervisory
               authority (CNPD, cnpd.pt).

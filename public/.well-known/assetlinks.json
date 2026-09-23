@@ -5,7 +5,8 @@
       "namespace": "android_app",
       "package_name": "com.flowtr.app",
       "sha256_cert_fingerprints": [
-        "2D:F1:0A:98:A9:F9:30:C9:30:72:D3:D7:70:A5:04:F7:18:56:A7:BC:44:C6:04:29:08:E3:A0:5E:BB:BD:98:ED"
+        "2D:F1:0A:98:A9:F9:30:C9:30:72:D3:D7:70:A5:04:F7:18:56:A7:BC:44:C6:04:29:08:E3:A0:5E:BB:BD:98:ED",
+        "C3:08:56:23:96:7D:BA:5F:D7:82:22:6E:B2:32:8F:5B:D4:7E:1A:5C:E9:10:E7:3B:CF:E1:01:8A:9E:3D:0D:4D"
       ]
     }
   }

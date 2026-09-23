@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 import type { SiteCopy } from "@/lib/site-i18n";
-import { GOOGLE_PLAY_URL } from "@/lib/store-links";
+import { GOOGLE_PLAY_URL, APP_STORE_URL } from "@/lib/store-links";
 
 
 export function Hero({ copy }: { copy: SiteCopy["hero"] }) {
@@ -88,7 +88,7 @@ export function Hero({ copy }: { copy: SiteCopy["hero"] }) {
           </p>
 
           <div
-            className="anim-fade-up mt-10 flex flex-col gap-3 sm:flex-row sm:items-center"
+            className="anim-fade-up mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center"
             style={{ animationDelay: "360ms" }}
           >
             <a
@@ -105,6 +105,7 @@ export function Hero({ copy }: { copy: SiteCopy["hero"] }) {
                 />
               </svg>
             </a>
+            <a href={APP_STORE_URL} className="btn btn-primary" target="_blank" rel="noreferrer">App Store</a>
             <a href="#como-joga" className="btn btn-ghost">
               {copy.secondary}
             </a>
