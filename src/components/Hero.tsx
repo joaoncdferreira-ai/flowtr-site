@@ -75,6 +75,9 @@ export function Hero({ copy }: { copy: SiteCopy["hero"] }) {
             className="anim-fade-up font-display text-[clamp(2.6rem,7vw,5.6rem)] leading-[0.95] tracking-tight text-white"
             style={{ animationDelay: "80ms" }}
           >
+            <span className="mb-4 block font-sans text-sm font-semibold uppercase leading-snug tracking-[0.16em] text-[color:var(--color-fg-muted)] md:text-base">
+              {copy.category}
+            </span>
             <span className="block">{copy.headline[0]}</span>
             <span className="block">{copy.headline[1]}</span>
             <span className="block coral-glow">{copy.headline[2]}</span>

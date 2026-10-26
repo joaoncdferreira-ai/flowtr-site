@@ -1,18 +1,12 @@
 import type { Metadata } from "next";
+import { pageAlternates } from "@/lib/seo";
 import { LocalizedDeleteAccountPage } from "@/components/LocalizedDeleteAccountPage";
 
 export const metadata: Metadata = {
   title: "Eliminar conta e dados",
   description:
     "Instruções para eliminar uma conta Flowtr e os dados associados.",
-  alternates: {
-    canonical: "/delete-account",
-    languages: {
-      "pt-PT": "/delete-account",
-      en: "/en/delete-account",
-      es: "/es/delete-account",
-    },
-  },
+  alternates: pageAlternates("pt", "/delete-account"),
 };
 
 export default function DeleteAccountPage() {

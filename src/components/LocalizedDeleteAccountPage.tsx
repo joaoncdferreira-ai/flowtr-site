@@ -101,7 +101,7 @@ export function LocalizedDeleteAccountPage({ locale }: { locale: Locale }) {
           <p className="mt-4 leading-7 text-fg-muted">{copy.noAccessBody}</p>
           <a
             className="btn btn-primary mt-6"
-            href="mailto:support@flowtr.app?subject=Flowtr%20account%20deletion"
+            href="mailto:flowtrinfo@gmail.com?subject=Flowtr%20account%20deletion"
           >
             {copy.request}
           </a>
@@ -114,8 +114,8 @@ export function LocalizedDeleteAccountPage({ locale }: { locale: Locale }) {
 
         <p className="mt-9 text-sm text-fg-dim">
           {copy.questions}{" "}
-          <a className="text-coral hover:underline" href="mailto:support@flowtr.app">
-            support@flowtr.app
+          <a className="text-coral hover:underline" href="mailto:flowtrinfo@gmail.com">
+            flowtrinfo@gmail.com
           </a>
           .
         </p>

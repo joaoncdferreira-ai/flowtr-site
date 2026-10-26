@@ -12,7 +12,7 @@ const copy = {
       "Flowtr is a fitness game where you run in the real world to claim territory on a shared map. Location is central to the product, so this policy explains plainly what we collect, why we collect it and what other players can see.",
     controllerTitle: "Who is responsible",
     controller:
-      "Flowtr is operated from Portugal. For privacy questions or legal requests, contact support@flowtr.app. We reply by email to formal requests, including the rights described below.",
+      "Flowtr is operated from Portugal. For privacy questions or legal requests, contact flowtrinfo@gmail.com. We reply by email to formal requests, including the rights described below.",
     dataTitle: "Data we collect",
     data: [
       "Account — email, name or nickname and, if you use Google or Apple sign-in, that account identity.",
@@ -47,7 +47,7 @@ const copy = {
     ],
     rightsTitle: "Your rights",
     rights:
-      "Under the GDPR, you may request access, correction, deletion, restriction, portability or objection, and withdraw consent at any time without affecting prior lawful processing. Contact support@flowtr.app. You may also lodge a complaint with Portugal's data-protection authority, the CNPD.",
+      "Under the GDPR, you may request access, correction, deletion, restriction, portability or objection, and withdraw consent at any time without affecting prior lawful processing. Contact flowtrinfo@gmail.com. You may also lodge a complaint with Portugal's data-protection authority, the CNPD.",
     ageTitle: "Minimum age",
     age:
       "Flowtr is intended for people aged 16 or over. If we discover an account belonging to someone under 16, we will delete it.",
@@ -63,7 +63,7 @@ const copy = {
       "Flowtr es un juego de fitness en el que corres en el mundo real para conquistar territorio en un mapa compartido. La ubicación es esencial para el producto, por eso esta política explica claramente qué recopilamos, por qué y qué pueden ver otros jugadores.",
     controllerTitle: "Quién es responsable",
     controller:
-      "Flowtr opera desde Portugal. Para cuestiones de privacidad o solicitudes legales, escribe a support@flowtr.app. Respondemos por email a las solicitudes formales, incluido el ejercicio de los derechos que se describen a continuación.",
+      "Flowtr opera desde Portugal. Para cuestiones de privacidad o solicitudes legales, escribe a flowtrinfo@gmail.com. Respondemos por email a las solicitudes formales, incluido el ejercicio de los derechos que se describen a continuación.",
     dataTitle: "Datos que recopilamos",
     data: [
       "Cuenta — email, nombre o apodo y, si utilizas el inicio de sesión de Google o Apple, la identidad de esa cuenta.",
@@ -98,7 +98,7 @@ const copy = {
     ],
     rightsTitle: "Tus derechos",
     rights:
-      "De acuerdo con el RGPD, puedes solicitar acceso, rectificación, eliminación, limitación, portabilidad u oposición, y retirar tu consentimiento en cualquier momento sin afectar al tratamiento lícito anterior. Escribe a support@flowtr.app. También puedes presentar una reclamación ante la autoridad portuguesa de protección de datos, la CNPD.",
+      "De acuerdo con el RGPD, puedes solicitar acceso, rectificación, eliminación, limitación, portabilidad u oposición, y retirar tu consentimiento en cualquier momento sin afectar al tratamiento lícito anterior. Escribe a flowtrinfo@gmail.com. También puedes presentar una reclamación ante la autoridad portuguesa de protección de datos, la CNPD.",
     ageTitle: "Edad mínima",
     age:
       "Flowtr está dirigida a personas de 16 años o más. Si descubrimos una cuenta de una persona menor de 16 años, la eliminaremos.",
@@ -110,14 +110,14 @@ const copy = {
 } as const;
 
 function EmailText({ text }: { text: string }) {
-  const [before, after] = text.split("support@flowtr.app");
+  const [before, after] = text.split("flowtrinfo@gmail.com");
   if (after === undefined) return text;
 
   return (
     <>
       {before}
-      <a className="text-coral hover:underline" href="mailto:support@flowtr.app">
-        support@flowtr.app
+      <a className="text-coral hover:underline" href="mailto:flowtrinfo@gmail.com">
+        flowtrinfo@gmail.com
       </a>
       {after}
     </>

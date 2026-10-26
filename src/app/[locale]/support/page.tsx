@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageAlternates } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import { LocalizedSupportPage } from "@/components/LocalizedSupportPage";
 import type { Locale } from "@/lib/site-i18n";
@@ -33,14 +34,7 @@ export async function generateMetadata({
   const locale = getLocale((await params).locale);
   return {
     ...metadataCopy[locale],
-    alternates: {
-      canonical: `/${locale}/support`,
-      languages: {
-        "pt-PT": "/support",
-        en: "/en/support",
-        es: "/es/support",
-      },
-    },
+    alternates: pageAlternates(locale, "/support"),
   };
 }
 

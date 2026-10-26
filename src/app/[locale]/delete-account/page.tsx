@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageAlternates } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import { LocalizedDeleteAccountPage } from "@/components/LocalizedDeleteAccountPage";
 import type { Locale } from "@/lib/site-i18n";
@@ -33,14 +34,7 @@ export async function generateMetadata({
   const locale = getLocale((await params).locale);
   return {
     ...metadataCopy[locale],
-    alternates: {
-      canonical: `/${locale}/delete-account`,
-      languages: {
-        "pt-PT": "/delete-account",
-        en: "/en/delete-account",
-        es: "/es/delete-account",
-      },
-    },
+    alternates: pageAlternates(locale, "/delete-account"),
   };
 }
 

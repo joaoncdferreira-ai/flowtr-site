@@ -3,6 +3,7 @@ import { Russo_One, Chakra_Petch } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { LocaleDocument } from "@/components/LocaleDocument";
+import { brandTitle, OG_IMAGE, SITE_URL } from "@/lib/seo";
 import "./globals.css";
 
 const russo = Russo_One({
@@ -19,11 +20,12 @@ const chakra = Chakra_Petch({
   display: "swap",
 });
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://flowtr.app";
-const TITLE = "Flowtr — corre e conquista território";
+const TITLE = brandTitle.pt;
 const DESCRIPTION =
-  "Fecha um percurso, reclama a área num mapa partilhado e disputa território com outros corredores.";
+  "Jogo de corrida gratuito para iOS e Android: fecha um percurso, reclama a área num mapa partilhado e disputa território com outros corredores. Feito em Lisboa.";
 
+// Pages without their own alternates (e.g. challenge invites) must not inherit
+// a canonical, so alternates live on each indexable page instead of here.
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
@@ -34,22 +36,18 @@ export const metadata: Metadata = {
   applicationName: "Flowtr",
   keywords: [
     "Flowtr",
+    "jogo de corrida",
+    "conquista de território",
     "running game",
+    "territory game",
     "corrida",
-    "território",
+    "Lisboa",
     "GPS game",
     "fitness",
-    "gamificação",
-    "desafios de corrida",
-    "mapa 3D",
   ],
   authors: [{ name: "Flowtr" }],
   creator: "Flowtr",
   publisher: "Flowtr",
-  alternates: {
-    canonical: "/",
-    languages: { "pt-PT": "/", en: "/en", es: "/es" },
-  },
   openGraph: {
     type: "website",
     locale: "pt_PT",
@@ -57,20 +55,13 @@ export const metadata: Metadata = {
     title: TITLE,
     description: DESCRIPTION,
     siteName: "Flowtr",
-    images: [
-      {
-        url: "/og-image-v2.png",
-        width: 1200,
-        height: 630,
-        alt: "Flowtr — corre e conquista território",
-      },
-    ],
+    images: [{ ...OG_IMAGE, alt: TITLE }],
   },
   twitter: {
     card: "summary_large_image",
     title: TITLE,
     description: DESCRIPTION,
-    images: ["/og-image-v2.png"],
+    images: [OG_IMAGE.url],
   },
   robots: { index: true, follow: true },
   category: "fitness",
@@ -81,17 +72,6 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-};
-
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "MobileApplication",
-  name: "Flowtr",
-  operatingSystem: "Android",
-  applicationCategory: "HealthApplication",
-  description: DESCRIPTION,
-  inLanguage: "pt-PT",
-  offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
 };
 
 export default function RootLayout({
@@ -107,10 +87,6 @@ export default function RootLayout({
         {children}
         <Analytics />
         <SpeedInsights />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
         {/* Reveal-on-scroll. Plain JS, no framework dependency: runs as
             soon as the script is parsed, observes all [data-reveal] nodes
             (including those added later) and flips data-revealed when

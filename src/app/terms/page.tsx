@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageAlternates } from "@/lib/seo";
 import Link from "next/link";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
@@ -6,10 +7,7 @@ export const metadata: Metadata = {
   title: "Termos de Utilização",
   description:
     "As regras de utilização da Flowtr — o jogo em que corres na vida real para conquistar território.",
-  alternates: {
-    canonical: "/terms",
-    languages: { "pt-PT": "/terms", en: "/en/terms", es: "/es/terms" },
-  },
+  alternates: pageAlternates("pt", "/terms"),
 };
 
 // Última revisão material dos termos. Atualizar a cada alteração de conteúdo.
@@ -46,8 +44,8 @@ export default function TermsPage() {
           Estes termos regulam a utilização da app e do site Flowtr. Ao criar
           conta ou usar o serviço, aceitas estes termos. O serviço é operado a
           partir de Portugal; contacto:{" "}
-          <a className="text-coral hover:underline" href="mailto:support@flowtr.app">
-            support@flowtr.app
+          <a className="text-coral hover:underline" href="mailto:flowtrinfo@gmail.com">
+            flowtrinfo@gmail.com
           </a>
           .
         </p>
@@ -187,8 +185,8 @@ export default function TermsPage() {
         <Section title="11. Contacto">
           <p>
             Flowtr · Portugal ·{" "}
-            <a className="text-coral hover:underline" href="mailto:support@flowtr.app">
-              support@flowtr.app
+            <a className="text-coral hover:underline" href="mailto:flowtrinfo@gmail.com">
+              flowtrinfo@gmail.com
             </a>{" "}
             (também para notificações legais).
           </p>
@@ -207,8 +205,8 @@ export default function TermsPage() {
               These terms govern your use of the Flowtr app and website. By
               creating an account or using the service you accept them. Flowtr
               is operated from Portugal; contact:{" "}
-              <a className="text-coral hover:underline" href="mailto:support@flowtr.app">
-                support@flowtr.app
+              <a className="text-coral hover:underline" href="mailto:flowtrinfo@gmail.com">
+                flowtrinfo@gmail.com
               </a>
               .
             </p>
@@ -299,8 +297,8 @@ export default function TermsPage() {
             <p>
               <strong className="text-fg">11. Contact.</strong> Flowtr ·
               Portugal ·{" "}
-              <a className="text-coral hover:underline" href="mailto:support@flowtr.app">
-                support@flowtr.app
+              <a className="text-coral hover:underline" href="mailto:flowtrinfo@gmail.com">
+                flowtrinfo@gmail.com
               </a>{" "}
               (also for legal notices).
             </p>
