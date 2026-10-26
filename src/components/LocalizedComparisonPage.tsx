@@ -160,10 +160,10 @@ export function LocalizedComparisonPage({
       intro={<p>{competitor.intro[locale]}</p>}
     >
       <ContentSection title={copy.table}>
-        <div className="-mx-2 overflow-x-auto px-2">
-          <table className="w-full min-w-[560px] border-collapse text-left text-sm leading-6">
+        <div className="-mx-2 px-2 sm:overflow-x-auto">
+          <table className="w-full border-collapse text-left text-sm leading-6 max-sm:block sm:min-w-[560px]">
             <caption className="sr-only">{copy.caption(competitor.name)}</caption>
-            <thead>
+            <thead className="max-sm:hidden">
               <tr className="border-b border-white/[0.12] text-white">
                 <th scope="col" className="w-[22%] py-3 pr-4 font-display font-normal">
                   {copy.feature}
@@ -176,16 +176,20 @@ export function LocalizedComparisonPage({
                 </th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="max-sm:block">
               {rowOrder.map((row) => {
                 const fact = competitor.facts[row];
                 return (
-                  <tr key={row} className="border-b border-white/[0.06] align-top">
-                    <th scope="row" className="py-4 pr-4 font-semibold text-white">
+                  <tr key={row} className="border-b border-white/[0.06] align-top max-sm:block max-sm:py-3">
+                    <th scope="row" className="py-4 pr-4 font-semibold text-white max-sm:block max-sm:py-1">
                       {rowLabels[row][locale]}
                     </th>
-                    <td className="py-4 pr-4">{flowtrFacts[row][locale]}</td>
-                    <td className="py-4">
+                    <td className="py-4 pr-4 max-sm:block max-sm:py-1">
+                      <span className="block font-display text-xs text-coral sm:hidden">Flowtr</span>
+                      {flowtrFacts[row][locale]}
+                    </td>
+                    <td className="py-4 max-sm:block max-sm:py-1">
+                      <span className="block font-display text-xs text-white sm:hidden">{competitor.name}</span>
                       {fact ? (
                         <>
                           {fact.text[locale]}{" "}

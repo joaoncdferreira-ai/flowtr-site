@@ -35,7 +35,7 @@ export function StoreButtons({ locale }: { locale: Locale }) {
     <div className="flex flex-wrap gap-3">
       <a
         href={GOOGLE_PLAY_URL}
-        className="btn btn-primary !h-12 !text-sm"
+        className="btn btn-primary !h-12 !px-4 !text-[13px] min-[420px]:!px-7 min-[420px]:!text-sm"
         target="_blank"
         rel="noreferrer"
       >
@@ -43,7 +43,7 @@ export function StoreButtons({ locale }: { locale: Locale }) {
       </a>
       <a
         href={APP_STORE_URL}
-        className="btn btn-primary !h-12 !text-sm"
+        className="btn btn-primary !h-12 !px-4 !text-[13px] min-[420px]:!px-7 min-[420px]:!text-sm"
         target="_blank"
         rel="noreferrer"
       >
