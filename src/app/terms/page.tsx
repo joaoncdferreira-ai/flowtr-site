@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageAlternates } from "@/lib/seo";
 import Link from "next/link";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
@@ -6,10 +7,7 @@ export const metadata: Metadata = {
   title: "Termos de Utilização",
   description:
     "As regras de utilização da Flowtr — o jogo em que corres na vida real para conquistar território.",
-  alternates: {
-    canonical: "/terms",
-    languages: { "pt-PT": "/terms", en: "/en/terms", es: "/es/terms" },
-  },
+  alternates: pageAlternates("pt", "/terms"),
 };
 
 // Última revisão material dos termos. Atualizar a cada alteração de conteúdo.

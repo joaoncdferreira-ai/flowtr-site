@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageAlternates } from "@/lib/seo";
 import Link from "next/link";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
@@ -6,10 +7,7 @@ export const metadata: Metadata = {
   title: "Política de Privacidade",
   description:
     "Como a Flowtr recolhe, usa e protege os teus dados — incluindo localização GPS, percursos e territórios.",
-  alternates: {
-    canonical: "/privacy",
-    languages: { "pt-PT": "/privacy", en: "/en/privacy", es: "/es/privacy" },
-  },
+  alternates: pageAlternates("pt", "/privacy"),
 };
 
 // Última revisão material da política. Atualizar a cada alteração de conteúdo.

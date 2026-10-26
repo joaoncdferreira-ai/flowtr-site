@@ -3,6 +3,7 @@ import { FAQ } from "@/components/FAQ";
 import { Footer } from "@/components/Footer";
 import { Gallery } from "@/components/Gallery";
 import { Hero } from "@/components/Hero";
+import { JsonLd } from "@/components/JsonLd";
 import { HowItWorks } from "@/components/HowItWorks";
 import { Nav } from "@/components/Nav";
 import { StatStrip } from "@/components/StatStrip";
@@ -11,12 +12,14 @@ import { Waitlist } from "@/components/Waitlist";
 import { WhatIs } from "@/components/WhatIs";
 import { WorldMapBackground } from "@/components/WorldMapBackground";
 import { localeInfo, siteCopy, type Locale } from "@/lib/site-i18n";
+import { homeJsonLd } from "@/lib/structured-data";
 
 export function LandingPage({ locale }: { locale: Locale }) {
   const copy = siteCopy[locale];
 
   return (
     <div lang={localeInfo[locale].htmlLang} className="relative isolate">
+      <JsonLd data={homeJsonLd(locale)} />
       <WorldMapBackground />
       <div className="relative z-10">
         <Nav locale={locale} copy={copy.nav} />

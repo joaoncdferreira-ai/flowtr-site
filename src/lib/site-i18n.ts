@@ -27,6 +27,7 @@ export const siteCopy = {
     },
     hero: {
       eyebrow: "Já disponível no Google Play · App Store",
+      category: "Flowtr — jogo de corrida de conquista de território",
       headline: ["Corre.", "Conquista.", "Domina."],
       body:
         "Fecha um percurso, reclama a área no mapa e tenta mantê-la. Outros corredores podem conquistar o que é teu.",
@@ -229,8 +230,28 @@ export const siteCopy = {
       eyebrow: "Perguntas frequentes",
       title: "O que convém saber antes de começares.",
       highlight: "antes de começares",
-      description: "Localização, privacidade, preço e lançamento.",
+      description: "O jogo, localização, privacidade, preço e onde jogar.",
       questions: [
+        {
+          question: "O que é um jogo de corrida de conquista de território?",
+          answer:
+            "É um jogo em que o mapa real da cidade é o tabuleiro. Na Flowtr, quando a tua corrida fecha um circuito, a área lá dentro passa a ser tua num mapa partilhado. Outros jogadores podem conquistar parte dela e tu podes recuperá-la.",
+        },
+        {
+          question: "Qual é a diferença entre a Flowtr e o Strava?",
+          answer:
+            "O Strava regista atividades e é uma rede social para desportistas. A Flowtr é um jogo: cada circuito fechado torna-se território num mapa partilhado, disputado com outros jogadores e com rankings de área, territórios e distância. Podes importar corridas em GPX (por exemplo, exportadas do Strava) para o teu histórico, mas só as atividades registadas na Flowtr conquistam território.",
+        },
+        {
+          question: "A Flowtr funciona fora de Lisboa?",
+          answer:
+            "Sim. O mapa é mundial: podes conquistar território em qualquer cidade, e os rankings podem ser vistos por mundo, país ou cidade. A Flowtr foi feita em Lisboa, e é em zonas de Lisboa que estão as Sentinelas.",
+        },
+        {
+          question: "Posso jogar com amigos, a caminhar ou de bicicleta?",
+          answer:
+            "Sim. Podes seguir amigos, ver o ranking de amigos e criar duelos ou desafios de grupo até 50 pessoas. O modo é detetado pela velocidade média: a correr, 100% da área conta para o ranking global; a caminhar, 60%; de bicicleta, 50%.",
+        },
         {
           question: "Tenho de deixar o ecrã ligado durante a corrida?",
           answer:
@@ -252,9 +273,9 @@ export const siteCopy = {
             "Para conquistar território, sim: a corrida tem de formar uma área válida. A aplicação ajuda-te a perceber quando podes fechar e, no fim, confirma o resultado antes de o guardar.",
         },
         {
-          question: "A Flowtr é paga?",
+          question: "A Flowtr é grátis?",
           answer:
-            "O lançamento é gratuito e sem anúncios. Se isso mudar no futuro, explicaremos primeiro o que muda e o que continua gratuito.",
+            "Sim. A Flowtr é gratuita e sem anúncios. Se isso mudar no futuro, explicaremos primeiro o que muda e o que continua gratuito.",
         },
         {
           question: "Onde posso descarregar a Flowtr?",
@@ -284,6 +305,8 @@ export const siteCopy = {
       privacy: "Privacidade",
       terms: "Termos",
       deleteAccount: "Eliminar conta",
+      lisbon: "Correr em Lisboa",
+      compare: "Comparar",
     },
   },
   en: {
@@ -297,6 +320,7 @@ export const siteCopy = {
     },
     hero: {
       eyebrow: "Now available on Google Play · App Store",
+      category: "Flowtr — territory conquest running game",
       headline: ["Run.", "Claim.", "Rule."],
       body:
         "Close a route, claim the area on the map and try to keep it. Other runners can take what is yours.",
@@ -496,8 +520,28 @@ export const siteCopy = {
       eyebrow: "Frequently asked questions",
       title: "What to know before you start.",
       highlight: "before you start",
-      description: "Location, privacy, pricing and launch.",
+      description: "The game, location, privacy, pricing and where to play.",
       questions: [
+        {
+          question: "What is a territory conquest running game?",
+          answer:
+            "It is a game where the real map of your city is the board. In Flowtr, when your run closes a loop, the area inside becomes yours on a shared map. Other players can take part of it and you can win it back.",
+        },
+        {
+          question: "How is Flowtr different from Strava?",
+          answer:
+            "Strava records activities and is a social network for athletes. Flowtr is a game: every closed loop becomes territory on a shared map, contested with other players and ranked by area, territories and distance. You can import runs as GPX (for example, exported from Strava) into your history, but only activities recorded in Flowtr claim territory.",
+        },
+        {
+          question: "Does Flowtr work outside Lisbon?",
+          answer:
+            "Yes. The map is worldwide: you can claim territory in any city, and rankings can be viewed by world, country or city. Flowtr was made in Lisbon, and the Sentinels hold zones in Lisbon.",
+        },
+        {
+          question: "Can I play with friends, walking or cycling?",
+          answer:
+            "Yes. You can follow friends, see a friends ranking and create duels or group challenges with up to 50 people. The mode is detected from your average speed: running counts 100% of the area in the global ranking, walking 60% and cycling 50%.",
+        },
         {
           question: "Do I need to keep the screen on during a run?",
           answer:
@@ -519,9 +563,9 @@ export const siteCopy = {
             "Yes, to claim territory the run must form a valid area. The app helps you see when you can close it and checks the result before saving.",
         },
         {
-          question: "Is Flowtr paid?",
+          question: "Is Flowtr free?",
           answer:
-            "Flowtr is free and has no ads at launch. If that changes, we will first explain what changes and what remains free.",
+            "Yes. Flowtr is free and has no ads. If that changes, we will first explain what changes and what remains free.",
         },
         {
           question: "Where can I download Flowtr?",
@@ -551,6 +595,8 @@ export const siteCopy = {
       privacy: "Privacy",
       terms: "Terms",
       deleteAccount: "Delete account",
+      lisbon: "Running in Lisbon",
+      compare: "Compare",
     },
   },
   es: {
@@ -564,6 +610,7 @@ export const siteCopy = {
     },
     hero: {
       eyebrow: "Ya disponible en Google Play · App Store",
+      category: "Flowtr — juego de running de conquista de territorio",
       headline: ["Corre.", "Conquista.", "Domina."],
       body:
         "Cierra un recorrido, reclama el área en el mapa e intenta conservarla. Otros corredores pueden conquistar lo que es tuyo.",
@@ -763,8 +810,28 @@ export const siteCopy = {
       eyebrow: "Preguntas frecuentes",
       title: "Qué conviene saber antes de empezar.",
       highlight: "antes de empezar",
-      description: "Ubicación, privacidad, precio y lanzamiento.",
+      description: "El juego, ubicación, privacidad, precio y dónde jugar.",
       questions: [
+        {
+          question: "¿Qué es un juego de running de conquista de territorio?",
+          answer:
+            "Es un juego en el que el mapa real de tu ciudad es el tablero. En Flowtr, cuando tu carrera cierra un circuito, el área de dentro pasa a ser tuya en un mapa compartido. Otros jugadores pueden conquistar parte de ella y tú puedes recuperarla.",
+        },
+        {
+          question: "¿En qué se diferencia Flowtr de Strava?",
+          answer:
+            "Strava registra actividades y es una red social para deportistas. Flowtr es un juego: cada circuito cerrado se convierte en territorio en un mapa compartido, disputado con otros jugadores y con rankings de área, territorios y distancia. Puedes importar carreras en GPX (por ejemplo, exportadas de Strava) a tu historial, pero solo las actividades registradas en Flowtr conquistan territorio.",
+        },
+        {
+          question: "¿Flowtr funciona fuera de Lisboa?",
+          answer:
+            "Sí. El mapa es mundial: puedes conquistar territorio en cualquier ciudad, y los rankings se pueden ver por mundo, país o ciudad. Flowtr se hizo en Lisboa, y los Centinelas ocupan zonas de Lisboa.",
+        },
+        {
+          question: "¿Puedo jugar con amigos, caminando o en bicicleta?",
+          answer:
+            "Sí. Puedes seguir a amigos, ver el ranking de amigos y crear duelos o retos de grupo de hasta 50 personas. El modo se detecta por la velocidad media: corriendo, el 100% del área cuenta para el ranking global; caminando, el 60%; en bicicleta, el 50%.",
+        },
         {
           question: "¿Tengo que dejar la pantalla encendida durante la carrera?",
           answer:
@@ -786,9 +853,9 @@ export const siteCopy = {
             "Sí, para conquistar territorio la carrera debe formar un área válida. La aplicación te ayuda a saber cuándo puedes cerrarla y comprueba el resultado antes de guardarlo.",
         },
         {
-          question: "¿Flowtr es de pago?",
+          question: "¿Flowtr es gratis?",
           answer:
-            "En el lanzamiento Flowtr es gratis y no tiene anuncios. Si esto cambia, explicaremos antes qué cambia y qué sigue siendo gratuito.",
+            "Sí. Flowtr es gratis y no tiene anuncios. Si esto cambia, explicaremos antes qué cambia y qué sigue siendo gratuito.",
         },
         {
           question: "¿Dónde puedo descargar Flowtr?",
@@ -818,6 +885,8 @@ export const siteCopy = {
       privacy: "Privacidad",
       terms: "Términos",
       deleteAccount: "Eliminar cuenta",
+      lisbon: "Correr en Lisboa",
+      compare: "Comparar",
     },
   },
 } as const;

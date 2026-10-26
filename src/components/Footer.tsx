@@ -1,5 +1,6 @@
 import type { Locale, SiteCopy } from "@/lib/site-i18n";
 import { localePath } from "@/lib/site-i18n";
+import { competitorNames, competitorSlugs } from "@/lib/comparisons";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { Logo } from "./Logo";
 
@@ -27,6 +28,19 @@ export function Footer({
           <a href="#como-joga" className="hover:text-white transition-colors">{copy.nav.how}</a>
           <a href="#em-accao" className="hover:text-white transition-colors">{copy.nav.action}</a>
           <a href="#faq" className="hover:text-white transition-colors">{copy.nav.faq}</a>
+          <a href={localePath(locale, "/lisboa")} className="hover:text-white transition-colors">
+            {copy.footer.lisbon}
+          </a>
+          {competitorSlugs.map((slug) => (
+            <a
+              key={slug}
+              href={localePath(locale, `/vs/${slug}`)}
+              className="hover:text-white transition-colors"
+              aria-label={`${copy.footer.compare}: Flowtr vs ${competitorNames[slug]}`}
+            >
+              vs {competitorNames[slug]}
+            </a>
+          ))}
           <a href={localePath(locale, "/support")} className="hover:text-white transition-colors">
             {copy.footer.support}
           </a>

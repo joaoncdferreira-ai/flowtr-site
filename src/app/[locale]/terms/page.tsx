@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageAlternates } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import { LocalizedTermsPage } from "@/components/LocalizedTermsPage";
 import { type Locale } from "@/lib/site-i18n";
@@ -21,10 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: locale === "en" ? "Terms of Use" : "Términos de uso",
     description: descriptions[locale],
-    alternates: {
-      canonical: `/${locale}/terms`,
-      languages: { "pt-PT": "/terms", en: "/en/terms", es: "/es/terms" },
-    },
+    alternates: pageAlternates(locale, "/terms"),
   };
 }
 

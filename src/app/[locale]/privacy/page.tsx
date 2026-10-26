@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageAlternates } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import { LocalizedPrivacyPage } from "@/components/LocalizedPrivacyPage";
 import { type Locale } from "@/lib/site-i18n";
@@ -21,10 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: locale === "en" ? "Privacy Policy" : "Política de Privacidad",
     description: descriptions[locale],
-    alternates: {
-      canonical: `/${locale}/privacy`,
-      languages: { "pt-PT": "/privacy", en: "/en/privacy", es: "/es/privacy" },
-    },
+    alternates: pageAlternates(locale, "/privacy"),
   };
 }
 

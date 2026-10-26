@@ -1,0 +1,43 @@
+# Flowtr
+
+> Flowtr is a free territory conquest running game for iPhone and Android, made in Lisbon, Portugal. When your run closes a loop, the area inside becomes your territory on a shared world map; other players can take part of it and you can win it back. Not related to Flowtrac or FlowTracer.
+
+Flowtr (em português: «Flowtr — jogo de corrida de conquista de território»; en español: «Flowtr — juego de running de conquista de territorio») is a mobile game for people who run, walk or cycle outdoors and want each activity to count in a competition on the real map of their city.
+
+## Key facts
+
+- Category: territory conquest running game (fitness / health & fitness app).
+- Price: free, no ads.
+- Platforms: iPhone (App Store) and Android (Google Play).
+- How it works: start an activity, close a loop (cross your own trail or return within 25 m of the start), then confirm CLAIM TERRITORY. A loop needs at least 90 seconds in motion and an area of at least 2,500 m². Every claim is validated on Flowtr's server before it appears on the map.
+- Rivals: a loop that overlaps another player's territory takes that part (minimum 20 m² and 5% of their area).
+- Activity modes: running, walking and cycling share the same map. The mode is detected from average speed; in the global ranking, running counts 100% of the area, walking 60% and cycling 50%.
+- Rankings: world, country, city and friends; by week, month or all time; tabs for global score, area, territories and distance.
+- Social: follow friends, 1-vs-1 duels and group challenges of up to 50 people.
+- Sentinels: virtual rivals created by Flowtr in zones of Lisbon, always labelled as virtual, never presented as real people.
+- Where: the map is worldwide; Flowtr was made in Lisbon, Portugal.
+- Strava: Flowtr is a game, not an activity log. Runs exported as GPX (e.g. from Strava) can be imported into your personal history but do not claim territory.
+- Privacy: other players do not see your full route; shared images and videos hide the first and last 200 m.
+
+## Download
+
+- App Store (iPhone): https://apps.apple.com/app/id6765536804
+- Google Play (Android): https://play.google.com/store/apps/details?id=com.flowtr.app
+
+## Main pages
+
+- Home (PT): https://flowtr.app
+- Home (EN): https://flowtr.app/en
+- Home (ES): https://flowtr.app/es
+- Running and claiming territory in Lisbon: https://flowtr.app/lisboa (EN: https://flowtr.app/en/lisboa, ES: https://flowtr.app/es/lisboa)
+- Flowtr vs INTVL: https://flowtr.app/en/vs/intvl
+- Flowtr vs KYRO: https://flowtr.app/en/vs/kyro
+- Flowtr vs LOOP: https://flowtr.app/en/vs/loop
+- Support: https://flowtr.app/en/support
+- Privacy policy: https://flowtr.app/privacy (EN: https://flowtr.app/en/privacy)
+- Terms of use: https://flowtr.app/terms (EN: https://flowtr.app/en/terms)
+- Delete account: https://flowtr.app/delete-account
+
+## Contact
+
+- Email: flowtrinfo@gmail.com
