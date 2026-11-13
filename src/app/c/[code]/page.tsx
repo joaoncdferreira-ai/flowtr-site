@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { headers } from "next/headers";
+import { StoreButtons } from "./StoreButtons";
 import { APP_STORE_URL, GOOGLE_PLAY_URL } from "@/lib/store-links";
 
 // The published iOS URL has a safe source default. Environment variables can
@@ -13,7 +14,14 @@ type ChallengePageProps = {
   params: Promise<{ code: string }>;
 };
 
-type Store = { label: string; href: string; lead: boolean };
+type Store = { label: string; href: string; lead: boolean; copyInvite: boolean };
+
+// Android: pass the invite through the Play install referrer so the app can read
+// it after installing (Play Install Referrer API).
+function withInstallReferrer(url: string, code: string) {
+  const referrer = encodeURIComponent(`invite=${code}&utm_source=invite`);
+  return `${url}${url.includes("?") ? "&" : "?"}referrer=${referrer}`;
+}
 
 export const metadata: Metadata = {
   title: "Desafio Flowtr",
@@ -38,10 +46,10 @@ export default async function ChallengePage({ params }: ChallengePageProps) {
   const stores = (
     [
       PUBLISHED_APP_STORE_URL
-        ? { label: "Descarregar na App Store", href: PUBLISHED_APP_STORE_URL, lead: isIOS || !isAndroid }
+        ? { label: "Descarregar na App Store", href: PUBLISHED_APP_STORE_URL, lead: isIOS || !isAndroid, copyInvite: true }
         : null,
       PLAY_STORE_URL
-        ? { label: "Descarregar no Google Play", href: PLAY_STORE_URL, lead: isAndroid }
+        ? { label: "Descarregar no Google Play", href: withInstallReferrer(PLAY_STORE_URL, code), lead: isAndroid, copyInvite: false }
         : null,
     ].filter(Boolean) as Store[]
   ).sort((a, b) => Number(b.lead) - Number(a.lead));
@@ -75,13 +83,10 @@ export default async function ChallengePage({ params }: ChallengePageProps) {
             <div className="mt-8 border-t border-border pt-6">
               <p className="text-sm text-fg-muted">Ainda não tens a Flowtr?</p>
               {stores.length > 0 ? (
-                <div className="mt-3 flex flex-col gap-3 sm:flex-row sm:justify-center">
-                  {stores.map((s) => (
-                    <a key={s.href} className="btn btn-ghost" href={s.href}>
-                      {s.label}
-                    </a>
-                  ))}
-                </div>
+                <StoreButtons
+                  stores={stores.map(({ label, href, copyInvite }) => ({ label, href, copyInvite }))}
+                  inviteUrl={`https://flowtr.app/c/${code}`}
+                />
               ) : (
                 <Link className="btn btn-primary mt-3" href="/#waitlist">
                   Avisa-me quando estiver disponível
