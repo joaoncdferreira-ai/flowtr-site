@@ -60,8 +60,8 @@ export function StoreButtons({
         <>
           <script dangerouslySetInnerHTML={{ __html: COPY_SCRIPT }} />
           <p className="mt-4 text-sm leading-6 text-fg-muted">
-            O convite fica copiado. Depois de instalar, abre a Flowtr e entras
-            direto no desafio.
+            O convite fica copiado. Depois de instalar, a Flowtr abre
+            diretamente no convite.
           </p>
         </>
       ) : null}
