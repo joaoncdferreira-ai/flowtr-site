@@ -4,7 +4,7 @@
 
 import { cache } from "react";
 
-export type InviteKind = "target" | "together" | "friendly" | "other";
+export type InviteKind = "target" | "together" | "friendly" | "duel" | "group" | "other";
 
 export type InvitePreview = {
   kind: InviteKind;
@@ -18,7 +18,7 @@ const DEFAULT_PREVIEW_URL =
   "https://europe-west1-flowtr-bfa58.cloudfunctions.net/invitePreview";
 const FETCH_TIMEOUT_MS = 2500;
 const DEFAULT_TIME_ZONE = "Europe/Lisbon";
-const KINDS: readonly InviteKind[] = ["target", "together", "friendly", "other"];
+const KINDS: readonly InviteKind[] = ["target", "together", "friendly", "duel", "group", "other"];
 
 export const INVITE_PITCH =
   "A Flowtr é um jogo no mapa real: corres, caminhas ou pedalas e conquistas território.";
@@ -77,11 +77,13 @@ export const fetchInvitePreview = cache(
   },
 );
 
-type Kind = "volta" | "desafio" | "other";
+type Kind = "volta" | "desafio" | "duelo" | "grupo" | "other";
 
 function inviteKind(preview: InvitePreview | null, together: boolean): Kind {
   if (preview) {
     if (preview.kind === "friendly") return "desafio";
+    if (preview.kind === "duel") return "duelo";
+    if (preview.kind === "group") return "grupo";
     if (preview.kind === "other") return together ? "volta" : "other";
     return "volta";
   }
@@ -103,9 +105,17 @@ export function inviteCopy(preview: InvitePreview | null, together: boolean) {
         ? name
           ? `${name} convida-te para um desafio amigável`
           : "Desafio amigável"
-        : name
-          ? `${name} convida-te para a Flowtr`
-          : "Convite para a Flowtr";
+        : kind === "duelo"
+          ? name
+            ? `${name} desafia-te a correr mais`
+            : "Desafio na Flowtr"
+          : kind === "grupo"
+            ? name
+              ? `${name} convida-te para um desafio de grupo`
+              : "Desafio de grupo"
+            : name
+              ? `${name} convida-te para a Flowtr`
+              : "Convite para a Flowtr";
   const subtitle =
     kind === "desafio" ? "Quem faz mais km esta semana, só por diversão." : null;
   return { title, subtitle };
