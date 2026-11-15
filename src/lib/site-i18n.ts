@@ -33,14 +33,14 @@ export const siteCopy = {
         "Fecha um percurso, reclama a área no mapa e tenta mantê-la. Outros corredores podem conquistar o que é teu.",
       primary: "Descarregar no Google Play",
       secondary: "Como funciona",
-      status: ["Android e iPhone", "Corre e conquista", "Grátis · sem anúncios"],
+      status: ["Android e iPhone", "Corre e conquista", "Sem anúncios"],
       conquered: "CONQUISTADO",
       videoLabel:
         "Animação da Flowtr com uma corrida a fechar e conquistar território",
     },
     stat: [
       "GPS APENAS DURANTE A CORRIDA · SEM ANÚNCIOS",
-      "GOOGLE PLAY E APP STORE · GRÁTIS · SEM ANÚNCIOS",
+      "GOOGLE PLAY E APP STORE · SEM ANÚNCIOS",
       "O TERRITÓRIO É TEU ATÉ OUTRO CORREDOR O CONQUISTAR",
       "FEITO EM LISBOA · 38.7223°N 9.1393°W",
     ],
@@ -273,14 +273,9 @@ export const siteCopy = {
             "Para conquistar território, sim: a corrida tem de formar uma área válida. A aplicação ajuda-te a perceber quando podes fechar e, no fim, confirma o resultado antes de o guardar.",
         },
         {
-          question: "A Flowtr é grátis?",
-          answer:
-            "Sim. A Flowtr é gratuita e sem anúncios. Se isso mudar no futuro, explicaremos primeiro o que muda e o que continua gratuito.",
-        },
-        {
           question: "Onde posso descarregar a Flowtr?",
           answer:
-            "A Flowtr já está disponível gratuitamente no Google Play para Android e na App Store para iPhone.",
+            "A Flowtr já está disponível no Google Play para Android e na App Store para iPhone.",
         },
       ],
     },
@@ -289,7 +284,7 @@ export const siteCopy = {
       title: "A cidade está",
       highlight: "por conquistar.",
       description:
-        "Descarrega a Flowtr gratuitamente no Android ou iPhone e transforma a tua próxima corrida em território.",
+        "Descarrega a Flowtr no Android ou iPhone e transforma a tua próxima corrida em território.",
       success: "Está feito. Avisamos-te quando sair.",
       emailLabel: "Email",
       websiteLabel: "Website",
@@ -297,7 +292,7 @@ export const siteCopy = {
       sending: "A enviar…",
       submit: "Descarregar no Google Play",
       error: "Algo correu mal. Tenta de novo em alguns segundos.",
-      note: "Grátis · sem anúncios · instalação através do Google Play ou da App Store.",
+      note: "Sem anúncios · instalação através do Google Play ou da App Store.",
     },
     footer: {
       madeIn: "Feito em Lisboa · por corredores",
@@ -326,14 +321,14 @@ export const siteCopy = {
         "Close a route, claim the area on the map and try to keep it. Other runners can take what is yours.",
       primary: "Download on Google Play",
       secondary: "How it works",
-      status: ["Android and iPhone", "Run and claim", "Free · no ads"],
+      status: ["Android and iPhone", "Run and claim", "No ads"],
       conquered: "CLAIMED",
       videoLabel:
         "Flowtr animation showing a run closing and claiming territory",
     },
     stat: [
       "GPS ONLY DURING A RUN · NO ADS",
-      "GOOGLE PLAY AND APP STORE · FREE · NO ADS",
+      "GOOGLE PLAY AND APP STORE · NO ADS",
       "THE TERRITORY IS YOURS UNTIL ANOTHER RUNNER TAKES IT",
       "MADE IN LISBON · 38.7223°N 9.1393°W",
     ],
@@ -563,14 +558,9 @@ export const siteCopy = {
             "Yes, to claim territory the run must form a valid area. The app helps you see when you can close it and checks the result before saving.",
         },
         {
-          question: "Is Flowtr free?",
-          answer:
-            "Yes. Flowtr is free and has no ads. If that changes, we will first explain what changes and what remains free.",
-        },
-        {
           question: "Where can I download Flowtr?",
           answer:
-            "Flowtr is now available for free on Google Play for Android and on the App Store for iPhone.",
+            "Flowtr is now available on Google Play for Android and on the App Store for iPhone.",
         },
       ],
     },
@@ -579,7 +569,7 @@ export const siteCopy = {
       title: "The city is",
       highlight: "yours to claim.",
       description:
-        "Download Flowtr for free on Android or iPhone and turn your next run into territory.",
+        "Download Flowtr on Android or iPhone and turn your next run into territory.",
       success: "Done. We will tell you when it launches.",
       emailLabel: "Email",
       websiteLabel: "Website",
@@ -587,7 +577,7 @@ export const siteCopy = {
       sending: "Sending…",
       submit: "Download on Google Play",
       error: "Something went wrong. Try again in a few seconds.",
-      note: "Free · no ads · secure install through Google Play or the App Store.",
+      note: "No ads · secure install through Google Play or the App Store.",
     },
     footer: {
       madeIn: "Made in Lisbon · by runners",
@@ -616,14 +606,14 @@ export const siteCopy = {
         "Cierra un recorrido, reclama el área en el mapa e intenta conservarla. Otros corredores pueden conquistar lo que es tuyo.",
       primary: "Descargar en Google Play",
       secondary: "Cómo funciona",
-      status: ["Android y iPhone", "Corre y conquista", "Gratis · sin anuncios"],
+      status: ["Android y iPhone", "Corre y conquista", "Sin anuncios"],
       conquered: "CONQUISTADO",
       videoLabel:
         "Animación de Flowtr con una carrera que cierra y conquista territorio",
     },
     stat: [
       "GPS SOLO DURANTE LA CARRERA · SIN ANUNCIOS",
-      "GOOGLE PLAY Y APP STORE · GRATIS · SIN ANUNCIOS",
+      "GOOGLE PLAY Y APP STORE · SIN ANUNCIOS",
       "EL TERRITORIO ES TUYO HASTA QUE OTRO CORREDOR LO CONQUISTE",
       "HECHO EN LISBOA · 38.7223°N 9.1393°W",
     ],
@@ -853,14 +843,9 @@ export const siteCopy = {
             "Sí, para conquistar territorio la carrera debe formar un área válida. La aplicación te ayuda a saber cuándo puedes cerrarla y comprueba el resultado antes de guardarlo.",
         },
         {
-          question: "¿Flowtr es gratis?",
-          answer:
-            "Sí. Flowtr es gratis y no tiene anuncios. Si esto cambia, explicaremos antes qué cambia y qué sigue siendo gratuito.",
-        },
-        {
           question: "¿Dónde puedo descargar Flowtr?",
           answer:
-            "Flowtr ya está disponible gratis en Google Play para Android y en la App Store para iPhone.",
+            "Flowtr ya está disponible en Google Play para Android y en la App Store para iPhone.",
         },
       ],
     },
@@ -869,7 +854,7 @@ export const siteCopy = {
       title: "La ciudad está",
       highlight: "por conquistar.",
       description:
-        "Descarga Flowtr gratis en Android o iPhone y convierte tu próxima carrera en territorio.",
+        "Descarga Flowtr en Android o iPhone y convierte tu próxima carrera en territorio.",
       success: "Listo. Te avisaremos cuando esté disponible.",
       emailLabel: "Email",
       websiteLabel: "Sitio web",
@@ -877,7 +862,7 @@ export const siteCopy = {
       sending: "Enviando…",
       submit: "Descargar en Google Play",
       error: "Algo ha salido mal. Inténtalo de nuevo en unos segundos.",
-      note: "Gratis · sin anuncios · instalación segura desde Google Play o App Store.",
+      note: "Sin anuncios · instalación segura desde Google Play o App Store.",
     },
     footer: {
       madeIn: "Hecho en Lisboa · por corredores",

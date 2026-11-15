@@ -22,7 +22,7 @@ const chakra = Chakra_Petch({
 
 const TITLE = brandTitle.pt;
 const DESCRIPTION =
-  "Jogo de corrida gratuito para iOS e Android: fecha um percurso, reclama a área num mapa partilhado e disputa território com outros corredores. Feito em Lisboa.";
+  "Jogo de corrida para iOS e Android: fecha um percurso, reclama a área num mapa partilhado e disputa território com outros corredores. Feito em Lisboa.";
 
 // Pages without their own alternates (e.g. challenge invites) must not inherit
 // a canonical, so alternates live on each indexable page instead of here.

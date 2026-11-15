@@ -8,22 +8,22 @@ import { competitorSlugs, competitorNames } from "@/lib/comparisons";
 const shellCopy = {
   pt: {
     back: "Voltar ao início da Flowtr",
-    download: "Descarrega a Flowtr grátis",
-    downloadBody: "Disponível para iPhone e Android. Grátis e sem anúncios.",
+    download: "Descarrega a Flowtr",
+    downloadBody: "Disponível para iPhone e Android. Sem anúncios.",
     more: "Ver também",
     home: "Início",
   },
   en: {
     back: "Back to Flowtr home",
-    download: "Download Flowtr for free",
-    downloadBody: "Available for iPhone and Android. Free, no ads.",
+    download: "Download Flowtr",
+    downloadBody: "Available for iPhone and Android. No ads.",
     more: "See also",
     home: "Home",
   },
   es: {
     back: "Volver al inicio de Flowtr",
-    download: "Descarga Flowtr gratis",
-    downloadBody: "Disponible para iPhone y Android. Gratis y sin anuncios.",
+    download: "Descarga Flowtr",
+    downloadBody: "Disponible para iPhone y Android. Sin anuncios.",
     more: "Ver también",
     home: "Inicio",
   },

@@ -28,7 +28,7 @@ const copy = {
     title: "Correr e conquistar território em Lisboa",
     intro: [
       "A Flowtr é um jogo de corrida de conquista de território feito em Lisboa. Cada corrida que fecha um circuito transforma a área lá dentro em território teu, num mapa partilhado com quem corre na cidade.",
-      "Outros jogadores podem conquistar parte do teu território, e tu podes recuperá-lo. A app é gratuita, sem anúncios, para iPhone e Android.",
+      "Outros jogadores podem conquistar parte do teu território, e tu podes recuperá-lo. A app não tem anúncios e está disponível para iPhone e Android.",
     ],
     sections: [
       {
@@ -69,7 +69,7 @@ const copy = {
     title: "Run and claim territory in Lisbon",
     intro: [
       "Flowtr is a territory conquest running game made in Lisbon. Every run that closes a loop turns the area inside into your territory, on a map shared with everyone running in the city.",
-      "Other players can take part of your territory, and you can win it back. The app is free, with no ads, for iPhone and Android.",
+      "Other players can take part of your territory, and you can win it back. The app has no ads and is available for iPhone and Android.",
     ],
     sections: [
       {
@@ -110,7 +110,7 @@ const copy = {
     title: "Correr y conquistar territorio en Lisboa",
     intro: [
       "Flowtr es un juego de running de conquista de territorio hecho en Lisboa. Cada carrera que cierra un circuito convierte el área de dentro en territorio tuyo, en un mapa compartido con quienes corren en la ciudad.",
-      "Otros jugadores pueden conquistar parte de tu territorio y tú puedes recuperarlo. La app es gratis, sin anuncios, para iPhone y Android.",
+      "Otros jugadores pueden conquistar parte de tu territorio y tú puedes recuperarlo. La app no tiene anuncios y está disponible para iPhone y Android.",
     ],
     sections: [
       {

@@ -67,9 +67,9 @@ export const flowtrFacts: Record<RowKey, L> = {
     es: "Cierras un circuito (cruzando tu rastro o volviendo a menos de 25 m del inicio) de al menos 2.500 m² y 90 segundos en movimiento. Confirmas la conquista y el servidor la valida antes de que llegue al mapa.",
   },
   price: {
-    pt: "Grátis e sem anúncios.",
-    en: "Free, no ads.",
-    es: "Gratis y sin anuncios.",
+    pt: "Sem anúncios.",
+    en: "No ads.",
+    es: "Sin anuncios.",
   },
   platforms: {
     pt: "iPhone e Android.",
@@ -199,9 +199,9 @@ export const competitors: Record<CompetitorSlug, Competitor> = {
     },
     differences: [
       {
-        pt: "O INTVL joga-se em muitos mais países e liga-se a relógios e ciclocomputadores. Tem uma subscrição opcional; a Flowtr é gratuita e sem anúncios.",
-        en: "INTVL is played in many more countries and connects to watches and bike computers. It has an optional subscription; Flowtr is free with no ads.",
-        es: "INTVL se juega en muchos más países y se conecta a relojes y ciclocomputadores. Tiene una suscripción opcional; Flowtr es gratis y sin anuncios.",
+        pt: "O INTVL joga-se em muitos mais países e liga-se a relógios e ciclocomputadores. Tem uma subscrição opcional; a Flowtr não tem anúncios.",
+        en: "INTVL is played in many more countries and connects to watches and bike computers. It has an optional subscription; Flowtr has no ads.",
+        es: "INTVL se juega en muchos más países y se conecta a relojes y ciclocomputadores. Tiene una suscripción opcional; Flowtr no tiene anuncios.",
       },
       {
         pt: "No INTVL, corrida e bicicleta são jogos separados. Na Flowtr, corrida, caminhada e bicicleta partilham o mesmo mapa, com pesos diferentes no ranking global.",
@@ -297,9 +297,9 @@ export const competitors: Record<CompetitorSlug, Competitor> = {
     },
     differences: [
       {
-        pt: "O KYRO centra-se na corrida e em cidades da Coreia do Sul e do Japão, com subscrição opcional KYRO PRO. A Flowtr aceita corrida, caminhada e bicicleta, é gratuita e sem anúncios, e nasceu em Lisboa.",
-        en: "KYRO focuses on running and on cities in South Korea and Japan, with an optional KYRO PRO subscription. Flowtr accepts running, walking and cycling, is free with no ads, and was born in Lisbon.",
-        es: "KYRO se centra en el running y en ciudades de Corea del Sur y Japón, con suscripción opcional KYRO PRO. Flowtr acepta running, caminata y bicicleta, es gratis y sin anuncios, y nació en Lisboa.",
+        pt: "O KYRO centra-se na corrida e em cidades da Coreia do Sul e do Japão, com subscrição opcional KYRO PRO. A Flowtr aceita corrida, caminhada e bicicleta, não tem anúncios e nasceu em Lisboa.",
+        en: "KYRO focuses on running and on cities in South Korea and Japan, with an optional KYRO PRO subscription. Flowtr accepts running, walking and cycling, has no ads, and was born in Lisbon.",
+        es: "KYRO se centra en el running y en ciudades de Corea del Sur y Japón, con suscripción opcional KYRO PRO. Flowtr acepta running, caminata y bicicleta, no tiene anuncios y nació en Lisboa.",
       },
       {
         pt: "O KYRO liga-se a relógios Apple Watch, Garmin e Suunto. Na Flowtr, a atividade é registada no telemóvel e cada conquista é validada no servidor.",
@@ -387,9 +387,9 @@ export const competitors: Record<CompetitorSlug, Competitor> = {
         es: "LOOP se organiza en partidas con duración y campo definidos, en solitario o por equipos. En Flowtr, el territorio permanece en un mapa compartido y persistente hasta que otro jugador lo conquista.",
       },
       {
-        pt: "Ambas são gratuitas. A Flowtr junta rankings por cidade, país e amigos, desafios entre amigos e Sentinelas em Lisboa.",
-        en: "Both are free. Flowtr adds rankings by city, country and friends, challenges between friends and Sentinels in Lisbon.",
-        es: "Ambas son gratuitas. Flowtr añade rankings por ciudad, país y amigos, retos entre amigos y Centinelas en Lisboa.",
+        pt: "A Flowtr junta rankings por cidade, país e amigos, desafios entre amigos e Sentinelas em Lisboa.",
+        en: "Flowtr adds rankings by city, country and friends, challenges between friends and Sentinels in Lisbon.",
+        es: "Flowtr añade rankings por ciudad, país y amigos, retos entre amigos y Centinelas en Lisboa.",
       },
     ],
   },

@@ -6,7 +6,7 @@ export const metadata: Metadata = localizedPageMetadata({
   locale: "pt",
   title: brandTitle.pt,
   description:
-    "Jogo de corrida gratuito para iOS e Android: fecha um percurso, reclama a área num mapa partilhado e disputa território com outros corredores. Feito em Lisboa.",
+    "Jogo de corrida para iOS e Android: fecha um percurso, reclama a área num mapa partilhado e disputa território com outros corredores. Feito em Lisboa.",
 });
 
 export default function Home() {

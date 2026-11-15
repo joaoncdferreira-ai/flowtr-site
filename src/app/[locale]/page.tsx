@@ -5,8 +5,8 @@ import type { Locale } from "@/lib/site-i18n";
 import { brandTitle, localizedPageMetadata } from "@/lib/seo";
 
 const descriptions = {
-  en: "Free running game for iOS and Android: close a route, claim the area on a shared map and compete for territory with other runners. Made in Lisbon.",
-  es: "Juego de running gratuito para iOS y Android: cierra un recorrido, reclama el área en un mapa compartido y disputa el territorio con otros corredores. Hecho en Lisboa.",
+  en: "Running game for iOS and Android: close a route, claim the area on a shared map and compete for territory with other runners. Made in Lisbon.",
+  es: "Juego de running para iOS y Android: cierra un recorrido, reclama el área en un mapa compartido y disputa el territorio con otros corredores. Hecho en Lisboa.",
 } as const;
 
 function getLocale(value: string): Exclude<Locale, "pt"> {
