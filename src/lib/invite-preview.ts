@@ -65,7 +65,9 @@ export const fetchInvitePreview = cache(
         ? (body.kind as InviteKind)
         : "other";
       const firstName =
-        typeof body.firstName === "string" ? body.firstName.trim().slice(0, 40) : "";
+        typeof body.firstName === "string"
+          ? body.firstName.normalize("NFC").trim().slice(0, 40)
+          : "";
       // A time already gone is not shown (the invite may still be open).
       const meetAtMillis =
         typeof body.meetAtMillis === "number" &&
