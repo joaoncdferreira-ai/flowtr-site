@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { headers } from "next/headers";
-import { StoreButtons } from "./StoreButtons";
+import { InviteActions } from "./InviteActions";
 import { APP_STORE_URL, GOOGLE_PLAY_URL } from "@/lib/store-links";
+import {
+  fetchInvitePreview,
+  formatMeetAt,
+  INVITE_PITCH,
+  inviteCopy,
+  isValidInviteCode,
+} from "@/lib/invite-preview";
 
 // The published iOS URL has a safe source default. Environment variables can
 // override store destinations without requiring another release of the site.
@@ -13,10 +20,8 @@ const PLAY_STORE_URL = process.env.NEXT_PUBLIC_PLAY_STORE_URL ?? GOOGLE_PLAY_URL
 type ChallengePageProps = {
   params: Promise<{ code: string }>;
   // `k=volta`: convite «Ir com alguém» (uma volta juntos, nunca «desafio»).
-  searchParams: Promise<{ k?: string }>;
+  searchParams: Promise<{ k?: string | string[] }>;
 };
-
-type Store = { label: string; href: string; lead: boolean; copyInvite: boolean };
 
 // Android: pass the invite through the Play install referrer so the app can read
 // it after installing (Play Install Referrer API).
@@ -25,82 +30,125 @@ function withInstallReferrer(url: string, code: string) {
   return `${url}${url.includes("?") ? "&" : "?"}referrer=${referrer}`;
 }
 
-export const metadata: Metadata = {
-  title: "Desafio Flowtr",
-  description: "Um convite para a Flowtr.",
-  robots: { index: false, follow: true },
-};
+// Opens the app when installed; otherwise Chrome follows the fallback to Play.
+function androidIntentUrl(code: string, playUrl: string) {
+  return (
+    `intent://challenge?code=${encodeURIComponent(code)}` +
+    `#Intent;scheme=flowtr;package=com.flowtr.app;` +
+    `S.browser_fallback_url=${encodeURIComponent(playUrl)};end`
+  );
+}
 
-export default async function ChallengePage({ params, searchParams }: ChallengePageProps) {
-  const together = (await searchParams).k === "volta";
+async function resolveInvite({ params, searchParams }: ChallengePageProps) {
   const { code: rawCode } = await params;
   const code = rawCode.trim();
-  const validCode = /^[A-Za-z0-9_-]{1,64}$/.test(code);
-  const appHref = validCode
-    ? `flowtr://challenge?code=${encodeURIComponent(code)}`
-    : "/";
+  const together = (await searchParams).k === "volta";
+  const validCode = isValidInviteCode(code);
+  const preview = validCode ? await fetchInvitePreview(code) : null;
+  return { code, together, validCode, preview };
+}
 
-  // Best-effort UA sniff (works inside the WhatsApp in-app browser too) to lead
-  // with the right store; both are shown otherwise.
+export async function generateMetadata(props: ChallengePageProps): Promise<Metadata> {
+  const { together, validCode, preview } = await resolveInvite(props);
+  const title = validCode ? inviteCopy(preview, together).title : "Convite Flowtr";
+  // Link previews are cached by the messaging app: always the full date here.
+  const when =
+    preview?.meetAtMillis != null
+      ? formatMeetAt(preview.meetAtMillis, preview.timeZone, { relative: false })
+      : null;
+  const description = when ? `${when} · ${INVITE_PITCH}` : INVITE_PITCH;
+  return {
+    title: { absolute: title },
+    description,
+    robots: { index: false, follow: false },
+    openGraph: {
+      type: "website",
+      locale: "pt_PT",
+      siteName: "Flowtr",
+      title,
+      description,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
+  };
+}
+
+export default async function ChallengePage(props: ChallengePageProps) {
+  const { code, together, validCode, preview } = await resolveInvite(props);
+
+  // Best-effort UA sniff (works inside the WhatsApp in-app browser too) to show
+  // a single primary action.
   const ua = (await headers()).get("user-agent") ?? "";
   const isIOS = /iPhone|iPad|iPod/i.test(ua);
-  const isAndroid = /Android/i.test(ua);
+  const isAndroid = !isIOS && /Android/i.test(ua);
 
-  const stores = (
-    [
-      PUBLISHED_APP_STORE_URL
-        ? { label: "Descarregar na App Store", href: PUBLISHED_APP_STORE_URL, lead: isIOS || !isAndroid, copyInvite: true }
-        : null,
-      PLAY_STORE_URL
-        ? { label: "Descarregar no Google Play", href: withInstallReferrer(PLAY_STORE_URL, code), lead: isAndroid, copyInvite: false }
-        : null,
-    ].filter(Boolean) as Store[]
-  ).sort((a, b) => Number(b.lead) - Number(a.lead));
+  const inviteUrl = `https://flowtr.app/c/${code}`;
+  const playUrl = PLAY_STORE_URL ? withInstallReferrer(PLAY_STORE_URL, code) : "";
+  const { title, subtitle } = inviteCopy(preview, together);
+  const when =
+    preview?.meetAtMillis != null
+      ? formatMeetAt(preview.meetAtMillis, preview.timeZone)
+      : null;
+
+  const desktopStores = [
+    PUBLISHED_APP_STORE_URL
+      ? { label: "Descarregar na App Store", href: PUBLISHED_APP_STORE_URL }
+      : null,
+    playUrl ? { label: "Descarregar no Google Play", href: playUrl } : null,
+  ].filter((s): s is { label: string; href: string } => s !== null);
+
+  const waitlist = (
+    <Link className="btn btn-primary mt-8" href="/#waitlist">
+      Avisa-me quando estiver disponível
+    </Link>
+  );
+
+  let actions = waitlist;
+  if (isAndroid && playUrl) {
+    actions = (
+      <InviteActions
+        platform="android"
+        intentUrl={androidIntentUrl(code, playUrl)}
+        playUrl={playUrl}
+        inviteUrl={inviteUrl}
+      />
+    );
+  } else if (isIOS && PUBLISHED_APP_STORE_URL) {
+    actions = (
+      <InviteActions
+        platform="ios"
+        appStoreUrl={PUBLISHED_APP_STORE_URL}
+        appUrl={`flowtr://challenge?code=${encodeURIComponent(code)}`}
+        inviteUrl={inviteUrl}
+      />
+    );
+  } else if (!isAndroid && !isIOS && desktopStores.length > 0) {
+    actions = <InviteActions platform="desktop" stores={desktopStores} />;
+  }
 
   return (
     <main id="main-content" className="flex flex-1 items-center px-4 py-14 sm:px-6">
       <article className="surface mx-auto w-full max-w-xl p-8 text-center sm:p-12">
         <p className="font-display text-sm text-coral">Flowtr</p>
-        <h1 className="font-display mt-3 text-3xl leading-tight sm:text-5xl">
-          {together ? "Convite para uma volta" : "Desafio amigável"}
-        </h1>
         {validCode ? (
           <>
-            <p className="mt-5 text-lg leading-7 text-fg-muted">
-              {together
-                ? "Para aceitar o convite, basta abrir a Flowtr."
-                : "Quem faz mais km esta semana? Só por diversão. Para aceitar, basta abrir a Flowtr."}
-            </p>
-            <code className="mt-6 inline-block rounded-xl border border-border bg-black/30 px-4 py-2 text-base tracking-[0.16em] text-fg">
-              {code}
-            </code>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
-              <a className="btn btn-primary" href={appHref}>
-                Abrir na Flowtr
-              </a>
-              <Link className="btn btn-ghost" href="/">
-                Conhecer a Flowtr
-              </Link>
-            </div>
-
-            {/* A recipient without the app installed needs a real way in — the
-                bare app-scheme button above no-ops when Flowtr is absent. */}
-            <div className="mt-8 border-t border-border pt-6">
-              <p className="text-sm text-fg-muted">Ainda não tens a Flowtr?</p>
-              {stores.length > 0 ? (
-                <StoreButtons
-                  stores={stores.map(({ label, href, copyInvite }) => ({ label, href, copyInvite }))}
-                  inviteUrl={`https://flowtr.app/c/${code}`}
-                />
-              ) : (
-                <Link className="btn btn-primary mt-3" href="/#waitlist">
-                  Avisa-me quando estiver disponível
-                </Link>
-              )}
-            </div>
+            <h1 className="font-display mt-3 text-3xl leading-tight sm:text-5xl">{title}</h1>
+            {when ? <p className="mt-4 text-xl font-semibold text-fg">{when}</p> : null}
+            {subtitle ? <p className="mt-3 text-lg leading-7 text-fg-muted">{subtitle}</p> : null}
+            {preview && !preview.active ? (
+              <p className="mt-4 text-base font-semibold text-coral">Este convite já terminou.</p>
+            ) : null}
+            <p className="mt-5 text-lg leading-7 text-fg-muted">{INVITE_PITCH}</p>
+            {actions}
           </>
         ) : (
           <>
+            <h1 className="font-display mt-3 text-3xl leading-tight sm:text-5xl">
+              {together ? "Convite para uma volta" : "Desafio amigável"}
+            </h1>
             <p className="mt-5 text-lg leading-7 text-fg-muted">
               Este link de desafio está incompleto ou é inválido.
             </p>
