@@ -4,12 +4,16 @@ import { headers } from "next/headers";
 import { InviteActions } from "./InviteActions";
 import { APP_STORE_URL, GOOGLE_PLAY_URL } from "@/lib/store-links";
 import {
+
   fetchInvitePreview,
   formatMeetAt,
   INVITE_PITCH,
   inviteCopy,
   isValidInviteCode,
 } from "@/lib/invite-preview";
+
+// Override only for local end-to-end tests (the E2E build is com.flowtr.app.e2e).
+const ANDROID_PACKAGE = process.env.INVITE_ANDROID_PACKAGE || "com.flowtr.app";
 
 // The published iOS URL has a safe source default. Environment variables can
 // override store destinations without requiring another release of the site.
@@ -34,7 +38,7 @@ function withInstallReferrer(url: string, code: string) {
 function androidIntentUrl(code: string, playUrl: string) {
   return (
     `intent://challenge?code=${encodeURIComponent(code)}` +
-    `#Intent;scheme=flowtr;package=com.flowtr.app;` +
+    `#Intent;scheme=flowtr;package=${ANDROID_PACKAGE};` +
     `S.browser_fallback_url=${encodeURIComponent(playUrl)};end`
   );
 }
