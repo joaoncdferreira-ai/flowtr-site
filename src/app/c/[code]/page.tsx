@@ -143,7 +143,9 @@ export default async function ChallengePage(props: ChallengePageProps) {
             {when ? <p className="mt-4 text-xl font-semibold text-fg">{when}</p> : null}
             {subtitle ? <p className="mt-3 text-lg leading-7 text-fg-muted">{subtitle}</p> : null}
             {preview && !preview.active ? (
-              <p className="mt-4 text-base font-semibold text-coral">Este convite já terminou.</p>
+              <p className="mt-4 text-base font-semibold text-coral">
+                {preview.missing ? "Este convite já não existe." : "Este convite já terminou."}
+              </p>
             ) : null}
             <p className="mt-5 text-lg leading-7 text-fg-muted">{INVITE_PITCH}</p>
             {actions}
@@ -151,10 +153,10 @@ export default async function ChallengePage(props: ChallengePageProps) {
         ) : (
           <>
             <h1 className="font-display mt-3 text-3xl leading-tight sm:text-5xl">
-              {together ? "Convite para uma volta" : "Desafio amigável"}
+              Convite inválido
             </h1>
             <p className="mt-5 text-lg leading-7 text-fg-muted">
-              Este link de desafio está incompleto ou é inválido.
+              Este link de convite está incompleto ou é inválido.
             </p>
             <Link className="btn btn-primary mt-8" href="/">
               Ir para a Flowtr

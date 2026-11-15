@@ -12,6 +12,8 @@ export type InvitePreview = {
   meetAtMillis: number | null;
   timeZone: string;
   active: boolean;
+  /** The code is unknown (the function answered 404). */
+  missing?: boolean;
 };
 
 const DEFAULT_PREVIEW_URL =
@@ -52,6 +54,10 @@ export const fetchInvitePreview = cache(
         next: { revalidate: 60 },
         signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
       });
+      if (res.status === 404) {
+        // Known not to exist: say so, instead of guessing what it was.
+        return { kind: "other", firstName: "", meetAtMillis: null, timeZone: DEFAULT_TIME_ZONE, active: false, missing: true };
+      }
       if (!res.ok) return null;
       const body = (await res.json()) as Record<string, unknown>;
       if (body?.ok !== true) return null;
@@ -60,8 +66,11 @@ export const fetchInvitePreview = cache(
         : "other";
       const firstName =
         typeof body.firstName === "string" ? body.firstName.trim().slice(0, 40) : "";
+      // A time already gone is not shown (the invite may still be open).
       const meetAtMillis =
-        typeof body.meetAtMillis === "number" && Number.isFinite(body.meetAtMillis)
+        typeof body.meetAtMillis === "number" &&
+        Number.isFinite(body.meetAtMillis) &&
+        body.meetAtMillis > Date.now()
           ? body.meetAtMillis
           : null;
       return {
@@ -87,9 +96,9 @@ function inviteKind(preview: InvitePreview | null, together: boolean): Kind {
     if (preview.kind === "other") return together ? "volta" : "other";
     return "volta";
   }
-  // No data: `?k=volta` marks a «go with someone» invite; older links without
-  // it were friendly challenges.
-  return together ? "volta" : "desafio";
+  // No data: `?k=volta` marks a «go with someone» invite; anything else stays
+  // neutral (duels, groups and friendly challenges share links without it).
+  return together ? "volta" : "other";
 }
 
 /** Headline and optional sub-line, in neutral pt-PT. */
