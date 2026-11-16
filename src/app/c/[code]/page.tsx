@@ -43,6 +43,15 @@ function androidIntentUrl(code: string, playUrl: string) {
   );
 }
 
+// «Abrir a Flowtr» de um convite terminado: abre a app sem convite (o app
+// ignora flowtr://challenge sem código) ou segue para o Google Play.
+function androidOpenAppUrl(playUrl: string) {
+  return (
+    `intent://challenge#Intent;scheme=flowtr;package=${ANDROID_PACKAGE};` +
+    `S.browser_fallback_url=${encodeURIComponent(playUrl)};end`
+  );
+}
+
 async function resolveInvite({ params, searchParams }: ChallengePageProps) {
   const { code: rawCode } = await params;
   const code = rawCode.trim();
@@ -110,8 +119,28 @@ export default async function ChallengePage(props: ChallengePageProps) {
     </Link>
   );
 
+  // Convite terminado (ou que já não existe): nada de «Aceitar o convite» nem
+  // de convite copiado; só abrir a app ou ir à loja.
+  const closed = preview != null && !preview.active;
+  const openAppHref =
+    isAndroid && PLAY_STORE_URL
+      ? androidOpenAppUrl(PLAY_STORE_URL)
+      : isIOS && PUBLISHED_APP_STORE_URL
+        ? PUBLISHED_APP_STORE_URL
+        : null;
+
   let actions = waitlist;
-  if (isAndroid && playUrl) {
+  if (closed && openAppHref) {
+    actions = (
+      <a className="btn btn-primary mt-8 w-full sm:w-auto sm:min-w-80" href={openAppHref}>
+        Abrir a Flowtr
+      </a>
+    );
+  } else if (closed && !isAndroid && !isIOS && desktopStores.length > 0) {
+    actions = <InviteActions platform="desktop" stores={desktopStores} />;
+  } else if (closed) {
+    actions = waitlist;
+  } else if (isAndroid && playUrl) {
     actions = (
       <InviteActions
         platform="android"

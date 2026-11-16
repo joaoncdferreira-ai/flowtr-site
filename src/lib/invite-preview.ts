@@ -118,8 +118,8 @@ export function inviteCopy(preview: InvitePreview | null, together: boolean) {
           : "Desafio amigável"
         : kind === "duelo"
           ? name
-            ? `${name} desafia-te a correr mais`
-            : "Desafio na Flowtr"
+            ? `${name} desafia-te para um duelo`
+            : "Convite para um duelo"
           : kind === "grupo"
             ? name
               ? `${name} convida-te para um desafio de grupo`
