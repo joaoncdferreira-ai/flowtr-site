@@ -2,11 +2,17 @@
   "applinks": {
     "details": [
       {
-        "appIDs": ["927Y9N6LX9.com.flowtr.app"],
+        "appIDs": [
+          "927Y9N6LX9.com.flowtr.app"
+        ],
         "components": [
           {
             "/": "/c/*",
             "comment": "Flowtr challenge invitations"
+          },
+          {
+            "/": "/e/*",
+            "comment": "Flowtr team invitations (Equipas)"
           }
         ]
       }

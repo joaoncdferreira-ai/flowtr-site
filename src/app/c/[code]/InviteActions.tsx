@@ -55,12 +55,14 @@ type Props =
       intentUrl: string;
       playUrl: string;
       inviteUrl: string;
+      acceptLabel?: string;
     }
   | {
       platform: "ios";
       appStoreUrl: string;
       appUrl: string;
       inviteUrl: string;
+      openLabel?: string;
     }
   | {
       platform: "desktop";
@@ -78,7 +80,7 @@ export function InviteActions(props: Props) {
           data-copy-invite={props.inviteUrl}
           data-fallback-url={props.playUrl}
         >
-          Aceitar o convite
+          {props.acceptLabel ?? "Aceitar o convite"}
         </a>
         <p className="mt-3 text-sm leading-6 text-fg-muted">
           Abre a Flowtr. Se ainda não a tens, segue para o Google Play.
@@ -103,7 +105,7 @@ export function InviteActions(props: Props) {
           className="mt-3 text-sm leading-6 text-fg-muted underline underline-offset-4 hover:text-coral"
           href={props.appUrl}
         >
-          Já tens a Flowtr? Abrir o convite
+          {props.openLabel ?? "Já tens a Flowtr? Abrir o convite"}
         </a>
         <p className="mt-2 text-sm leading-6 text-fg-muted">{COPY_NOTE}</p>
       </div>
